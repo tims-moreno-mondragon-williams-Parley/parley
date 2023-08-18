@@ -3,6 +3,8 @@ package com.parley.parley.models;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
@@ -37,6 +39,18 @@ public class User {
 
     @Column
     private String banner_img;
+
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
+    private List<Post> posts;
+
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
+    private List<LikeDislikePost> likeDislikePosts;
+
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
+    private List<Comment> comments;
+
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
+    private List<LikeDislikeComment> likeDislikeComments;
 
     public User(User copy){
         id = copy.id;
