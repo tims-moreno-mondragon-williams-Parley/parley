@@ -19,7 +19,7 @@ public class AuthenticationController {
     public String handleLogin(@RequestParam String username, @RequestParam String password, Model model) {
         if (username.isEmpty() || password.isEmpty()) {
             model.addAttribute("error", "Both fields are required!");
-            return "login/Login";
+            return "users/login";
         }
         boolean hasUppercase = !password.equals(password.toLowerCase());
         boolean hasLowercase = !password.equals(password.toUpperCase());
@@ -27,7 +27,7 @@ public class AuthenticationController {
 
         if (!hasUppercase || !hasLowercase || !hasNumber) {
             model.addAttribute("error", "Password must contain at least one uppercase letter, one number, and one lowercase letter.");
-            return "user/Login";
+            return "user/login";
         }
         return "redirect:/somePath";
     }
