@@ -2,11 +2,13 @@ package com.parley.parley.controllers;
 
 import com.parley.parley.models.User;
 import com.parley.parley.repositories.UserRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
@@ -28,7 +30,7 @@ public class UserController {
     @GetMapping({"/register", "/register/"})
     public String showRegistration(Model model){
         model.addAttribute("user", new User());
-        return "users/register";
+        return "users/registration-page";
     }
 
     /*
@@ -46,7 +48,7 @@ public class UserController {
             return "redirect:/login";
         } catch (Exception e){
             model.addAttribute("error", "Username Already Exists. Please try again.");
-            return "user/register";
+            return "user/registration-page";
         }
     }
 }
