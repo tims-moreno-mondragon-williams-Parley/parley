@@ -6,10 +6,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 
 @Controller
@@ -39,7 +37,20 @@ public class UserController {
         pass an error message back.
     */
     @PostMapping({"/register", "/register/"})
-    public String saveUser(@ModelAttribute User user, Model model){
+    public String saveUser(
+            @ModelAttribute User user,
+            @RequestParam(name = "confirmPassword") String confirmPassword,
+            BindingResult bindingResult,
+            Model model
+    ){
+        if (bindingResult.hasErrors()){
+            return  "users/registration-page";
+        }
+
+        if (!user.getPassword().equals(confirmPassword)){
+            bindingResult.rejectValue("confirmPassword", "password.mismatch", "Passwords do not match.");
+            return "users/registration-page";
+        }
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         user.set_admin(false);
