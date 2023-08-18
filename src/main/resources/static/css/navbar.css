@@ -1,0 +1,19 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    color: black;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.Mtitle {
+    font-size: 25px;
+}
+a {
+    justify-content: flex-end;
+    color: white;
+}
