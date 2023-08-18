@@ -27,7 +27,7 @@ public class AuthenticationController {
 
         if (!hasUppercase || !hasLowercase || !hasNumber) {
             model.addAttribute("error", "Password must contain at least one uppercase letter, one number, and one lowercase letter.");
-            return "user/login";
+            return "users/login";
         }
         return "redirect:/somePath";
     }
