@@ -8,6 +8,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+@Controller
+public class AuthenticationController {
+    @GetMapping("/login")
+    public String showLoginForm() {
+        return "users/login";
+    }
 
     @PostMapping("/login")
     public String handleLogin(@RequestParam String username, @RequestParam String password, Model model) {
@@ -24,14 +30,6 @@ import org.springframework.web.bind.annotation.RequestParam;
             return "user/Login";
         }
         return "redirect:/somePath";
-    }
-}
-
-@Controller
-public class AuthenticationController {
-    @GetMapping("/login")
-    public String showLoginForm() {
-        return "users/login";
     }
 }
 
