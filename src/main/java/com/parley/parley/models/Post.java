@@ -36,9 +36,6 @@ public class Post {
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "post")
     private List<Comment> comments;
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "post")
-    private List<LikeDislikePost> likeDislikePost;
-
     @ManyToOne
     @JoinColumn(name = "topic_id")
     private Topic topic;

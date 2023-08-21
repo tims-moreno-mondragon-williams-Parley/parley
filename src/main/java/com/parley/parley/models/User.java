@@ -44,13 +44,7 @@ public class User {
     private List<Post> posts;
 
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
-    private List<LikeDislikePost> likeDislikePosts;
-
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
     private List<Comment> comments;
-
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "user")
-    private List<LikeDislikeComment> likeDislikeComments;
 
     public User(User copy){
         id = copy.id;

@@ -11,21 +11,15 @@ import lombok.*;
 @Entity
 @Table(name = "posts_likes")
 public class LikeDislikePost {
-    @Id
+
+    @EmbeddedId
+    private PostLikesId postLikesId;
 
     @Column(nullable = false)
-    private String like_dislike;
+    private String likeDislike;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-
-    @ManyToOne
-    @JoinColumn(name = "post_id")
-    private Post post;
-
-    public LikeDislikePost(String like_dislike){
-        this.like_dislike = like_dislike;
+    public LikeDislikePost(String likeDislike){
+        this.likeDislike = likeDislike;
     }
 
 }
