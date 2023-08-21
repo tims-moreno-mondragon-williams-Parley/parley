@@ -24,7 +24,7 @@ public class Post {
     private String body;
 
     @Column(nullable = false)
-    private String topic_position;
+    private String position;
 
     @Column
     private String topic_pic;
@@ -43,30 +43,30 @@ public class Post {
     @JoinColumn(name = "topic_id")
     private Topic topic;
 
-    public Post(String title, String body, String topic_position) {
+    public Post(String title, String body, String position) {
         this.title = title;
         this.body = body;
-        this.topic_position = topic_position;
+        this.position = position;
     }
 
     public Post(String title, String body, String topic_position, String topic_pic) {
         this.title = title;
         this.body = body;
-        this.topic_position = topic_position;
+        this.position = topic_position;
         this.topic_pic = topic_pic;
     }
 
-    public Post(String title, String body, String topic_position, User user) {
+    public Post(String title, String body, String position, User user) {
         this.title = title;
         this.body = body;
-        this.topic_position = topic_position;
+        this.position = position;
         this.user = user;
     }
 
-    public Post(String title, String body, String topic_position, String topic_pic, User user) {
+    public Post(String title, String body, String position, String topic_pic, User user) {
         this.title = title;
         this.body = body;
-        this.topic_position = topic_position;
+        this.position = position;
         this.topic_pic = topic_pic;
         this.user = user;
     }
