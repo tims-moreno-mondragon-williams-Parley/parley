@@ -20,7 +20,7 @@ public class UserController {
     /* password Encoder is used to hash passwords */
     private final PasswordEncoder passwordEncoder;
 
-    private static final Pattern passwordQualifications = Pattern.compile("^(?=, *[A-Z])(?=,*\\d), {8,}$");
+//    private static final Pattern passwordQualifications = Pattern.compile("^(?=, *[A-Z])(?=,*\\d), {8,}$");
 
     /* Constructor for initializing the User Dao and Password Encoder */
     public UserController(UserRepository userDao, PasswordEncoder passwordEncoder){
@@ -43,29 +43,29 @@ public class UserController {
     @PostMapping({"/register", "/register/"})
     public String saveUser(
             @ModelAttribute User user,
-            @RequestParam(name = "confirmPassword") String confirmPassword,
-            BindingResult bindingResult,
+//            @RequestParam(name = "confirmPassword") String confirmPassword,
+//            BindingResult bindingResult,
             Model model
     ){
-        if (bindingResult.hasErrors()){
-            return  "users/registration-page";
-        }
+//        if (bindingResult.hasErrors()){
+//            return  "users/registration-page";
+//        }
+////
+//        if (!user.getPassword().equals(confirmPassword)){
+//            bindingResult.rejectValue("password", "password.mismatch", "Passwords do not match.");
+//            return "users/registration-page";
+//        }
 
-        if (!user.getPassword().equals(confirmPassword)){
-            bindingResult.rejectValue("password", "password.mismatch", "Passwords do not match.");
-            return "users/registration-page";
-        }
-
-        if (!passwordQualifications.matcher(user.getPassword()).matches()){
-           bindingResult.rejectValue("password", "password.invalid", """
-                   Password must meet the following requirements:
-                    - Between 8 and 50 characters long.
-                    - Contain at least one Uppercase letter.
-                    - Contain at least one lowercase letter.
-                    - Contain at least one digit.
-                   """);
-           return "users/registration-page";
-        }
+//        if (!passwordQualifications.matcher(user.getPassword()).matches()){
+//           bindingResult.rejectValue("password", "password.invalid", """
+//                   Password must meet the following requirements:
+//                    - Between 8 and 50 characters long.
+//                    - Contain at least one Uppercase letter.
+//                    - Contain at least one lowercase letter.
+//                    - Contain at least one digit.
+//                   """);
+//           return "users/registration-page";
+//        }
 
 
         String hash = passwordEncoder.encode(user.getPassword());
