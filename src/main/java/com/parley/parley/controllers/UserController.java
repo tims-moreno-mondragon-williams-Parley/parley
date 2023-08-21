@@ -48,7 +48,7 @@ public class UserController {
         }
 
         if (!user.getPassword().equals(confirmPassword)){
-            bindingResult.rejectValue("confirmPassword", "password.mismatch", "Passwords do not match.");
+            bindingResult.rejectValue("password", "password.mismatch", "Passwords do not match.");
             return "users/registration-page";
         }
         String hash = passwordEncoder.encode(user.getPassword());
@@ -59,7 +59,7 @@ public class UserController {
             return "redirect:/login";
         } catch (Exception e){
             model.addAttribute("error", "Username Already Exists. Please try again.");
-            return "user/registration-page";
+            return "users/registration-page";
         }
     }
 }
