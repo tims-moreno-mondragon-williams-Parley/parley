@@ -11,20 +11,13 @@ import lombok.*;
 @Entity
 @Table(name = "comments_likes")
 public class LikeDislikeComment {
-    @Id
+    @EmbeddedId
+    private CommentLikesId commentLikesId;
 
     @Column(nullable = false)
-    private String like_dislike;
+    private String likeDislike;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-
-    @ManyToOne
-    @JoinColumn(name = "comment_id")
-    private Comment comment;
-
-    public LikeDislikeComment(String like_dislike) {
-        this.like_dislike = like_dislike;
+    public LikeDislikeComment(String likeDislike) {
+        this.likeDislike = likeDislike;
     }
 }

@@ -28,9 +28,6 @@ public class Comment {
     @JoinColumn(name = "post_id")
     private Post post;
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "comment")
-    private List<LikeDislikeComment> likeDislikeComments;
-
     public Comment(String body) {
         this.body = body;
     }

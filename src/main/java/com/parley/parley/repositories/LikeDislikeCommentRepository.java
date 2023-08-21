@@ -1,13 +1,16 @@
 package com.parley.parley.repositories;
 
-import com.parley.parley.models.LikeDislikeComment;
-import com.parley.parley.models.LikeDislikePost;
+import com.parley.parley.models.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface LikeDislikeCommentRepository extends JpaRepository<LikeDislikeComment, Long> {
-    List<LikeDislikeComment> findAllByComment_Id(Long id);
+public interface LikeDislikeCommentRepository extends JpaRepository<LikeDislikeComment, CommentLikesId> {
 
-    List<LikeDislikeComment> findAllByUser_Id(Long id);
+    Optional<LikeDislikeComment> findLikeDislikeCommentByCommentLikesId(CommentLikesId commentLikesId);
+
+    List<LikeDislikeComment> findAllByCommentLikesId_User(User user);
+
+    List<LikeDislikeComment> findAllByCommentLikesId_Comment(Comment comment);
 }
