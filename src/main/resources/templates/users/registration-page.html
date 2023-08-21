@@ -25,7 +25,15 @@
     <div>
         <label for="confirmPassword">Confirm Password:</label>
         <input type="password" id="confirmPassword" name="confirmPassword">
-        <div class="error-message" th:if="${#fields.hasErrors('password')}">Password Mismatch</div>
+        <div class="error-message" th:if="${#fields.hasErrors('password')}"> Passwords do not match. </div>
+        <div class="password-qualifications"> Password must match the following requirements:
+            <ul>
+                <li>Be between 8 and 50 characters long.</li>
+                <li>Contain at least one Uppercase letter.</li>
+                <li>Contain at least one Lowercase letter.</li>
+                <li>Contain at least one digit.</li>
+            </ul>
+        </div>
     </div>
     <button type="submit"> Register</button>
 </form>

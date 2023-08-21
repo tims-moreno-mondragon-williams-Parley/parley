@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.regex.Pattern;
+
 
 @Controller
 public class UserController {
@@ -17,6 +19,8 @@ public class UserController {
 
     /* password Encoder is used to hash passwords */
     private final PasswordEncoder passwordEncoder;
+
+    private static final Pattern passwordQualifications = Pattern.compile("^(?=, *[A-Z])(?=,*\\d), {8,}$");
 
     /* Constructor for initializing the User Dao and Password Encoder */
     public UserController(UserRepository userDao, PasswordEncoder passwordEncoder){
@@ -51,6 +55,19 @@ public class UserController {
             bindingResult.rejectValue("password", "password.mismatch", "Passwords do not match.");
             return "users/registration-page";
         }
+
+        if (!passwordQualifications.matcher(user.getPassword()).matches()){
+           bindingResult.rejectValue("password", "password.invalid", """
+                   Password must meet the following requirements:
+                    - Between 8 and 50 characters long.
+                    - Contain at least one Uppercase letter.
+                    - Contain at least one lowercase letter.
+                    - Contain at least one digit.
+                   """);
+           return "users/registration-page";
+        }
+
+
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         user.set_admin(false);
