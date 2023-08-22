@@ -15,7 +15,7 @@
 				<p th:text="${category.name}"></p>
 				<div th:each="topic : ${topics}">
 					<ul>
-						<li th:if="${topic.getCategory.id == category.id}">
+						<li th:if="${topic.getCategory().getId() == category.getId()}">
 							<a th:href="@{/posts/{id}(id=${topic.id})}" th:text="${topic.name}"></a>
 						</li>
 					</ul>
@@ -31,12 +31,14 @@
 		<input type="text" id="title" name="title" th:field="*{title}">
 		<label for="body">Post Body</label>
 		<textarea id="body" name="body" cols="33" rows="5" th:field="*{body}"></textarea>
-		<select name="position">
+		<label for="position">Position</label>
+		<select name="position" id="position">
 			<option th:field="*{position}" th:value="a">Agree</option>
 			<option th:field="*{position}" th:value="d">Disagree</option>
 			<option th:field="*{position}" th:value="i">Indifferent</option>
 		</select>
 		<input type="submit" th:value="Post">
+		<div th:if="${postError}" th:text="${newPostError}"></div>
 	</form>
 </div>
 
@@ -48,14 +50,30 @@
 	<div class="post-agreed-section" th:if="${topicClicked}">
 		<h2>Agree</h2>
 		<div th:each="post : ${posts}">
-			<div class="post-card" th:if="${post.position == 'a'}">
-				<h3 th:text="${post.title}"></h3>
-				<h5 th:text="${post.body}"></h5>
-			</div>
-			<div class="comment-cards-section">
-				<div th:each="comment : ${comments}">
-					<div class="comment-card" th:if="${comment.post.getId() == post.getId()}">
-						<h4 th:text="${comment.body}"></h4>
+			<div th:if="${post.position == 'a'}">
+				<div class="post-card">
+					<h3 th:text="${post.title}"></h3>
+					<h5 th:text="${post.body}"></h5>
+				</div>
+				<div class="like-dislike-sect">
+					<div class="like-post-sect">
+						<form th:action="@{/posts/{id}/{postId}/like-dislike(id=${viewedTopic.id}, postId=${post.id})}" method="post">
+							<input type="hidden" name="like" th:value="l" value="l">
+							<input type="submit" th:value="Like">
+						</form>
+					</div>
+					<div class="dislike-post-sect">
+						<form th:action="@{/posts/{id}/{postId}/like-dislike(id=${viewedTopic.id}, postId=${post.id})}" method="post">
+							<input type="hidden" name="like" th:value="d" value="d">
+							<input type="submit" th:value="Dislike">
+						</form>
+					</div>
+				</div>
+				<div class="comment-cards-section">
+					<div th:each="comment : ${comments}">
+						<div class="comment-card" th:if="${comment.getPost().getId().equals(post.getId())}">
+							<h4 th:text="${comment.body}"></h4>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -64,9 +82,18 @@
 	<div class="post-disagreed-section" th:if="${topicClicked}">
 		<h2>Disagree</h2>
 		<div th:each="post : ${posts}">
-			<div class="post-card" th:if="${post.position == 'd'}">
-				<h3 th:text="${post.title}"></h3>
-				<h5 th:text="${post.body}"></h5>
+			<div th:if="${post.position == 'd'}">
+				<div class="post-card">
+					<h3 th:text="${post.title}"></h3>
+					<h5 th:text="${post.body}"></h5>
+				</div>
+				<div class="comment-cards-section">
+					<div th:each="comment : ${comments}">
+						<div class="comment-card" th:if="${comment.getPost().getId().equals(post.getId())}">
+							<h4 th:text="${comment.body}"></h4>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -76,6 +103,13 @@
 			<div class="post-card" th:if="${post.position == 'i'}">
 				<h3 th:text="${post.title}"></h3>
 				<h5 th:text="${post.body}"></h5>
+				<div class="comment-cards-section">
+					<div th:each="comment : ${comments}">
+						<div class="comment-card" th:if="${comment.getPost().getId().equals(post.getId())}">
+							<h4 th:text="${comment.body}"></h4>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
