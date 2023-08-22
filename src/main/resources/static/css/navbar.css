@@ -13,3 +13,18 @@ div.container-fluid {
 .Mtitle {
     font-size: 25px;
 }
+/*Temporary CSS until we can link the html and css page */
+nav {
+    background: #222139ff;
+}
+h1, a {
+    color: white;
+}
+.nav-link {
+    color: white;
+}
+.Title {
+    color: white;
+    font-size: 28px;
+    text-decoration: none;
+}

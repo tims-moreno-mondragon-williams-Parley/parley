@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
+<head th:fragment="head">
     <meta charset="UTF-8">
-    <title>Register</title>
+    <title th:text="${title}"></title>
+    <link rel="stylesheet" th:href="@{/css/registration-page.css}">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
 <div>
 	<div th:include="~{partials/navbar.html}"></div>
 </div>
+<div id="register-form-container">
 <h2>Register</h2>
-<form th:action="@{/register}" th:object="${user}" method="post">
+<form th:action="@{/register}" th:object="${user}" method="post" id="register-form">
 <div>
     <label for="username"> Username:</label>
     <input type="text" id="username" name="username" th:field="*{username}" required>
@@ -36,8 +40,9 @@
             </ul>
         </div>
     </div>
-    <button type="submit"> Register</button>
+    <button type="submit" class="register-button"> Register</button>
 </form>
+</div>
 <script src="/js/register.js"></script>
 </body>
 </html>
