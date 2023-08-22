@@ -3,19 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <title>Login</title>
-  <link rel="stylesheet" th:href="@{/css/login.css}" />
+  <link rel="stylesheet" href="../css/login.css" />
+  <style>
+/*Temporary CSS until we can link the html and css page */
+    .register {
+      color: black;
+    }
+    .C1 , .C2 {
+      height: 80vh;
+      background: #7b748cff;
+    }
+    .C1 {
+      background: black;
+      border: 2px solid #7b748cff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .C2 {
+      border: 2px solid black;
+      background: #7b748cff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    p {
+      font-size: 25px;
+      color: #7b748cff;
+    }
+
+  </style>
 </head>
-<body >
+<body>
 <nav>
   <div th:include="~{partials/navbar.html}"></div>
 </nav>
-<div class="container">
+<div class="container-fluid MC">
   <div class="row">
-<div class="col-6">
-
+<div class="col-6 C1">
+  <p>P</p>
+  <p>A</p>
+  <p>R</p>
+  <p>L</p>
+  <p>E</p>
+  <p>Y</p>
 </div>
-
-<div class="col-6">
+<div class="col-6 C2">
   <h3>Login</h3>
   <form th:action="@{/login}" method="post">
     <div>
@@ -31,7 +66,7 @@
       <button type="submit">Login</button>
     </div>
   </form>
-  <p>Don't have an account? <a th:href="@{/register}">Register here</a></p>
+  <p>Don't have an account? <a th:href="@{/register}" class="register">Register here</a></p>
 </div>
   </div>
 </div>
