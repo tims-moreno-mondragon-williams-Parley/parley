@@ -6,10 +6,10 @@
 </head>
 <body>
 <div>
-  <div th:include="partials/navbar.html"></div>
+	<div th:include="~{partials/navbar.html}"></div>
 </div>
 <h2>Register</h2>
-<form action="#" th:action="@{/register}" th:object="${user}" method="post">
+<form th:action="@{/register}" th:object="${user}" method="post">
 <div>
     <label for="username"> Username:</label>
     <input type="text" id="username" name="username" th:field="*{username}" required>

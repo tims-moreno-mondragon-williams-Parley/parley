@@ -37,7 +37,7 @@ public class SecurityConfiguration {
         http.authorizeHttpRequests((requests) -> requests
                         /* Pages that require authentication
                          * only authenticated users can create and edit ads */
-                        .requestMatchers("/posts/create", "/posts/delete").authenticated()
+                        .requestMatchers("/posts", "/posts/*").authenticated()
 
 
                         /* Pages that do not require authentication
@@ -48,9 +48,9 @@ public class SecurityConfiguration {
                         .requestMatchers("/css/**", "/js/**", "/img/**").permitAll()
                 )
                 /* Login configuration */
-                .formLogin((login) -> login.loginPage("/login").defaultSuccessUrl("/"))
+                .formLogin((login) -> login.loginPage("/login").defaultSuccessUrl("/posts"))
                 /* Logout configuration */
-                .logout((logout) -> logout.logoutSuccessUrl("/"))
+                .logout((logout) -> logout.logoutSuccessUrl("/login"))
                 .httpBasic(withDefaults());
         return http.build();
     }
