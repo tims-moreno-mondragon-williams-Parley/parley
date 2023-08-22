@@ -2,28 +2,17 @@
     color: black;
 }
 .C1 , .C2 {
-    height: 80vh;
+    height: 90vh;
     background: #7b748cff;
 }
 .C1 {
     position: relative;  /* This ensures the pseudo-element positions relative to this container */
     border: 2px solid #7b748cff;
+    background: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.C1::before {
-    content: "";  /* This is necessary for the pseudo-element to be generated */
-    background-image: url('../img/debate-background.jpg');
-    filter: blur(5px);
-    position: absolute;  /* This positions the pseudo-element */
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;  /* This ensures the pseudo-element sits behind the container's content */
 }
 .C2 {
     border: 2px solid black;
@@ -36,4 +25,8 @@
 p {
     font-size: 25px;
     color: #7b748cff;
+}
+.LOG {
+    text-decoration: none;
+    color: #222139ff;
 }

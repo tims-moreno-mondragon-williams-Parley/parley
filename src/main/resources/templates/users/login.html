@@ -4,37 +4,6 @@
   <meta charset="UTF-8">
   <title>Login</title>
   <link rel="stylesheet" th:href="@{/css/login.css}">
-  <style>
-/*Temporary CSS until we can link the html and css page */
-/*    .register {*/
-/*      color: black;*/
-/*    }*/
-/*    .C1 , .C2 {*/
-/*      height: 80vh;*/
-/*      background: #7b748cff;*/
-/*    }*/
-/*    .C1 {*/
-/*      background: black;*/
-/*      border: 2px solid #7b748cff;*/
-/*      display: flex;*/
-/*      flex-direction: column;*/
-/*      justify-content: center;*/
-/*      align-items: center;*/
-/*    }*/
-/*    .C2 {*/
-/*      border: 2px solid black;*/
-/*      background: #7b748cff;*/
-/*      display: flex;*/
-/*      flex-direction: column;*/
-/*      justify-content: center;*/
-/*      align-items: center;*/
-/*    }*/
-/*    p {*/
-/*      font-size: 25px;*/
-/*      color: #7b748cff;*/
-/*    }*/
-
-  </style>
 </head>
 <body>
 <nav>
@@ -66,13 +35,12 @@
       <button type="submit">Login</button>
     </div>
   </form>
-  <p>Don't have an account? <a th:href="@{/register}" class="register">Register here</a></p>
+  <p class="reg">Don't have an account? <a th:href="@{/register}" class="register">Register here</a></p>
 </div>
   </div>
 </div>
 <footer th:include="partials/footer :: footer">
 </footer>
-<!--<script src="../../static/js/login.js"></script>-->
-<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>-->
 </body>
+
 </html>

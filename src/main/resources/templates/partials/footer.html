@@ -3,19 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        /*Temporary CSS until we can link the html and css page */
-        div.h-100.d-flex.justify-content-center.align-items-center{
-            background: #222139ff;
-        }
-    </style>
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
 </head>
 <div class="container-fluid">
-<footer th:fragment="footer" id="footer" class="w-100 text-center bg-light">
-  <div class="h-100 d-flex justify-content-center align-items-center">
+<footer th:fragment="footer" id="footer" class="w-100 text-center footer">
+  <div class="h-200 d-flex justify-content-center align-items-center">
     <span class="text-muted mx-2">Project Name!</span>
     <a class="text-muted mx-2" href="">
-      AcidicNic
+      PARLEY
     </a>
   </div>
 </footer>
