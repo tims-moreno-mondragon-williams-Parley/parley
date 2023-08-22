@@ -2,7 +2,7 @@
     color: black;
 }
 .C1 , .C2 {
-    height: 80vh;
+    height: 90vh;
     background: #7b748cff;
 }
 .C1 {
@@ -24,4 +24,8 @@
 p {
     font-size: 25px;
     color: #7b748cff;
+}
+.reg {
+    color: #222139ff;
+    text-decoration: none;
 }

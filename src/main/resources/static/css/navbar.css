@@ -2,14 +2,6 @@ html {
     margin: 0;
     padding: 0;
 }
-
-div.container-fluid {
-    background-color: mediumpurple;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 .Mtitle {
     font-size: 25px;
 }
