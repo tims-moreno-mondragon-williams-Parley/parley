@@ -4,18 +4,30 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Home</title>
+	<link rel="stylesheet" th:href="@{/css/index.css}">
 </head>
 <body>
-<div>
-	<div th:include="~{partials/navbar.html}"></div>
-	
+	<div>
+		<div th:include="~{partials/navbar.html}"></div>
 	</div>
-<div sec:authorize="isAuthenticated()">
-	This content is only shown to authenticated users.
-	
-	User ID: <span th:text="${#authentication.principal.id}"/>
-	Username: <span th:text="${#authentication.principal.username}"/>
-	Email: <span th:text="${#authentication.principal.email}"/>
+<div>
+	<div class="container-fluid MC">
+		<div class="row">
+			<div class="col-6 C1">
+				<p>P</p>
+				<p>A</p>
+				<p>R</p>
+				<p>L</p>
+				<p>E</p>
+				<p>Y</p>
+			</div>
+			<div class="col-6 C2">
+				<h3><a th:href="@{/login}">Login</a></h3>
+			</div>
+		</div>
+	</div>
 </div>
+	<footer th:include="partials/footer :: footer">
+	</footer>
 </body>
 </html>
