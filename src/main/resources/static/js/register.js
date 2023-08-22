@@ -18,21 +18,31 @@ function doPasswordsMatch(password, confirmPassword) {
     return password === confirmPassword;
 }
 document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
     const passwordInput = document.getElementById("password");
     const confirmPasswordInput = document.getElementById("confirmPassword");
-    const passwordMatch = document.getElementById("passwordMatch");
+    const passwordMatchError = document.querySelector(".error-message");
+    const passwordQualificationsError = document.querySelector(".error-invalidquals");
 
-    confirmPasswordInput.addEventListener("input", function () {
-        const password = passwordInput.valueOf();
-        const confirmPassword = confirmPasswordInput.valueOf();
+    form.addEventListener("submit", function (event) {
+        const password = passwordInput.value;
+        const confirmPassword = confirmPasswordInput.value;
 
-        if(passwordMatch(password, confirmPassword)){
-            passwordMatch.textContent = "";
+        if (!doPasswordsMatch(password, confirmPassword)) {
+            passwordMatchError.textContent = "Passwords do not match.";
+            event.preventDefault(); // prevent form submission
         } else {
-            passwordMatch.textContent = "Passwords do not Match";
+            passwordMatchError.textContent = "";
         }
-    })
-})
+
+        if (!validatePassword(password)) {
+            passwordQualificationsError.textContent = "Password does not meet the qualifications stated below.";
+            event.preventDefault(); // prevent form submission
+        } else {
+            passwordQualificationsError.textContent = "";
+        }
+    });
+});
 
 validatePassword();
 doPasswordsMatch();
