@@ -2,7 +2,6 @@ package com.parley.parley.repositories;
 
 import com.parley.parley.models.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.security.core.parameters.P;
 
 import java.util.List;
 
@@ -18,5 +17,4 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     List<Post> findAllByTopic_Id(Long id);
 
     List<Post> findAllByTopic_IdAndPosition(Long id, String position);
-
 }
