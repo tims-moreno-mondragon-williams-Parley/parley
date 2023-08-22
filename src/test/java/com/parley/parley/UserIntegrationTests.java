@@ -33,6 +33,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class UserIntegrationTests {
     private User testUser;
 
+    private HttpSession httpSession;
+
+    @Autowired
+    private MockMvc mvc;
+
     @Autowired
     UserRepository userDao;
 
