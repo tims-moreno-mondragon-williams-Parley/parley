@@ -7,7 +7,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +44,6 @@ public class PostController {
 
     @GetMapping({"/posts", "/posts/"})
     public String getPostHome(Model model){
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<Category> categories = getAllCategories();
         List<Topic> topics = getAllTopics();
 
@@ -55,7 +56,8 @@ public class PostController {
 
     @GetMapping({"/posts/{id}", "/posts/{id}/"})
     public String showTopicPosts(Model model, @PathVariable Long id){
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Post formPost = new Post();
+        Comment formComment = new Comment();
         List<Category> categories = getAllCategories();
         List<Topic> topics = getAllTopics();
         Topic topic = topicDao.findTopicById(id);
@@ -69,10 +71,23 @@ public class PostController {
         model.addAttribute("categories", categories);
         model.addAttribute("topics", topics);
         model.addAttribute("posts", posts);
-        model.addAttribute("viewedTopic", topic.getName());
+        model.addAttribute("viewedTopic", topic);
         model.addAttribute("topicClicked", true);
         model.addAttribute("comments", comments);
+        model.addAttribute("formPost", formPost);
+        model.addAttribute("formComment", formComment);
 
         return "posts/posts";
+    }
+
+    @PostMapping("/posts/{id}/create")
+    public String createPost(Model model, @PathVariable Long id, @ModelAttribute Post post){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        post.setUser(user);
+        post.setTopic(topicDao.findTopicById(id));
+        postDao.save(post);
+
+        String redirect = "redirect:/posts/" + id;
+        return redirect;
     }
 }
