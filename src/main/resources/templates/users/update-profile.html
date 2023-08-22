@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Update Profile</title>
+</head>
+<body>
+<div class="container">
+  <h1>Edit Profile</h1>
+
+  <form th:object="${updatedUser}" th:action="@{/profile/{userId}/update(userId=${user.id})}" method="post" enctype="multipart/form-data">
+    <label>Username:
+      <input type="text" th:field="*{updatedUser.username}" /></label><br/>
+    <label>Email:
+      <input type="email" th:field="*{updatedUser.email}" /></label><br/>
+    <label>Bio: <input type="text" th:field="*{updatedUser.bio}" /></label><br/>
+    <label>Profile Picture: <input type="file" th:field="${updatedUser.profile_pic}" accept="image/*" /></label><br/>
+    <label>Banner Image: <input type="file" th:field="${updatedUser.banner_img}" accept="image/*" /></label><br/>
+    <input type="submit" value="Update">
+  </form>
+
+</div>
+</body>
+</html>
