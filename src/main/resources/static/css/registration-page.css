@@ -1,0 +1,10 @@
+#register-form-container{
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    margin-left: 50%;
+
+}
+.register-button{
+    border: greenyellow solid 2px;
+}
