@@ -47,102 +47,10 @@
 		<h1 th:if="${topicClicked}" th:text="${viewedTopic.name}"></h1>
 		<h1 th:if="${not topicClicked}">Choose a Topic</h1>
 	</div>
-	<div class="post-agreed-section" th:if="${topicClicked}">
-		<h2>Agree</h2>
-		<div th:each="post : ${posts}">
-			<div th:if="${post.position == 'a'}">
-				<div class="post-card">
-					<h3 th:text="${post.title}"></h3>
-					<h5 th:text="${post.body}"></h5>
-				</div>
-				<div class="like-dislike-sect">
-					<div class="like-post-sect">
-						<form th:action="@{/posts/{id}/{postId}/like-dislike(id=${viewedTopic.id}, postId=${post.id})}" method="post">
-							<input type="hidden" name="like" th:value="l" value="l">
-							<input type="submit" th:value="Like">
-						</form>
-					</div>
-					<div class="dislike-post-sect">
-						<form th:action="@{/posts/{id}/{postId}/like-dislike(id=${viewedTopic.id}, postId=${post.id})}" method="post">
-							<input type="hidden" name="like" th:value="d" value="d">
-							<input type="submit" th:value="Dislike">
-						</form>
-					</div>
-				</div>
-				<div class="comment-cards-section">
-					<div th:each="comment : ${comments}">
-						<div class="comment-card" th:if="${comment.getPost().getId().equals(post.getId())}">
-							<h4 th:text="${comment.body}"></h4>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="post-disagreed-section" th:if="${topicClicked}">
-		<h2>Disagree</h2>
-		<div th:each="post : ${posts}">
-			<div th:if="${post.position == 'd'}">
-				<div class="post-card">
-					<h3 th:text="${post.title}"></h3>
-					<h5 th:text="${post.body}"></h5>
-				</div>
-				<div class="like-dislike-sect">
-					<div class="like-post-sect">
-						<form th:action="@{/posts/{id}/{postId}/like-dislike(id=${viewedTopic.id}, postId=${post.id})}" method="post">
-							<input type="hidden" name="like" th:value="l" value="l">
-							<input type="submit" th:value="Like">
-						</form>
-					</div>
-					<div class="dislike-post-sect">
-						<form th:action="@{/posts/{id}/{postId}/like-dislike(id=${viewedTopic.id}, postId=${post.id})}" method="post">
-							<input type="hidden" name="like" th:value="d" value="d">
-							<input type="submit" th:value="Dislike">
-						</form>
-					</div>
-				</div>
-				<div class="comment-cards-section">
-					<div th:each="comment : ${comments}">
-						<div class="comment-card" th:if="${comment.getPost().getId().equals(post.getId())}">
-							<h4 th:text="${comment.body}"></h4>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="post-indifferent-section" th:if="${topicClicked}">
-		<h2>Indifferent</h2>
-		<div th:each="post : ${posts}">
-			<div class="post-card" th:if="${post.position == 'i'}">
-				<div class="post-card">
-					<h3 th:text="${post.title}"></h3>
-					<h5 th:text="${post.body}"></h5>
-				</div>
-				<div class="like-dislike-sect">
-					<div class="like-post-sect">
-						<form th:action="@{/posts/{id}/{postId}/like-dislike(id=${viewedTopic.id}, postId=${post.id})}" method="post">
-							<input type="hidden" name="like" th:value="l" value="l">
-							<input type="submit" th:value="Like">
-						</form>
-					</div>
-					<div class="dislike-post-sect">
-						<form th:action="@{/posts/{id}/{postId}/like-dislike(id=${viewedTopic.id}, postId=${post.id})}" method="post">
-							<input type="hidden" name="like" th:value="d" value="d">
-							<input type="submit" th:value="Dislike">
-						</form>
-					</div>
-				</div>
-				<div class="comment-cards-section">
-					<div th:each="comment : ${comments}">
-						<div class="comment-card" th:if="${comment.getPost().getId().equals(post.getId())}">
-							<h4 th:text="${comment.body}"></h4>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<div th:replace="~{partials/post-sections :: posts('Agree', 'a')}"></div>
+	<div th:replace="~{partials/post-sections :: posts('Disagree', 'd')}"></div>
+	<div th:replace="~{partials/post-sections :: posts('Indifferent', 'i')}"></div>
+	
 </div>
 </body>
 </html>
