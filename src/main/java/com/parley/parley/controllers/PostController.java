@@ -65,6 +65,7 @@ public class PostController {
         List<Post> posts = postDao.findAllByTopic_Id(id);
         List<Comment> comments = new ArrayList<>();
 
+
         for (Post p : posts) {
             comments.addAll(commentDao.findAllByPost_Id(p.getId()));
         }
@@ -89,7 +90,6 @@ public class PostController {
         post.setUser(user);
         post.setTopic(topicDao.findTopicById(id));
         post.setId(null);
-        //postDao.insertPost(post.getTitle(), post.getBody(), post.getPosition(), post.getTopic_pic(), user.getId(), id);
         postDao.save(post);
         String redirect = "redirect:/posts/" + id;
         return redirect;
@@ -103,7 +103,6 @@ public class PostController {
         PostLikesId postLikesId = new PostLikesId(user, post);
         likeDislikePost.setLikeDislike(like);
         likeDislikePost.setPostLikesId(postLikesId);
-        System.out.println(likeDislikePost.getLikeDislike());
         try {
             likeDislikeDao.save(likeDislikePost);
         } catch (Exception e){
