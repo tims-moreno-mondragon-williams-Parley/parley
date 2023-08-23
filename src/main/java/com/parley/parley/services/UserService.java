@@ -14,14 +14,9 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User getUserById(Long userId) {
-        return userRepository.findUserById(userId);
+    public User updateUserProfile(User updatedUser) {
+        return userRepository.save(updatedUser);
     }
-
-    public User updateUserProfile(User updateUser) {
-        return userRepository.save(updateUser);
-    }
-
 
 // Commented out code is for followers feature if wanting to add to project.
 //    public User followUser(Long followerId, Long followedId) {

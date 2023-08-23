@@ -6,9 +6,11 @@ import com.parley.parley.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 @Controller
-@RequestMapping("/profile")
 public class ProfileController {
 
     private final UserService userService;
@@ -18,27 +20,34 @@ public class ProfileController {
         this.userService = userService;
     }
 
-    @GetMapping("/{userId}")
-    public String viewUserProfile(@PathVariable Long userId, Model model) {
-        User user = userService.getUserById(userId);
+    @GetMapping("/profile")
+    public String viewUserProfile(@PathVariable Long userId, Model model, RedirectAttributes redirectAttributes) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        if (!userId.equals(user.getId())) {
+            redirectAttributes.addFlashAttribute("errorMessage", "Unable to access profile at this time.");
+            return "redirect:/"; // Not sure where to redirect just yet
+        }
+
         model.addAttribute("user", user);
         return "users/profile";
     }
 
-    @PostMapping("/{userId}/update")
-    public String updateProfile(@PathVariable Long userId, @ModelAttribute User updatedUser, Model model) {
-        User existingUser = userService.getUserById(userId);
-        existingUser.setUsername(updatedUser.getUsername());
-        existingUser.setEmail(updatedUser.getEmail());
-        existingUser.setBio(updatedUser.getBio());
-        existingUser.setProfile_pic(updatedUser.getProfile_pic());
-        existingUser.setBanner_img(updatedUser.getBanner_img());
 
-        User updatedUserProfile = userService.updateUserProfile(existingUser);
+    @PostMapping("/profile/{userId}")
+    public String updateProfile(@ModelAttribute User updatedUser, Model model) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        user.setUsername(updatedUser.getUsername());
+        user.setEmail(updatedUser.getEmail());
+        user.setBio(updatedUser.getBio());
+        user.setProfile_pic(updatedUser.getProfile_pic());
+        user.setBanner_img(updatedUser.getBanner_img());
+
+        User updatedUserProfile = userService.updateUserProfile(user);
 
         model.addAttribute("user", updatedUserProfile);
 
-        return "redirect:/profile/" + userId;
+        return "redirect:/update-profile/";
     }
 
 
