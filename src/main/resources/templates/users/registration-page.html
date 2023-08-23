@@ -11,7 +11,20 @@
 <div>
 	<div th:include="~{partials/navbar.html}"></div>
 </div>
-<div id="register-form-container">
+<div class="container-fluid">
+    <div class="row">
+        <div class=" col-6">
+<div class="logo-register col-6">
+    <p>P</p>
+    <p>A</p>
+    <p>R</p>
+    <p>L</p>
+    <p>E</p>
+    <p>Y</p>
+</div>
+        </div>
+        <div class="col-6">
+<div id="register-form-container col-6">
 <h2>Register</h2>
 <form th:action="@{/register}" th:object="${user}" method="post" id="register-form">
 <div>
@@ -42,6 +55,9 @@
     </div>
     <button type="submit" class="register-button"> Register</button>
 </form>
+</div>
+        </div>
+</div>
 </div>
 <script src="/js/register.js"></script>
 </body>
