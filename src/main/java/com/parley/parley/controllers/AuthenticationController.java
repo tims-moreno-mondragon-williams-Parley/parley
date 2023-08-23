@@ -10,5 +10,8 @@ public class AuthenticationController {
         return "users/login";
     }
 
+    @GetMapping("/posts")
+    public String showPosts() {
+        return "posts/posts";
+    }
 }
-
