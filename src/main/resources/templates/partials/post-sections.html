@@ -18,6 +18,7 @@
 						<form th:action="@{/posts/{id}/{postId}/like-dislike(id=${viewedTopic.id}, postId=${post.id})}" method="post">
 							<input type="hidden" name="like" th:value="d" value="d">
 							<input type="submit" th:value="Dislike">
+							<span id="dislike-count" th:text="${dislikeCount}"></span>
 						</form>
 					</div>
 				</div>
