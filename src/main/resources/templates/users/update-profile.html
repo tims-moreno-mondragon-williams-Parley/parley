@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--<head th:fragment="head">-->
+  <meta charset="UTF-8">
+<!--  <title th:text="${title}"></title>-->
+<!--  <link rel="stylesheet" th:href="@{/css/update-profile.css}">-->
+<!--  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">-->
+<!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">-->
+</head>
+<body>
+<!--<div>-->
+<!--  <div th:include="~{partials/navbar.html}"></div>-->
+<!--</div>-->
+<div id="update-profile-container">
+  <h1>Edit Profile</h1>
+
+  <form th:object="${user}"
+        th:action="@{/profile}" method="post"
+        enctype="multipart/form-data" id="update-profile-form">
+    <div>
+      <label>Username </label>
+      <input type="text" th:field="*{username}" />
+    </div>
+    <div>
+      <label>Email </label>
+        <input type="email" th:field="*{email}" />
+    </div>
+    <div>
+      <label>Bio </label>
+        <textarea id="bio" rows="5" cols="50" type="text" th:field="*{bio}"></textarea>
+    </div>
+    <div>
+      <label>Profile Picture </label>
+      <input type="text" th:field="*{profile_pic}" accept="image/*" />
+      <input type="submit" value="Upload Image">
+    </div>
+    <div>
+      <label>Banner Image </label>
+      <input type="text" th:field="*{banner_img}" accept="image/*" />
+      <input type="submit" value="Upload Image">
+    </div>
+    <button type="submit" id="update-profile-button" class="btn btn-primary">
+      Update</button>
+  </form>
+
+</div>
+</body>
+</html>
