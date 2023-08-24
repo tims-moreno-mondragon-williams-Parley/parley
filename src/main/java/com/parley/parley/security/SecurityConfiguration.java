@@ -37,7 +37,7 @@ public class SecurityConfiguration {
         http.authorizeHttpRequests((requests) -> requests
                         /* Pages that require authentication
                          * only authenticated users can create and edit ads */
-                        .requestMatchers("/posts/create", "/posts/delete").authenticated()
+                        .requestMatchers("/posts/create", "/posts/delete", "/profile").authenticated()
 
 
                         /* Pages that do not require authentication
