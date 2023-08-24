@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
+<head th:fragment="head">
     <meta charset="UTF-8">
-    <title>Register</title>
+    <title th:text="${title}"></title>
+    <link rel="stylesheet" th:href="@{/css/registration-page.css}">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
 <div>
-  <div th:include="partials/navbar.html"></div>
+	<div th:include="~{partials/navbar.html}"></div>
 </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class=" col-6">
+<div class="logo-register col-6">
+    <p>P</p>
+    <p>A</p>
+    <p>R</p>
+    <p>L</p>
+    <p>E</p>
+    <p>Y</p>
+</div>
+        </div>
+        <div class="col-6">
+<div id="register-form-container col-6">
 <h2>Register</h2>
-<form action="#" th:action="@{/register}" th:object="${user}" method="post">
+<form th:action="@{/register}" th:object="${user}" method="post" id="register-form">
 <div>
     <label for="username"> Username:</label>
     <input type="text" id="username" name="username" th:field="*{username}" required>
@@ -25,9 +42,23 @@
     <div>
         <label for="confirmPassword">Confirm Password:</label>
         <input type="password" id="confirmPassword" name="confirmPassword">
-        <div class="error-message" th:if="${#fields.hasErrors('password')}">Password Mismatch</div>
+        <div class="error-message" th:if="${#fields.hasErrors('password')}"> Passwords do not match. </div>
+        <div class="error-invalidquals" th:if="${#fields.hasErrors('password')}"> Password does not meet the qualifications stated below. </div>
+        <div class="password-qualifications"> Password must match the following requirements:
+            <ul>
+                <li>Be between 8 and 20 characters long.</li>
+                <li>Contain at least one Uppercase letter.</li>
+                <li>Contain at least one Lowercase letter.</li>
+                <li>Contain at least one digit.</li>
+            </ul>
+        </div>
     </div>
-    <button type="submit"> Register</button>
+    <button type="submit" class="register-button"> Register</button>
 </form>
+</div>
+        </div>
+</div>
+</div>
+<script src="/js/register.js"></script>
 </body>
 </html>

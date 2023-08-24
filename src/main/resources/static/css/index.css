@@ -6,8 +6,9 @@
     background: #7b748cff;
 }
 .C1 {
-    background: black;
+    position: relative;  /* This ensures the pseudo-element positions relative to this container */
     border: 2px solid #7b748cff;
+    background: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,7 +26,7 @@ p {
     font-size: 25px;
     color: #7b748cff;
 }
-.reg {
-    color: #222139ff;
+.LOG {
     text-decoration: none;
+    color: #222139ff;
 }

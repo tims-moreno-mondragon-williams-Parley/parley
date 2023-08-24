@@ -2,14 +2,24 @@ html {
     margin: 0;
     padding: 0;
 }
-
-.container-fluid {
-    color: black;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 .Mtitle {
     font-size: 25px;
+}
+/*Temporary CSS until we can link the html and css page */
+nav {
+    background: #222139ff;
+}
+h1, a {
+    color: white;
+}
+.nav-link {
+    color: white;
+}
+.Title {
+    color: white;
+    font-size: 28px;
+    text-decoration: none;
+}
+button.navbar-toggler {
+    color: white;
 }

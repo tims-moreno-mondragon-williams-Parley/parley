@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.regex.Pattern;
+
 
 @Controller
 public class UserController {
@@ -51,6 +53,7 @@ public class UserController {
             bindingResult.rejectValue("password", "password.mismatch", "Passwords do not match.");
             return "users/registration-page";
         }
+
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         user.set_admin(false);

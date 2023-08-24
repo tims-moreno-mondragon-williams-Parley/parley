@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Register</title>
+</head>
+<body>
+<div>
+	<div th:include="~{partials/navbar.html}"></div>
+</div>
+<div class="left-menu-topics">
+	<div th:each="category : ${categories}">
+		<ul>
+			<li>
+				<p th:text="${category.name}"></p>
+				<div th:each="topic : ${topics}">
+					<ul>
+						<li th:if="${topic.getCategory().getId() == category.getId()}">
+							<a th:href="@{/posts/{id}(id=${topic.id})}" th:text="${topic.name}"></a>
+						</li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="post-creation-form" th:if="${topicClicked}">
+	<form th:action="@{/posts/{id}/create(id=${viewedTopic.id})}" method="post" th:object="${formPost}">
+		<label for="title" >Post Title</label>
+		<input type="text" id="title" name="title" th:field="*{title}">
+		<label for="body">Post Body</label>
+		<textarea id="body" name="body" cols="33" rows="5" th:field="*{body}"></textarea>
+		<label for="position">Position</label>
+		<select name="position" id="position">
+			<option th:field="*{position}" th:value="a">Agree</option>
+			<option th:field="*{position}" th:value="d">Disagree</option>
+			<option th:field="*{position}" th:value="i">Indifferent</option>
+		</select>
+		<input type="submit" th:value="Post">
+		<div th:if="${postError}" th:text="${newPostError}"></div>
+	</form>
+</div>
+
+<div class="post-section">
+	<div class="post-topic">
+		<h1 th:if="${topicClicked}" th:text="${viewedTopic.name}"></h1>
+		<h1 th:if="${not topicClicked}">Choose a Topic</h1>
+	</div>
+	<div th:replace="~{partials/post-sections :: posts('Agree', 'a')}"></div>
+	<div th:replace="~{partials/post-sections :: posts('Disagree', 'd')}"></div>
+	<div th:replace="~{partials/post-sections :: posts('Indifferent', 'i')}"></div>
+	
+</div>
+</body>
+</html>

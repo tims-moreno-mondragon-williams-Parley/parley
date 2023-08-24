@@ -1,0 +1,22 @@
+#register-form-container{
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10% 10%;
+    height: 80vh;
+    background: #7b748cff;
+
+}
+.register-button{
+    border: greenyellow solid 2px;
+}
+.logo-register{
+    background: black;
+    border: 2px solid #7b748cff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
