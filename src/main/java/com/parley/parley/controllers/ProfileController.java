@@ -54,11 +54,11 @@ public class ProfileController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         updatedUser.setId(user.getId());
         updatedUser.setPassword(user.getPassword());
-        updatedUser.setUsername(user.getUsername());
-        updatedUser.setEmail(user.getEmail());
-        updatedUser.setBio(user.getBio());
-        updatedUser.setProfile_pic(user.getProfile_pic());
-        updatedUser.setBanner_img(user.getBanner_img());
+        user.setUsername(updatedUser.getUsername());
+        user.setEmail(updatedUser.getEmail());
+        user.setBio(updatedUser.getBio());
+        user.setProfile_pic(updatedUser.getProfile_pic());
+        user.setBanner_img(updatedUser.getBanner_img());
 
         userService.updateUserProfile(updatedUser);
 
