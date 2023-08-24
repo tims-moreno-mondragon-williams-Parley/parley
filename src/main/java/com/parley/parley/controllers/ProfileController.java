@@ -7,34 +7,49 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import com.parley.parley.models.Post;
+import com.parley.parley.repositories.UserRepository;
+import com.parley.parley.repositories.PostRepository;
+
+import java.util.List;
 
 
 @Controller
 public class ProfileController {
 
     private final UserService userService;
+//    private final UserRepository userDao;
+    private final PostRepository postDao;
 
     @Autowired
-    public ProfileController(UserService userService) {
+    public ProfileController(UserService userService, PostRepository postDao, UserRepository userDao) {
         this.userService = userService;
+        this.postDao = postDao;
+//        this.userDao = userDao;
     }
 
-    @GetMapping("/profile")
-    public String viewUserProfile(@PathVariable Long userId, Model model, RedirectAttributes redirectAttributes) {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        if (!userId.equals(user.getId())) {
-            redirectAttributes.addFlashAttribute("errorMessage", "Unable to access profile at this time.");
-            return "redirect:/"; // Not sure where to redirect just yet
-        }
+    @GetMapping("/profile")
+    public String viewUserProfile(Model model) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        List<Post> posts = postDao.findAllByUser_Id(user.getId());
 
         model.addAttribute("user", user);
+        model.addAttribute("posts", posts);
+
         return "users/profile";
     }
 
+    @GetMapping("/profile/update")
+    public String viewUpdateProfile(Model model){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-    @PostMapping("/profile/{userId}")
+        model.addAttribute("user", user);
+        return "users/update-profile";
+    }
+
+
+    @PostMapping("/profile/update")
     public String updateProfile(@ModelAttribute User updatedUser, Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         user.setUsername(updatedUser.getUsername());
