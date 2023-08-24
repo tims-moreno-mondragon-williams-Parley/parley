@@ -50,19 +50,19 @@ public class ProfileController {
 
 
     @PostMapping("/profile/update")
-    public String updateProfile(@ModelAttribute User updatedUser, Model model) {
+    public String updateProfile(@ModelAttribute User updatedUser) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        user.setUsername(updatedUser.getUsername());
-        user.setEmail(updatedUser.getEmail());
-        user.setBio(updatedUser.getBio());
-        user.setProfile_pic(updatedUser.getProfile_pic());
-        user.setBanner_img(updatedUser.getBanner_img());
+        updatedUser.setId(user.getId());
+        updatedUser.setPassword(user.getPassword());
+        updatedUser.setUsername(user.getUsername());
+        updatedUser.setEmail(user.getEmail());
+        updatedUser.setBio(user.getBio());
+        updatedUser.setProfile_pic(user.getProfile_pic());
+        updatedUser.setBanner_img(user.getBanner_img());
 
-        User updatedUserProfile = userService.updateUserProfile(user);
+        userService.updateUserProfile(updatedUser);
 
-        model.addAttribute("user", updatedUserProfile);
-
-        return "redirect:/update-profile/";
+        return "redirect:/profile";
     }
 
 
