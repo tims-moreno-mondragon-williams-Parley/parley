@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 <head>
 	<div th:insert="~{partials/head :: head('Posts')}"></div>
 </head>
@@ -8,10 +8,43 @@
 	<div th:include="~{partials/navbar.html}"></div>
 </div>
 <div class="left-menu-topics">
+	<div th:if="${#authentication.principal.is_admin}">
+		<div id="show-create-category-form-container">
+			<button id="show-create-category-form-button" class="show-button">[+]</button>
+			<button id="hide-create-category-form-button" class="hide-button">[-]</button>
+		</div>
+		<div id="create-category-form-container">
+			<form th:action="@{/posts/create-category}" method="post">
+				<label for="new_category_name">New Category Name</label>
+				<input type="text" name="new_category_name" id="new_category_name">
+				<input type="submit" th:value="Create">
+			</form>
+		</div>
+		<div class="form-error-message">
+			<p th:if="${catCreteError}" th:text="${catCreteError}"></p>
+		</div>
+		<div class="form-error-message">
+			<p th:if="${topicCreteError}" th:text="${topicCreteError}"></p>
+		</div>
+	</div>
 	<div th:each="category : ${categories}">
 		<ul>
 			<li>
 				<p th:text="${category.name}"></p>
+				<div th:if="${#authentication.principal.is_admin}">
+					<div class="show-create-topic-form-container">
+						<button class="show-button show-create-topic-form-button">[+]</button>
+						<button class="hide-button hide-create-topic-form-button">[-]</button>
+					</div>
+					<div class="create-topic-form-container">
+						<form th:action="@{/posts/create-topic}" method="post">
+							<label for="new_topic_name">New Topic Name</label>
+							<input type="text" name="new_topic_name" id="new_topic_name">
+							<input type="hidden" name="category_id" id="category_id" th:value="${category.id}">
+							<input type="submit" th:value="Create">
+						</form>
+					</div>
+				</div>
 				<div th:each="topic : ${topics}">
 					<ul>
 						<li th:if="${topic.getCategory().getId() == category.getId()}">

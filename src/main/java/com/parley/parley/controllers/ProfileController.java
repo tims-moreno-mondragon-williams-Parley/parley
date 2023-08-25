@@ -54,6 +54,7 @@ public class ProfileController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         updatedUser.setId(user.getId());
         updatedUser.setPassword(user.getPassword());
+        updatedUser.set_admin(user.is_admin());
         user.setUsername(updatedUser.getUsername());
         user.setEmail(updatedUser.getEmail());
         user.setBio(updatedUser.getBio());
