@@ -3,12 +3,14 @@ package com.parley.parley.controllers;
 import com.parley.parley.models.*;
 import com.parley.parley.repositories.*;
 import org.hibernate.dialect.aggregate.PostgreSQLAggregateSupport;
+import org.springframework.data.web.JsonPath;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -44,12 +46,7 @@ public class PostController {
 
     @GetMapping({"/posts", "/posts/"})
     public String getPostHome(Model model){
-        List<Category> categories = getAllCategories();
-        List<Topic> topics = getAllTopics();
-
-        model.addAttribute("categories", categories);
-        model.addAttribute("topics", topics);
-        model.addAttribute("topicClicked", false);
+        model = setupPostsPage(model);
 
         return "posts/posts";
     }
@@ -112,5 +109,54 @@ public class PostController {
 
         String redirect = "redirect:/posts/" + id;
         return redirect;
+    }
+
+    @PostMapping({"/posts/create-category", "/posts/create-category/"})
+    public String createNewCategory(@RequestParam(name="new_category_name") String name, Model model){
+        Category category = new Category();
+        category.setName(name);
+        try {
+            categoryDao.save(category);
+            return "redirect:/posts";
+        } catch (Exception e) {
+            model = setupPostsPage(model);
+            model.addAttribute("catCreteError", "Error creating category.");
+            return "posts/posts";
+        }
+    }
+
+
+    @PostMapping({"/posts/create-topic", "/posts/create-topic/"})
+    public String createNewTopic(@RequestParam(name="new_topic_name") String name, @RequestParam(name="category_id") Long id, Model model){
+        Topic topic = new Topic();
+        Category category = categoryDao.findCategoriesById(id);
+        topic.setName(name);
+        topic.setCategory(category);
+        if(topicDao.findTopicByNameAndCategory_Id(topic.getName(), id) == null) {
+            try {
+                topicDao.save(topic);
+                return "redirect:/posts";
+            } catch (Exception e) {
+                model = setupPostsPage(model);
+                model.addAttribute("topicCreteError", "Error creating new topic under " + category.getName() + "'s category.");
+                return "posts/posts";
+            }
+        } else {
+            model = setupPostsPage(model);
+            model.addAttribute("topicCreteError", "Error creating new topic under " + category.getName() + "'s category.");
+            return "posts/posts";
+        }
+    }
+
+
+    public Model setupPostsPage(Model model){
+        List<Category> categories = getAllCategories();
+        List<Topic> topics = getAllTopics();
+
+        model.addAttribute("categories", categories);
+        model.addAttribute("topics", topics);
+        model.addAttribute("topicClicked", false);
+
+        return model;
     }
 }
