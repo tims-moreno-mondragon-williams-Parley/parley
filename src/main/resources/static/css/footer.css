@@ -1,7 +1,7 @@
-div.h-200.d-flex.justify-content-center.align-items-center {
+.foot {
     background: #222139ff;
 }
-.PN {
+a.TX {
     text-decoration: none;
     color: white;
 }
