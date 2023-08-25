@@ -40,6 +40,7 @@ public class SecurityConfiguration {
                         .requestMatchers("/posts", "/posts/*", "/posts/*/create", "/posts/*/*/like-dislike", "/profile", "/profile/update").authenticated()
 
 
+
                         /* Pages that do not require authentication
                          * anyone can visit the home page, register, login, and view ads */
                         .requestMatchers("/", "/register", "/login", "/filepicker").permitAll()

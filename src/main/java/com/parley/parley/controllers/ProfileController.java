@@ -96,7 +96,7 @@ public class ProfileController {
 //            } else {
 //                System.out.println("An error has occurred. Please try again later.");
 //            }
-//
+///
 //        } catch (Exception e) {
 //            String errorMessage = ("An error occurred while processing your request. Please try again later.");
 //            model.addAttribute("errorMessage", errorMessage);
