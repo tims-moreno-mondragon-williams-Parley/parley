@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 <head>
-	<div th:insert="~{partials/head :: head('Posts')}"></div>
+	<head th:insert="~{partials/head :: head('Posts')}"></head>
+	<link rel="stylesheet" href="/css/posts.css">
 </head>
 <body>
 <div>
@@ -10,10 +11,10 @@
 <div class="left-menu-topics">
 	<div th:if="${#authentication.principal.is_admin}">
 		<div id="show-create-category-form-container">
-			<button id="show-create-category-form-button" class="show-button">[+]</button>
+			<button id="show-create-category-form-button" class="">[+]</button>
 			<button id="hide-create-category-form-button" class="hide-button">[-]</button>
 		</div>
-		<div id="create-category-form-container">
+		<div id="create-category-form-container" class="hide-form">
 			<form th:action="@{/posts/create-category}" method="post">
 				<label for="new_category_name">New Category Name</label>
 				<input type="text" name="new_category_name" id="new_category_name">
@@ -31,11 +32,11 @@
 		<p th:text="${category.name}"></p>
 		<div th:if="${#authentication.principal.is_admin}">
 			<div class="show-create-topic-form-container">
-				<button class="show-button show-create-topic-form-button">[+]</button>
+				<button class="show-create-topic-form-button">[+]</button>
 				<button class="hide-button hide-create-topic-form-button">[-]</button>
 			</div>
 			<div class="create-topic-form-container">
-				<form th:action="@{/posts/create-topic}" method="post">
+				<form class="topic-form-section hide-topic-form" th:action="@{/posts/create-topic}" method="post">
 					<label for="new_topic_name">New Topic Name</label>
 					<input type="text" name="new_topic_name" id="new_topic_name">
 					<input type="hidden" name="category_id" id="category_id" th:value="${category.id}">
@@ -54,7 +55,11 @@
 </div>
 
 <div class="post-creation-form" th:if="${topicClicked}">
-	<form th:action="@{/posts/{id}/create(id=${viewedTopic.id})}" method="post" th:object="${formPost}">
+	<div id="show-create-post-form-btn-container">
+		<button id="show-create-post-form-button" class="">Add Post</button>
+		<button id="hide-create-post-form-button" class="hide-button">Cancel</button>
+	</div>
+	<form id="post-form" th:action="@{/posts/{id}/create(id=${viewedTopic.id})}" method="post" th:object="${formPost}">
 		<label for="title" >Post Title</label>
 		<input type="text" id="title" name="title" th:field="*{title}">
 		<label for="body">Post Body</label>
@@ -78,7 +83,11 @@
 	<div th:replace="~{partials/post-sections :: posts('Agree', 'a')}"></div>
 	<div th:replace="~{partials/post-sections :: posts('Disagree', 'd')}"></div>
 	<div th:replace="~{partials/post-sections :: posts('Indifferent', 'i')}"></div>
-	
 </div>
+
+<!--JQuery JS-->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="/js/posts.js"></script>
 </body>
 </html>

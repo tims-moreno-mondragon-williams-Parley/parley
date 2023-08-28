@@ -25,9 +25,19 @@
 						<form th:action="@{/posts/{id}/{postId}/like-dislike(id=${viewedTopic.id}, postId=${post.id})}" method="post">
 							<input type="hidden" name="like" th:value="d" value="d">
 							<input type="submit" th:value="Dislike">
-							<span id="dislike-count" th:text="${dislikeCount}"></span>
 						</form>
 					</div>
+				</div>
+				<div class="comment-form">
+					<div id="show-hide-comment-form-btn">
+						<button id="show-comment-form" th:value="Comment"></button>
+					</div>
+					<form class="comment-form-section hide-comment-form" th:action="@{/posts/{id}/{postId}/comment(id=${viewedTopic.id}, postId=${post.id})}" method="post">
+						<label for="comment-body">Body</label>
+						<textarea id="comment-body" name="comment-body" cols="33" rows="5" placeholder="Comment Body"></textarea>
+						<input type="submit" th:value="Comment">
+					</form>
+					<div th:if="${commentError == true}" th:text="${commentError}"></div>
 				</div>
 				<div class="comment-cards-section">
 					<div th:each="comment : ${comments}">

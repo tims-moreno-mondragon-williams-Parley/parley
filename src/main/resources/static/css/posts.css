@@ -1,0 +1,4 @@
+
+.hide-button, .hide-form, .hide-topic-form, #post-form{
+    display: none;
+}
