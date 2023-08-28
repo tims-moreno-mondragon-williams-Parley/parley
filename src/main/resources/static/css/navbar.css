@@ -12,6 +12,12 @@ nav {
 h1, a {
     color: white;
 }
+input.nav-link {
+    color: white;
+}
+input.nav-link:hover {
+    color: #7b748cff;
+}
 a.nav-link {
     color: white;
 }
@@ -51,4 +57,11 @@ button.navbar-toggler {
     background-clip: text;
     -webkit-background-clip: text;
     transform: translateX(-0.02em);
+}
+img.PI {
+    padding-top: 10px;
+    border-radius: 50%;
+    width: 20px;
+    height: 50px;
+    object-fit: cover;
 }

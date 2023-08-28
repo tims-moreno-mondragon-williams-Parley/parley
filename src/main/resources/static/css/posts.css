@@ -1,0 +1,96 @@
+.S1 {
+    height: 92vh;
+    background: #222139ff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid #7b748cff;
+    border-radius: 30px;
+}
+.S2 {
+    height: 92vh;
+    background: #7b748cff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 30px;
+}
+.CT {
+    color: white;
+    text-align: center;
+}
+.MC {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: #7b748cff;
+}
+li {
+    list-style-type: none;
+}
+.CAT {
+    color: white;
+    font-size: 25px;
+    text-decoration: underline #7b748cff 2px;
+}
+.TP {
+    list-style-type: none;
+    font-size: 20px;
+}
+.QS {
+    color: white;
+    text-decoration: none;
+}
+.S2CT {
+    color: white;
+    text-align: center;
+}
+.post-topic h1 {
+    color: white;
+}
+.ADI {
+    color: white;
+    text-align: center;
+    flex: 1;
+    margin: 0 10px;
+}
+.flex-container {
+    display: flex;
+    justify-content: space-evenly; /* This will space the divs evenly */
+}
+label {
+    color: white;
+}
+.post-creation-form {
+    display: none;
+}
+.OFB {
+    background-color: #7b748cff;
+    color: white;
+    outline-color: transparent;
+}
+.button-container {
+    text-align: center;
+    position: relative;
+}
+.PT1 {
+    background: #222139ff;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+}
+.PT2 {
+    background: #222139ff;
+    border-radius: 30px;
+    height: 100%;
+    padding-top: 10px;
+}
+.show-button, .hide-button {
+    background-color: #7b748cff;
+    color: #222139ff;
+}
+.NCT, .NCTS {
+    background-color: #7b748cff;
+    border-color: transparent;
+    color: white;
+    border-radius: 10px;
+}
+
+

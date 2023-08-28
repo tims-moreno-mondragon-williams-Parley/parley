@@ -2,22 +2,27 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 <head>
 	<div th:insert="~{partials/head :: head('Posts')}"></div>
+	<link rel="stylesheet" th:href="@{/css/posts.css}">
 </head>
 <body>
 <div>
 	<div th:include="~{partials/navbar.html}"></div>
 </div>
-<div class="left-menu-topics">
+<div class="container-fluid MC">
+	<div class="row">
+
+<div class="left-menu-topics col-3 S1">
+	<h2 class="CT">Popular Questions</h2>
 	<div th:if="${#authentication.principal.is_admin}">
-		<div id="show-create-category-form-container">
-			<button id="show-create-category-form-button" class="show-button">[+]</button>
-			<button id="hide-create-category-form-button" class="hide-button">[-]</button>
-		</div>
+<!--		<div id="show-create-category-form-container">-->
+<!--			<button id="show-create-category-form-button" class="show-button">[+]</button>-->
+<!--			<button id="hide-create-category-form-button" class="hide-button">[-]</button>-->
+<!--		</div>-->
 		<div id="create-category-form-container">
 			<form th:action="@{/posts/create-category}" method="post">
 				<label for="new_category_name">New Category Name</label>
-				<input type="text" name="new_category_name" id="new_category_name">
-				<input type="submit" th:value="Create">
+				<input class="NCT" type="text" name="new_category_name" id="new_category_name">
+				<input class="NCTS" type="submit" th:value="Create">
 			</form>
 		</div>
 		<div class="form-error-message">
@@ -30,25 +35,25 @@
 	<div th:each="category : ${categories}">
 		<ul>
 			<li>
-				<p th:text="${category.name}"></p>
+				<p class="CAT" th:text="${category.name}"></p>
 				<div th:if="${#authentication.principal.is_admin}">
-					<div class="show-create-topic-form-container">
-						<button class="show-button show-create-topic-form-button">[+]</button>
-						<button class="hide-button hide-create-topic-form-button">[-]</button>
-					</div>
+<!--					<div class="show-create-topic-form-container">-->
+<!--						<button class="show-button show-create-topic-form-button">[+]</button>-->
+<!--						<button class="hide-button hide-create-topic-form-button">[-]</button>-->
+<!--					</div>-->
 					<div class="create-topic-form-container">
 						<form th:action="@{/posts/create-topic}" method="post">
 							<label for="new_topic_name">New Topic Name</label>
-							<input type="text" name="new_topic_name" id="new_topic_name">
+							<input class="NCT" type="text" name="new_topic_name" id="new_topic_name">
 							<input type="hidden" name="category_id" id="category_id" th:value="${category.id}">
-							<input type="submit" th:value="Create">
+							<input class="NCTS" type="submit" th:value="Create">
 						</form>
 					</div>
 				</div>
-				<div th:each="topic : ${topics}">
+				<div class="TP" th:each="topic : ${topics}">
 					<ul>
 						<li th:if="${topic.getCategory().getId() == category.getId()}">
-							<a th:href="@{/posts/{id}(id=${topic.id})}" th:text="${topic.name}"></a>
+							<a class="QS" th:href="@{/posts/{id}(id=${topic.id})}" th:text="${topic.name}"></a>
 						</li>
 					</ul>
 				</div>
@@ -57,32 +62,53 @@
 	</div>
 </div>
 
-<div class="post-creation-form" th:if="${topicClicked}">
-	<form th:action="@{/posts/{id}/create(id=${viewedTopic.id})}" method="post" th:object="${formPost}">
-		<label for="title" >Post Title</label>
-		<input type="text" id="title" name="title" th:field="*{title}">
-		<label for="body">Post Body</label>
-		<textarea id="body" name="body" cols="33" rows="5" th:field="*{body}"></textarea>
-		<label for="position">Position</label>
-		<select name="position" id="position">
-			<option th:field="*{position}" th:value="a">Agree</option>
-			<option th:field="*{position}" th:value="d">Disagree</option>
-			<option th:field="*{position}" th:value="i">Indifferent</option>
-		</select>
-		<input type="submit" th:value="Post">
-		<div th:if="${postError}" th:text="${newPostError}"></div>
-	</form>
-</div>
 
-<div class="post-section">
-	<div class="post-topic">
-		<h1 th:if="${topicClicked}" th:text="${viewedTopic.name}"></h1>
-		<h1 th:if="${not topicClicked}">Choose a Topic</h1>
+<div class="col-9 S2 d-flex flex-column">
+
+	<div class="post-topic PT1 wrap ">
+		<h1 class="S2CT" th:if="${topicClicked}" th:text="${viewedTopic.name}"></h1>
+		<h1 class="S2CT" th:if="${not topicClicked}">Choose a Topic</h1>
 	</div>
-	<div th:replace="~{partials/post-sections :: posts('Agree', 'a')}"></div>
-	<div th:replace="~{partials/post-sections :: posts('Disagree', 'd')}"></div>
-	<div th:replace="~{partials/post-sections :: posts('Indifferent', 'i')}"></div>
-	
+
+	<div class="PT2">
+	<div class="post-section">
+		<div class="button-container">
+			<button class="OFB" id="shareOpinionBtn">Share your opinion</button>
+		</div>
+		<div class="post-creation-form" th:if="${topicClicked}">
+			<form th:action="@{/posts/{id}/create(id=${viewedTopic.id})}" method="post" th:object="${formPost}">
+				<label for="title" >Post Title</label>
+				<input type="text" id="title" name="title" th:field="*{title}">
+				<label for="body">Post Body</label>
+				<textarea id="body" name="body" cols="33" rows="5" th:field="*{body}"></textarea>
+				<label for="position">Position</label>
+				<select name="position" id="position">
+					<option th:field="*{position}" th:value="a">Agree</option>
+<!--					<option th:field="*{position}" th:value="i">Indifferent</option>-->
+					<option th:field="*{position}" th:value="d">Disagree</option>
+				</select>
+				<input type="submit" th:value="Post">
+				<div th:if="${postError}" th:text="${newPostError}"></div>
+			</form>
+		</div>
+
+		<div class="flex-container">
+		<div class="ADI" th:replace="~{partials/post-sections :: posts('Agree', 'a')}"></div>
+		<div class="ADI" th:replace="~{partials/post-sections :: posts('Disagree', 'd')}"></div>
+<!--		<div class="ADI" th:replace="~{partials/post-sections :: posts('Indifferent', 'i')}"></div>-->
+		</div>
+
+	</div>
+	</div>
+
+
+
+
 </div>
+	</div>
+</div>
+<footer th:include="partials/footer :: footer">
+</footer>
+<script src="/js/postspage.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <div th:fragment="posts(position, positionLetter)">
 	<div class="post-agreed-section" th:if="${topicClicked}">
-		<h2 th:text="${position}"></h2>
+		<h2 class="ADI" th:text="${position}"></h2>
 		<div th:each="post : ${posts}">
 			<div th:if="${post.position == positionLetter}">
 				<div class="post-card">
