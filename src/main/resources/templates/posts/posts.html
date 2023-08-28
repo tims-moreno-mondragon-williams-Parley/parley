@@ -28,32 +28,28 @@
 		</div>
 	</div>
 	<div th:each="category : ${categories}">
-		<ul>
-			<li>
-				<p th:text="${category.name}"></p>
-				<div th:if="${#authentication.principal.is_admin}">
-					<div class="show-create-topic-form-container">
-						<button class="show-button show-create-topic-form-button">[+]</button>
-						<button class="hide-button hide-create-topic-form-button">[-]</button>
-					</div>
-					<div class="create-topic-form-container">
-						<form th:action="@{/posts/create-topic}" method="post">
-							<label for="new_topic_name">New Topic Name</label>
-							<input type="text" name="new_topic_name" id="new_topic_name">
-							<input type="hidden" name="category_id" id="category_id" th:value="${category.id}">
-							<input type="submit" th:value="Create">
-						</form>
-					</div>
-				</div>
-				<div th:each="topic : ${topics}">
-					<ul>
-						<li th:if="${topic.getCategory().getId() == category.getId()}">
-							<a th:href="@{/posts/{id}(id=${topic.id})}" th:text="${topic.name}"></a>
-						</li>
-					</ul>
-				</div>
-			</li>
-		</ul>
+		<p th:text="${category.name}"></p>
+		<div th:if="${#authentication.principal.is_admin}">
+			<div class="show-create-topic-form-container">
+				<button class="show-button show-create-topic-form-button">[+]</button>
+				<button class="hide-button hide-create-topic-form-button">[-]</button>
+			</div>
+			<div class="create-topic-form-container">
+				<form th:action="@{/posts/create-topic}" method="post">
+					<label for="new_topic_name">New Topic Name</label>
+					<input type="text" name="new_topic_name" id="new_topic_name">
+					<input type="hidden" name="category_id" id="category_id" th:value="${category.id}">
+					<input type="submit" th:value="Create">
+				</form>
+			</div>
+		</div>
+		<div th:each="topic : ${topics}">
+			<ul th:if="${topic.getCategory().getId() == category.getId()}">
+				<li>
+					<a th:href="@{/posts/{id}(id=${topic.id})}" th:text="${topic.name}"></a>
+				</li>
+			</ul>
+		</div>
 	</div>
 </div>
 
