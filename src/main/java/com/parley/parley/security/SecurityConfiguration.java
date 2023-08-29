@@ -46,7 +46,7 @@ public class SecurityConfiguration {
                         .requestMatchers("/", "/register", "/login", "/filepicker", "/error", "/error?continue", "/cart.json", "/cart.json?continue").permitAll()
 
                         // allow loading of static resources
-                        .requestMatchers("/css/**", "/js/**", "/img/**").permitAll()
+                        .requestMatchers("/css/**", "/js/**", "/img/**" ,"/images/**").permitAll()
                 )
                 /* Login configuration */
                 .formLogin((login) -> login.loginPage("/login").defaultSuccessUrl("/posts"))

@@ -13,8 +13,10 @@
 <!--  <h1><span th:text="${user.username}"></span></h1>-->
 
     <div class="profile-info">
-      <img th:src="${user.banner_img}" alt="Banner Image"/>
-      <img th:src="${user.profile_pic}" alt="Profile Picture"/>
+      <img th:src="${user.banner_img}" alt="Banner Image" th:if="${user.banner_img != null || user.banner_img !=''}"/>
+        <img th:src="@{/images/no_image.png}" alt="Banner Image" th:if="${user.banner_img == null or user.banner_img ==''}"/>
+
+        <img th:src="${user.profile_pic}" alt="Profile Picture"/>
       <h2 th:text="${user.username}"></h2>
       <p th:text="${user.bio}"></p>
     </div>
