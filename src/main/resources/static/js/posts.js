@@ -54,5 +54,21 @@ $(document).ready(function () {
         $("#post-form").slideToggle("slow");
     });
 
+    // event listeners for showing and hiding comment creation form
+    $(".show-comment-form").on("click", function (event){
+       event.preventDefault();
+       $(this).toggleClass("hide-button");
+       const index = $(".show-comment-form").index(this);
+       $(".hide-comment-form").eq(index).toggleClass("hide-button");
+       $(".comment-form-section").eq(index).slideToggle("slow");
+    });
+
+    $(".hide-comment-form").on("click", function (event){
+       event.preventDefault();
+       $(this).toggleClass("hide-button");
+       const index = $(".hide-comment-form").index(this);
+       $(".show-comment-form").eq(index).toggleClass("hide-button");
+       $(".comment-form-section").eq(index).slideToggle("slow");
+    });
 
 });
