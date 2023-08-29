@@ -10,37 +10,40 @@
   <div th:include="~{partials/navbar.html}"></div>
 </nav>
 <div class="container-fluid MC">
-  <div class="row">
-<div class="col-6 C1">
-  <p>P</p>
-  <p>A</p>
-  <p>R</p>
-  <p>L</p>
-  <p>E</p>
-  <p>Y</p>
-</div>
-<div class="col-6 C2">
-  <h3>Login</h3>
+  <div class="row justify-content-between">
+<div class="col-4 C1">
+  <h3 class="LOG-B" >Log In</h3>
   <form th:action="@{/login}" method="post">
     <div>
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" required>
+      <label class="LOG" for="username">Username:</label>
+      <input class="INP" type="text" id="username" name="username" required>
     </div>
     <div>
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required>
-<!--      <div class="passworderror" th:if="${error}" th:text="${error}"></div>-->
+      <label class="LOG" for="password">Password:</label>
+      <input class="INP" type="password" id="password" name="password" required>
     </div>
-    <div>
-      <button type="submit">Login</button>
+    <div class="log-cont">
+      <button class="log-btn" type="submit">Log In</button>
     </div>
   </form>
-  <p class="reg">Don't have an account? <a th:href="@{/register}" class="register">Register here</a></p>
+  <p class="LOG">Don't have an account? <a th:href="@{/register}" class="register REGH">Register Here</a></p>
+  <p class="fact">
+    Did you know Debate participation promotes problem solving and
+    innovative thinking, and helps students to build links
+    between words and ideas that make concepts more meaningful
+  </p>
+</div>
+<div class="col-8 C2">
+  <p class="PART">P</p>
+  <p class="PART">A</p>
+  <p class="PART">R</p>
+  <p class="PART">L</p>
+  <p class="PART">E</p>
+  <p class="PART">Y</p>
 </div>
   </div>
 </div>
 <footer th:include="partials/footer :: footer">
 </footer>
 </body>
-
 </html>

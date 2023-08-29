@@ -65,7 +65,7 @@ public String filepicker(){
         user.set_admin(false);
         try{
             userDao.save(user);
-            return "redirect:/login";
+            return "redirect:/";
         } catch (Exception e){
             model.addAttribute("error", "Username Already Exists. Please try again.");
             return "users/registration-page";

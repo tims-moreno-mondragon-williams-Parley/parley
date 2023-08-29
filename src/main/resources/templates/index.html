@@ -14,19 +14,77 @@
 	<div class="container-fluid MC">
 		<div class="row">
 			<div class="col-6 C1">
-				<p>P</p>
-				<p>A</p>
-				<p>R</p>
-				<p>L</p>
-				<p>E</p>
-				<p>Y</p>
+				<p class="PL">P</p>
+				<p class="PL">A</p>
+				<p class="PL">R</p>
+				<p class="PL">L</p>
+				<p class="PL">E</p>
+				<p class="PL">Y</p>
 			</div>
 			<div class="col-6 C2">
-				<h3><a th:href="@{/login}" class="LOG">Login</a></h3>
+				<!-- If user is authenticated -->
+				<h3 sec:authorize="isAuthenticated()">
+					<!-- Display content for authenticated users, e.g., a link to the user's profile -->
+					<a th:href="@{/profile}" class="LOG">View Profile</a>
+				</h3>
+				<!-- If user is not authenticated -->
+				<h3 sec:authorize="!isAuthenticated()">
+					<a th:href="@{/login}" class="LOG">Login</a>
+				</h3>
 			</div>
 		</div>
 	</div>
 </div>
+	<div class="container-fluid MC2">
+		<div class="row">
+			<div class="col-6 C3">
+               <p class="intro">Welcome to our platform, a unique space crafted by four
+				   passionate software developers. We've created a hub for
+				   meaningful conversations where users can agree, disagree,
+				   and delve deep into pressing topics. In a world filled with
+				   diverse opinions, our website stands as a beacon for
+				   genuine dialogue and understanding. Join us, share your
+				   perspective, and be part of a community that values growth
+				   through conversation.</p>
+			</div>
+			<div class="col-6 C4">
+				<img class="img" src="../img/Untitled.png">
+			</div>
+		</div>
+	</div>
+	<section id="contactInfo">
+	<div class="container-fluid MC3 justify-content-evenly">
+		<div class="row">
+			<div class="col-12 TT">
+				<h2 class="DRT">Meet the Dream Team</h2>
+			</div>
+			<div class="col-3 PPC">
+				<h2 class="NT">Johann Williams</h2>
+				<img class="PPI" src="../img/D4.avif">
+				<a href="">Linked In</a>
+				<a href="">Github</a>
+			</div>
+			<div class="col-3 PPC">
+				<h2 class="NT">Geniece Tims</h2>
+				<img class="PPI" src="../img/D1.webp">
+				<a href="">Linked In</a>
+				<a href="">Github</a>
+			</div>
+			<div class="col-3 PPC">
+				<h2 class="NT">Daniel Mondragon</h2>
+				<img class="PPI" src="../img/D3.webp">
+				<a href="">Linked In</a>
+				<a href="">Github</a>
+			</div>
+			<div class="col-3 PPC">
+				<h2 class="NT">Michaella Moreno</h2>
+				<img class="PPI" src="../img/D2.jpg">
+				<a href="">Linked In</a>
+				<a href="">Github</a>
+			</div>
+		</div>
+	</div>
+	</section>
 	<footer th:include="partials/footer :: footer">
 	</footer>
 </body>

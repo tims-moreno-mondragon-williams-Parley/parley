@@ -11,54 +11,62 @@
 <div>
 	<div th:include="~{partials/navbar.html}"></div>
 </div>
-<div class="container-fluid">
+<div class="container-fluid MC">
     <div class="row">
-        <div class=" col-6">
-<div class="logo-register col-6">
-    <p>P</p>
-    <p>A</p>
-    <p>R</p>
-    <p>L</p>
-    <p>E</p>
-    <p>Y</p>
-</div>
+        <div class="col-4 C2 wrap">
+            <div id="register-form-container">
+                <h2 class="MR">Register</h2>
+                <form th:action="@{/register}" th:object="${user}" method="post" id="register-form">
+                    <div>
+                        <label for="username"> Username:</label>
+                        <input class="INP" type="text" id="username" name="username" th:field="*{username}" required>
+                    </div>
+                    <div>
+                        <label for="email">Email:</label>
+                        <input class="INP" type="text" id="email" name="email" th:field="*{email}">
+                    </div>
+                    <div>
+                        <label for="password">Password:</label>
+                        <input class="INP" type="password" id="password" name="password" th:field="*{password}">
+                    </div>
+                    <div>
+                        <label for="confirmPassword">Confirm Password:</label>
+                        <input class="INP" type="password" id="confirmPassword" name="confirmPassword">
+                        <div class="error-message" th:if="${#fields.hasErrors('password')}"> Passwords do not match. </div>
+                        <div class="error-invalidquals" th:if="${#fields.hasErrors('password')}"> Password does not meet the qualifications stated below. </div>
+                        <div class="password-qualifications">
+                            <h3 class="PR">Password must match the following requirements:</h3>
+                            <ul>
+                                <li class="Li-I">Be between 8 and 20 characters long.</li> class="Li-I"
+                                <li class="Li-I">Contain at least one Uppercase letter.</li>
+                                <li class="Li-I">Contain at least one Lowercase letter.</li>
+                                <li class="Li-I">Contain at least one digit.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button type="submit" class="reg-btn"> Register</button>
+                </form>
+            </div>
         </div>
-        <div class="col-6">
-<div id="register-form-container col-6">
-<h2>Register</h2>
-<form th:action="@{/register}" th:object="${user}" method="post" id="register-form">
-<div>
-    <label for="username"> Username:</label>
-    <input type="text" id="username" name="username" th:field="*{username}" required>
-</div>
-    <div>
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="email" th:field="*{email}">
-    </div>
-    <div>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" th:field="*{password}">
-    </div>
-    <div>
-        <label for="confirmPassword">Confirm Password:</label>
-        <input type="password" id="confirmPassword" name="confirmPassword">
-        <div class="error-message" th:if="${#fields.hasErrors('password')}"> Passwords do not match. </div>
-        <div class="error-invalidquals" th:if="${#fields.hasErrors('password')}"> Password does not meet the qualifications stated below. </div>
-        <div class="password-qualifications"> Password must match the following requirements:
-            <ul>
-                <li>Be between 8 and 20 characters long.</li>
-                <li>Contain at least one Uppercase letter.</li>
-                <li>Contain at least one Lowercase letter.</li>
-                <li>Contain at least one digit.</li>
-            </ul>
+            <div class=" col-8 d-flex flex-column">
+                <div class="C1 wrap">
+                </div>
+            <div class="C1-M wrap">
+                <section class="wrapper">
+                    <div class="top">PARLEY</div>
+                    <div class="bottom" aria-hidden="true">PARLEY</div>
+                </section>
+                <p class="Q">"You don't win a debate by suppressing discussion;
+                    you win it with a better argument."- Frank Sonnenberg</p>
+            </div>
+        <div class="C1-L wrap">
         </div>
-    </div>
-    <button type="submit" class="register-button"> Register</button>
-</form>
-</div>
+            </div>
         </div>
 </div>
 </div>
+<footer th:include="partials/footer :: footer">
+</footer>
 <script src="/js/register.js"></script>
 </body>
 </html>

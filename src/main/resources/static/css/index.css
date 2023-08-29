@@ -2,17 +2,18 @@
     color: black;
 }
 .C1 , .C2 {
-    height: 90vh;
-    background: #7b748cff;
+    height: 60vh;
 }
 .C1 {
     position: relative;  /* This ensures the pseudo-element positions relative to this container */
     border: 2px solid #7b748cff;
-    background: black;
+    background: #222139ff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.PL {
 }
 .C2 {
     border: 2px solid black;
@@ -30,3 +31,66 @@ p {
     text-decoration: none;
     color: #222139ff;
 }
+.C3 , .C4 {
+    height: 30vh;
+}
+.C3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #7b748cff;
+    border: 2px solid #222139ff;
+}
+.intro {
+    color: #222139ff;
+    font-size: 18px;
+}
+.C4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #222139ff;
+    border: 2px solid #7b748cff;
+    position: relative;
+    overflow: hidden;
+}
+.img {
+    height: auto;
+    width: 280px;
+}
+.TT {
+    text-align: center;
+}
+.PPC {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.NT {
+    font-size: 20px;
+}
+.MC3 {
+    background: #7b748cff;
+    border: 2px solid #222139ff;
+    padding: 0;
+}
+.DRT {
+    color: #222139ff;
+}
+.PPI {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+.PPC h2,
+.PPC img,
+.PPC a {
+    display: block;
+}
+

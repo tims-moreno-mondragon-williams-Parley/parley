@@ -1,22 +1,136 @@
-#register-form-container{
-    border: 2px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 10% 10%;
-    height: 80vh;
+h2, label {
+    color: white;
+}
+.MR {
+    color: white;
+}
+.INP {
+    width: 100%; /* Full width */
+    padding: 12px 20px; /* Some padding */
+    margin: 8px 0; /* Some margin */
+    box-sizing: border-box; /* Ensures padding doesn't add extra width */
+    border: 2px solid #7b748cff; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    font-size: 16px; /* Increase font size */
+    background-color: #222139ff; /* Light gray background */
+    transition: 0.3s; /* Smooth transitions on hover */
+    color: white;
+}
+.INP:focus {
+    border-color: white; /* Green border on focus */
+    color: white;
+}
+.MC {
+    padding-bottom: 10px;
+    padding-top: 10px;
     background: #7b748cff;
-
 }
-.register-button{
-    border: greenyellow solid 2px;
-}
-.logo-register{
-    background: black;
+.C1, .C2 {
+    background: #222139ff;
     border: 2px solid #7b748cff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    border-radius: 30px;
+}
+.C2 {
+    height: 92vh;
+}
+.C1 {
+    background-image: url("../img/dp.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    height: 30vh;
+    flex-grow: 1;
+    border: 2px solid #222139ff;
+}
+.C1-M {
+    background: #222139ff;
+    border: 2px solid #7b748cff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    height: 20vh;
+}
+.C1-L {
+    background-image: url("../img/ppp.avif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    height: 30vh;
+    flex-grow: 1;
+    border: 2px solid #222139ff;
+    border-radius: 30px;
+}
+.PT {
+    color: white;
+    font-size: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.Q {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+}
+.reg-btn {
+    width: 100%; /* Adjust as needed */
+    height: 50px; /* Adjust as needed */
+    background-color: #222139ff; /* Change to your preferred color */
+    border: 2px solid #7b748cff;
+    border-radius: 5px; /* Rounded corners */
+    color: white;
+    font-size: 18px; /* Adjust as needed */
+    font-weight: bold; /* Makes the text bold */
+    cursor: pointer; /* Changes the cursor to a hand when hovering over the button */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+.reg-btn:hover {
+    background-color: #7b748cff; /* Slightly darker blue on hover */
+    color: #222139ff;
+}
+.PR {
+    color: white;
+    font-size: 20px;
+}
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+li.Li-I {
+    list-style-type: none;
+    color: white;
+    margin: 0px;
+    padding: 0px;
+}
+.wrapper {
+    display: grid;
+    place-content: center;
+    background-color: transparent;
+    font-family: "Oswald", sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: white;
+}
+.wrapper > div {
+    grid-area: 1/1/-1/-1;
+}
+.top {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 48%, 0% 58%);
+}
+.bottom {
+    clip-path: polygon(0% 60%, 100% 50%, 100% 100%, 0% 100%);
+    color: transparent;
+    background: -webkit-linear-gradient(177deg, #7b748cff 53%, #7b748cff 65%);
+    background: linear-gradient(177deg, #7b748cff 53%, white 65%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    transform: translateX(-0.02em);
 }

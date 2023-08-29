@@ -54,6 +54,7 @@ public class ProfileController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         updatedUser.setId(user.getId());
         updatedUser.setPassword(user.getPassword());
+        updatedUser.set_admin(user.is_admin());
         user.setUsername(updatedUser.getUsername());
         user.setEmail(updatedUser.getEmail());
         user.setBio(updatedUser.getBio());
@@ -96,7 +97,7 @@ public class ProfileController {
 //            } else {
 //                System.out.println("An error has occurred. Please try again later.");
 //            }
-//
+///
 //        } catch (Exception e) {
 //            String errorMessage = ("An error occurred while processing your request. Please try again later.");
 //            model.addAttribute("errorMessage", errorMessage);
