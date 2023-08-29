@@ -5,6 +5,8 @@
     padding-bottom: 10px;
     border: 1px solid #7b748cff;
     border-radius: 30px;
+    overflow-y: auto;
+    padding-left: 15px;
 }
 .S2 {
     height: 92vh;
@@ -88,9 +90,10 @@ label {
 }
 .NCT, .NCTS {
     background-color: #7b748cff;
-    border-color: transparent;
+    border: 1px solid #222139ff;
     color: white;
     border-radius: 10px;
+    margin-bottom: 5px;
 }
 
 
