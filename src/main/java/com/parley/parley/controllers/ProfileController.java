@@ -66,7 +66,6 @@ public class ProfileController {
         return "redirect:/profile";
     }
 
-
 // Commented out code is for followers feature if wanting to add to project.
 //    @PostMapping("/{userId}/follow/{followedId}")
 //    public String followUser(@PathVariable Long userId, @PathVariable Long followedId, Model model) {
