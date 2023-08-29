@@ -80,9 +80,13 @@
 		<h1 th:if="${topicClicked}" th:text="${viewedTopic.name}"></h1>
 		<h1 th:if="${not topicClicked}">Choose a Topic</h1>
 	</div>
-	<div th:replace="~{partials/post-sections :: posts('Agree', 'a')}"></div>
-	<div th:replace="~{partials/post-sections :: posts('Disagree', 'd')}"></div>
-	<div th:replace="~{partials/post-sections :: posts('Indifferent', 'i')}"></div>
+	<div class="agree-section">
+		<div th:replace="~{partials/post-sections :: posts('Agree', 'a')}"></div>
+	</div><div class="disagree-section">
+		<div th:replace="~{partials/post-sections :: posts('Disagree', 'd')}"></div>
+	</div><div class="indifferent-section">
+		<div th:replace="~{partials/post-sections :: posts('Indifferent', 'i')}"></div>
+	</div>
 </div>
 
 <!--JQuery JS-->
