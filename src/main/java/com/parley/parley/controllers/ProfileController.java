@@ -51,6 +51,7 @@ public class ProfileController {
 
     @PostMapping("/profile/update")
     public String updateProfile(@ModelAttribute User updatedUser) {
+        System.out.println(updatedUser.getUsername());
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         updatedUser.setId(user.getId());
         updatedUser.setPassword(user.getPassword());
@@ -60,7 +61,8 @@ public class ProfileController {
         user.setBio(updatedUser.getBio());
         user.setProfile_pic(updatedUser.getProfile_pic());
         user.setBanner_img(updatedUser.getBanner_img());
-
+        System.out.println(updatedUser.getProfile_pic());
+        System.out.println(updatedUser.getBanner_img());
         userService.updateUserProfile(updatedUser);
 
         return "redirect:/profile";

@@ -33,10 +33,11 @@
     </div>
     <div>
       <label>Banner Image </label>
-      <input type="text" th:field="*{banner_img}" accept="image/*" />
+      <button id="upload-banner-pic" type="button">Upload</button>
+      <input type="hidden" th:value="*{banner_img}" id="banner_pic" name="banner_img" value="" />
+      <img th:src="${imageBanner}" alt="Uploaded Banner" id="uploaded-banner-image">
     </div>
     <input type="submit" id="update-profile-button" class="btn btn-primary">
-      Update</input>
   </form>
 
 </div>
