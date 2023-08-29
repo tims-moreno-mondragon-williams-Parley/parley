@@ -27,16 +27,22 @@
     </div>
     <div>
       <label>Profile Picture </label>
-      <input type="text" th:field="*{profile_pic}" accept="image/*" />
+      <button id="upload-profile-pic" type="button"> Upload</button>
+      <input type="hidden" th:value="${profile_pic}"  id="profile_pic" name="profile_pic" value="" />
+      <img th:src="${imageProfile}" alt="Uploaded Image" id="uploaded-image">
     </div>
     <div>
       <label>Banner Image </label>
-      <input type="text" th:field="*{banner_img}" accept="image/*" />
+      <button id="upload-banner-pic" type="button">Upload</button>
+      <input type="hidden" th:value="*{banner_img}" id="banner_pic" name="banner_img" value="" />
+      <img th:src="${imageBanner}" alt="Uploaded Banner" id="uploaded-banner-image">
     </div>
     <input type="submit" id="update-profile-button" class="btn btn-primary">
-      Update</input>
   </form>
 
 </div>
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+<script src="/js/keys.js"></script>
+<script src="/js/filestack.js"></script>
 </body>
 </html>
