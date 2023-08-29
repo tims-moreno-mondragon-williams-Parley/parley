@@ -1,6 +1,9 @@
 h2, label {
     color: white;
 }
+.MR {
+    color: white;
+}
 .INP {
     width: 100%; /* Full width */
     padding: 12px 20px; /* Some padding */

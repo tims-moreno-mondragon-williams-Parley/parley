@@ -25,7 +25,7 @@
 				<!-- If user is authenticated -->
 				<h3 sec:authorize="isAuthenticated()">
 					<!-- Display content for authenticated users, e.g., a link to the user's profile -->
-					<a th:href="@{/}" class="LOG">View Profile</a>
+					<a th:href="@{/profile}" class="LOG">View Profile</a>
 				</h3>
 				<!-- If user is not authenticated -->
 				<h3 sec:authorize="!isAuthenticated()">
@@ -52,37 +52,39 @@
 			</div>
 		</div>
 	</div>
-	<div class="container-fluid MC3">
+	<section id="contactInfo">
+	<div class="container-fluid MC3 justify-content-evenly">
 		<div class="row">
 			<div class="col-12 TT">
 				<h2 class="DRT">Meet the Dream Team</h2>
 			</div>
 			<div class="col-3 PPC">
 				<h2 class="NT">Johann Williams</h2>
-				<img src="../img/">
+				<img class="PPI" src="../img/D4.avif">
 				<a href="">Linked In</a>
 				<a href="">Github</a>
 			</div>
 			<div class="col-3 PPC">
 				<h2 class="NT">Geniece Tims</h2>
-				<img src="../img/">
+				<img class="PPI" src="../img/D1.webp">
 				<a href="">Linked In</a>
 				<a href="">Github</a>
 			</div>
 			<div class="col-3 PPC">
 				<h2 class="NT">Daniel Mondragon</h2>
-				<img src="../img/">
+				<img class="PPI" src="../img/D3.webp">
 				<a href="">Linked In</a>
 				<a href="">Github</a>
 			</div>
 			<div class="col-3 PPC">
 				<h2 class="NT">Michaella Moreno</h2>
-				<img src="../img/">
+				<img class="PPI" src="../img/D2.jpg">
 				<a href="">Linked In</a>
 				<a href="">Github</a>
 			</div>
 		</div>
 	</div>
+	</section>
 	<footer th:include="partials/footer :: footer">
 	</footer>
 </body>
