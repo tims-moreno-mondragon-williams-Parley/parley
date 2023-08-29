@@ -65,44 +65,5 @@ public class ProfileController {
 
         return "redirect:/profile";
     }
-
-// Commented out code is for followers feature if wanting to add to project.
-//    @PostMapping("/{userId}/follow/{followedId}")
-//    public String followUser(@PathVariable Long userId, @PathVariable Long followedId, Model model) {
-//        try {
-//            User followedUser = userService.followUser(userId, followedId);
-//
-//            if (followedUser != null) {
-//                System.out.println("You're now following " + followedId);
-//            } else {
-//                String errorMessage = ("An error has occurred. Please try again later.");
-//                model.addAttribute("errorMessage", errorMessage);
-//            }
-//        } catch (Exception e) {
-//            String errorMessage = "An error occurred while processing your request. Please try again later.";
-//            model.addAttribute("errorMessage", errorMessage);
-//            System.out.println(errorMessage);
-//        }
-//        return "redirect:/profile/" + userId;
-//    }
-//
-//    @PostMapping("/{userId}/unfollow/{followedId}")
-//    public String unfollowUser(@PathVariable Long userId, @PathVariable Long followedId, Model model) {
-//        try {
-//            User unfollowedUser = userService.unfollowUser(userId, followedId);
-//
-//            if (unfollowedUser != null) {
-//                System.out.println("You've successfully unfollowed " + followedId);
-//            } else {
-//                System.out.println("An error has occurred. Please try again later.");
-//            }
-///
-//        } catch (Exception e) {
-//            String errorMessage = ("An error occurred while processing your request. Please try again later.");
-//            model.addAttribute("errorMessage", errorMessage);
-//            System.out.println(errorMessage);
-//        }
-//        return "redirect:/profile/" + userId;
-//    }
 }
 
