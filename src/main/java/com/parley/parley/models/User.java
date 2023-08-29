@@ -59,12 +59,4 @@ User {
         banner_img = copy.banner_img;
         is_admin = copy.is_admin;
     }
-// Commented out code is for followers feature if wanting to add to project.
-//    @ManyToMany
-//    @JoinTable(
-//            name = "user_follows",
-//            joinColumns = @JoinColumn(name = "follower_id"),
-//            inverseJoinColumns = @JoinColumn(name = "followed_id")
-//    )
-//    private Set<User> following = new HashSet<>();
 }
