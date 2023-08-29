@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 <head>
-
     <link rel="stylesheet" th:href="@{/css/posts.css}">
     <head th:insert="~{partials/head :: head('Posts')}"></head>
-    <!--	<link rel="stylesheet" href="/css/posts.css">-->
 </head>
 <body>
 <div>
@@ -15,7 +13,6 @@
         <div class="left-menu-topics col-3 S1">
             <h2 class="CT">Popular Questions</h2>
             <div th:if="${#authentication.principal.is_admin}">
-
                 <div id="show-create-category-form-container">
                     <button id="show-create-category-form-button" class="">[+]</button>
                     <button id="hide-create-category-form-button" class="hide-button">[-]</button>
@@ -109,5 +106,9 @@
 <script src="/js/postspage.js"></script>
 <footer th:include="partials/footer :: footer">
 </footer>
+<!--JQuery JS-->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="/js/posts.js"></script>
 </body>
 </html>

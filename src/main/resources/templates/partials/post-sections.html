@@ -1,17 +1,9 @@
-<<<<<<< HEAD
 <div th:fragment="posts(position, positionLetter)">
 	<div class="post-agreed-section" th:if="${topicClicked}">
 		<h2 class="ADI" th:text="${position}"></h2>
 		<div th:each="post : ${posts}">
 			<div th:if="${post.position == positionLetter}">
 				<div class="post-card">
-=======
-<div th:fragment="posts(position, positionLetter)" th:if="${topicClicked}">
-	<h2 th:text="${position}"></h2>
-	<div th:each="post : ${posts}">
-		<div th:if="${post.position == positionLetter}">
-			<div class="post-card">
->>>>>>> main
 <!--	Section for displying user profiles when finished				-->
 <!--					<div th:if="${post.getUser().getProfile_pic() != null or post.getUser().getProfile_pic() != ''}">-->
 <!--						<img th:src="${post.getUser().getProfile_pic()}" alt="Profile Img">-->
