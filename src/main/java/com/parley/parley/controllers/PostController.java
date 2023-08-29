@@ -83,6 +83,7 @@ public class PostController {
     @PostMapping({"/posts/{id}/create", "/posts/{id}/create/"})
     public String createPost(@PathVariable Long id, @ModelAttribute Post post){
 
+        System.out.println(post.getPosition());
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         post.setUser(user);
         post.setTopic(topicDao.findTopicById(id));
