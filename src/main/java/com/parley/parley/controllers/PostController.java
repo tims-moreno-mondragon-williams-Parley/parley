@@ -83,6 +83,7 @@ public class PostController {
     @PostMapping({"/posts/{id}/create", "/posts/{id}/create/"})
     public String createPost(@PathVariable Long id, @ModelAttribute Post post){
 
+        System.out.println(post.getPosition());
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         post.setUser(user);
         post.setTopic(topicDao.findTopicById(id));
@@ -144,6 +145,30 @@ public class PostController {
         } else {
             model = setupPostsPage(model);
             model.addAttribute("topicCreteError", "Error creating new topic under " + category.getName() + "'s category.");
+            return "posts/posts";
+        }
+    }
+
+    @PostMapping({"/posts/{id}/{postId}/comment", "/posts/{id}/{postId}/comment/"})
+    public String postComment(@RequestParam(name="comment-body") String body, @PathVariable Long id, @PathVariable Long postId, Model model){
+        Post post = postDao.findPostById(postId);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Comment comment = new Comment();
+        comment.setBody(body);
+        comment.setPost(post);
+        comment.setUser(user);
+        System.out.println("comment = " + comment.getBody());
+        System.out.println("user.getUsername() = " + user.getUsername());
+        System.out.println("post.getTitle() = " + post.getTitle());
+        try {
+            System.out.println("Trying to save new comment");
+            commentDao.save(comment);
+            String redirect = "redirect:/posts/" + id;
+            return redirect;
+        } catch (Exception e){
+            System.out.println("Error occurred during comment writing.");
+            model = setupPostsPage(model);
+            model.addAttribute("commentError", "Could not add Comment on " + post.getTitle() + "!");
             return "posts/posts";
         }
     }
