@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.core.context.SecurityContextHolder;
 import com.parley.parley.models.Post;
-import com.parley.parley.repositories.UserRepository;
 import com.parley.parley.repositories.PostRepository;
 
 import java.util.List;
@@ -18,14 +17,12 @@ import java.util.List;
 public class ProfileController {
 
     private final UserService userService;
-//    private final UserRepository userDao;
     private final PostRepository postDao;
 
     @Autowired
-    public ProfileController(UserService userService, PostRepository postDao, UserRepository userDao) {
+    public ProfileController(UserService userService, PostRepository postDao) {
         this.userService = userService;
         this.postDao = postDao;
-//        this.userDao = userDao;
     }
 
 
