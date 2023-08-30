@@ -95,3 +95,7 @@ label {
     border-radius: 10px;
     margin-bottom: 5px;
 }
+
+.hide-submit-button{
+    display: none;
+}

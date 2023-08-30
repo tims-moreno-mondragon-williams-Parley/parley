@@ -4,46 +4,53 @@
 		<div th:each="post : ${posts}">
 			<div th:if="${post.position == positionLetter}">
 				<div class="post-card">
-<!--	Section for displying user profiles when finished				-->
-<!--					<div th:if="${post.getUser().getProfile_pic() != null or post.getUser().getProfile_pic() != ''}">-->
-<!--						<img th:src="${post.getUser().getProfile_pic()}" alt="Profile Img">-->
-<!--					</div>-->
-<!--					<div th:if="${post.getUser().getProfile_pic() == null or post.getUser().getProfile_pic() == ''}">-->
-<!--						<img th:src="@{/img/profile.jpeg}" alt="Default Profile Img">-->
-<!--					</div>-->
-				<h3 th:text="${post.title}"></h3>
-				<h5 th:text="${post.body}"></h5>
-			</div>
-			<div class="like-dislike-sect">
-				<div class="like-post-sect">
-					<form th:action="@{/posts/{id}/{postId}/like-dislike(id=${viewedTopic.id}, postId=${post.id})}" method="post">
-						<input type="hidden" name="like" th:value="l" value="l">
-						<input type="submit" th:value="Like">
+					<!--	Section for displying user profiles when finished				-->
+					<!--					<div th:if="${post.getUser().getProfile_pic() != null or post.getUser().getProfile_pic() != ''}">-->
+					<!--						<img th:src="${post.getUser().getProfile_pic()}" alt="Profile Img">-->
+					<!--					</div>-->
+					<!--					<div th:if="${post.getUser().getProfile_pic() == null or post.getUser().getProfile_pic() == ''}">-->
+					<!--						<img th:src="@{/img/profile.jpeg}" alt="Default Profile Img">-->
+					<!--					</div>-->
+					<h3 th:text="${post.title}"></h3>
+					<h5 th:text="${post.body}"></h5>
+				</div>
+				<div class="like-dislike-sect">
+					<div class="like-post-sect">
+						<form th:action="@{/posts/{id}/{postId}/like-dislike(id=${viewedTopic.id}, postId=${post.id})}"
+						      method="post">
+							<input type="hidden" name="like" th:value="l" value="l">
+							<input type="submit" th:value="Like">
+						</form>
+					</div>
+					<div class="dislike-post-sect">
+						<form th:action="@{/posts/{id}/{postId}/like-dislike(id=${viewedTopic.id}, postId=${post.id})}"
+						      method="post">
+							<input type="hidden" name="like" th:value="d" value="d">
+							<input type="submit" th:value="Dislike">
+						</form>
+					</div>
+				</div>
+				<div class="comment-form">
+					<div class="show-hide-comment-form-btn">
+						<button class="show-comment-form">Comment</button>
+						<button class="hide-comment-form hide-button">Cancel</button>
+					</div>
+					<form class="comment-form-section hide-form"
+					      th:action="@{/posts/{id}/{postId}/comment(id=${viewedTopic.id}, postId=${post.id})}"
+					      method="post">
+						<label for="comment-body">Body</label>
+						<textarea id="comment-body" class="comment-body" name="comment-body" cols="33" rows="5"
+						          placeholder="Comment Body"></textarea>
+						<input type="button" th:value="Comment" class="checkProfanityInCommentBtn">
+						<input type="submit" th:value="Comment" class="hide-submit-button submitCommentBtn">
 					</form>
+					<div th:if="${commentError == true}" th:text="${commentError}"></div>
 				</div>
-				<div class="dislike-post-sect">
-					<form th:action="@{/posts/{id}/{postId}/like-dislike(id=${viewedTopic.id}, postId=${post.id})}" method="post">
-						<input type="hidden" name="like" th:value="d" value="d">
-						<input type="submit" th:value="Dislike">
-					</form>
-				</div>
-			</div>
-			<div class="comment-form">
-				<div class="show-hide-comment-form-btn">
-					<button class="show-comment-form">Comment</button>
-					<button class="hide-comment-form hide-button">Cancel</button>
-				</div>
-				<form class="comment-form-section hide-form" th:action="@{/posts/{id}/{postId}/comment(id=${viewedTopic.id}, postId=${post.id})}" method="post">
-					<label for="comment-body">Body</label>
-					<textarea id="comment-body" name="comment-body" cols="33" rows="5" placeholder="Comment Body"></textarea>
-					<input type="submit" th:value="Comment">
-				</form>
-				<div th:if="${commentError == true}" th:text="${commentError}"></div>
-			</div>
-			<div class="comment-cards-section">
-				<div th:each="comment : ${comments}">
-					<div class="comment-card" th:if="${comment.getPost().getId().equals(post.getId())}">
-						<h4 th:text="${comment.body}"></h4>
+				<div class="comment-cards-section">
+					<div th:each="comment : ${comments}">
+						<div class="comment-card" th:if="${comment.getPost().getId().equals(post.getId())}">
+							<h4 th:text="${comment.body}"></h4>
+						</div>
 					</div>
 				</div>
 			</div>
