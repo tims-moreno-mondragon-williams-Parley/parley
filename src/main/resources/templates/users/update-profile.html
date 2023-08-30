@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <div th:insert="~{partials/head :: head('Update Profile')}"></div>
+  <head th:insert="~{partials/head :: head('Update Profile')}"></head>
+  <link rel="stylesheet" th:href="@{/css/update-profile.css}">
 </head>
 <body>
 <div>
@@ -37,12 +38,18 @@
       <input type="hidden" th:value="*{banner_img}" id="banner_pic" name="banner_img" value="" />
       <img th:src="${imageBanner}" alt="Uploaded Banner" id="uploaded-banner-image">
     </div>
-    <input type="submit" id="update-profile-button" class="btn btn-primary">
+    <input type="button" id="update-profile-profanity-check" class="btn btn-primary" th:value="Submit">
+    <input type="submit" id="update-profile-button" class="hide-submit-button">
   </form>
 
 </div>
+<!--Filestack API JS-->
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+<!--JQuery JS-->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="/js/keys.js"></script>
 <script src="/js/filestack.js"></script>
+<script src="/js/bio_profanity.js"></script>
 </body>
 </html>
