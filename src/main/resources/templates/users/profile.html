@@ -2,40 +2,130 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
+    <link rel="stylesheet" th:href="@{/css/profile.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
+          rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+          crossorigin="anonymous">
 </head>
 <body>
-<nav>
-  <div th:include="~{partials/navbar.html}"></div>
-</nav>
-<div class="container-fluid">
+<!--<nav>-->
+<!--  <div th:include="~{partials/navbar.html}"></div>-->
+<!--</nav>-->
+<div class="container main-content">
 
-<!--  <h1><span th:text="${user.username}"></span></h1>-->
-
-    <div class="profile-info">
-      <img th:src="${user.banner_img}" alt="Banner Image" th:if="${user.banner_img != null && user.banner_img !=''}"/>
-        <img th:src="@{/images/no_image.png}" alt="Banner Image" th:if="${user.banner_img == null or user.banner_img ==''}"/>
-
-        <img th:src="${user.profile_pic}" alt="Profile Picture" th:if="${user.profile_pic != null && user.profile_pic !=''}" />
-        <img th:src="@{/images/no_profile.png}" alt="Profile Picture" th:if="${user.profile_pic == null or user.profile_pic ==''}" />
-      <h2 th:text="${user.username}"></h2>
-      <p th:text="${user.bio}"></p>
-    </div>
-
-    <!-- Display user's posts here -->
-    <div class="user-posts">
-      <h2>Your Posts</h2>
-      <div th:each="post : ${posts}">
-        <div class="post">
-          <h3 th:text="${post.title}"></h3>
-          <p th:text="${post.body}"></p>
-          <!-- Add other properties as needed -->
+    <div class="container banner-container">
+        <div class="BI">
+            <img th:src="${user.banner_img}" alt="Banner Image"
+                 th:if="${user.banner_img != null && user.banner_img !=''}"/>
+            <img th:src="@{/images/no_image.png}" alt="Banner Image"
+                 th:if="${user.banner_img == null or user.banner_img ==''}"/>
         </div>
-      </div>
     </div>
 
-  </div>
+    <div class="container profile-container">
+        <div class="PH">
+            <img class="img-circle PI"
+                 src="/static/images/test_profile_image.jpg"
+                 alt="test profile image">
+            <img th:src="${user.profile_pic}" alt="Profile Picture"
+                 th:if="${user.profile_pic != null && user.profile_pic !=''}"/>
+            <img th:src="@{/images/no_profile.png}" alt="Profile Picture"
+                 th:if="${user.profile_pic != null or user.profile_pic !=''}"/>
+        </div>
+    </div>
+
+    <div class="container username">
+        <h1 class="default-name">
+            Lauren McCoy
+        </h1>
+    </div>
+
+
+    <div class="container bio-container">
+        <div class="BIO">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Nullam nec dignissim lorem, sed tristique lorem. Proin in
+                lacus aliquam, laoreet lacus eu, vulputate arcu.
+                Pellentesque habitant morbi tristique senectus et netus
+                et malesuada fames ac turpis egestas. Vestibulum euismod
+                ligula at iaculis sollicitudin.
+                <button type="button"
+                        class="btn btn-sm btn-dark" id="edit-profile">Edit
+                    Profile
+                </button>
+            </p>
+            <p th:text="${user.bio}"></p>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="posts">
+    <h2 th:text="${user.username}"></h2>
+    Display user's posts here
+    <div class="container user-posts">
+        <h2>Your Posts</h2>
+        <div th:each="post : ${posts}">
+            <div class="post">
+                <div class="P1">
+                    <h6>Lorem ipsum</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Nullam nec dignissim lorem, sed tristique lorem. Proin
+                        in
+                        lacus aliquam, laoreet lacus eu, vulputate arcu.
+                        Pellentesque habitant morbi tristique senectus et netus
+                        et malesuada fames ac turpis egestas. Vestibulum euismod
+                        ligula at iaculis sollicitudin.</p>
+                </div>
+                <br>
+                <div class="P2">
+                    <h6>Lorem ipsum</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Nullam nec dignissim lorem, sed tristique lorem. Proin
+                        in
+                        lacus aliquam, laoreet lacus eu, vulputate arcu.
+                        Pellentesque habitant morbi tristique senectus et netus
+                        et malesuada fames ac turpis egestas. Vestibulum euismod
+                        ligula at iaculis sollicitudin.</p>
+                </div>
+                <br>
+                <div class="P3">
+                    <h6>Lorem ipsum</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Nullam nec dignissim lorem, sed tristique lorem. Proin
+                        in
+                        lacus aliquam, laoreet lacus eu, vulputate arcu.
+                        Pellentesque habitant morbi tristique senectus et netus
+                        et malesuada fames ac turpis egestas. Vestibulum euismod
+                        ligula at iaculis sollicitudin.</p>
+                </div>
+                <br>
+                <h3 th:text="${post.title}"></h3>
+                <p th:text="${post.body}"></p>
+                <!--             Add other properties as needed -->
+            </div>
+        </div>
+    </div>
+
+</div>
 <footer th:include="partials/footer :: footer">
 </footer>
+<!--Filestack API JS-->
+<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+<!--jQuery JS-->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+<script src="/js/profile.js"></script>
+<script src="/js/filestack.js"></script>
+
 </body>
 </html>
