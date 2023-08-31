@@ -73,17 +73,44 @@ $(document).ready(function () {
     });
 
     // event listeners for showing and hiding comment creation form
-    $(document).ready(function() {
-        // When the "show-comment-form" button is clicked
-        $('.show-comment-form').click(function() {
-            $('.comment-form').show(); // Show the comment form
-        });
 
-        // When the "hide-comment-form" button is clicked
-        $('.hide-comment-form').click(function() {
-            $('.comment-form').hide(); // Hide the comment form
-        });
+        // When the "show-comment-form" button is clicked
+    $('.show-comment-form').click(function(event) {
+        event.preventDefault();
+        $(this).toggleClass("hide-form");
+        const index = $(".show-comment-form").index(this);
+        $(".hide-comment-form").eq(index).toggleClass("hide-form");
+        $(".comment-btn").eq(index).toggleClass("hide-form");
+        $(".comment-cards-section").eq(index).toggle();
     });
 
+    // When the "comment-btn" button is clicked
+    $('.comment-btn').click(function(event) {
+        event.preventDefault();
+        const index = $(".comment-btn").index(this);
+        $(".comment-form-section").eq(index).toggle();
+    });
+
+    // When the "hide-comment-form" button is clicked
+    $('.hide-comment-form').click(function(event) {
+        event.preventDefault();
+        $(this).toggleClass("hide-form");
+        const index = $(".hide-comment-form").index(this);
+        $(".show-comment-form").eq(index).toggleClass("hide-form");
+        $(".comment-btn").eq(index).toggleClass("hide-form");
+        $(".comment-cards-section").eq(index).toggle();
+        if ($(".comment-btn").eq(index).text() === "Cancel") {
+            $(".comment-btn").eq(index).text("Comment")
+            $(".comment-form-section").eq(index).toggle();
+        }
+    });
+
+    $('.comment-btn').click(function() {
+        if ($(this).text() === "Comment") {
+            $(this).text("Cancel");
+        } else {
+            $(this).text("Comment")
+        };
+    });
 
 });

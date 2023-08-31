@@ -35,7 +35,7 @@
 						</div>
 						<button class="show-comment-form">View Comments</button>
 						<button class="comment-btn hide-form">Comment</button>
-						<button class="hide-comment-form hide-form">Cancel</button>
+						<button class="hide-comment-form hide-form">Hide</button>
 					</div>
 
 					<!-- Comment form section -->
@@ -46,7 +46,8 @@
 								<textarea class="CBb" id="comment-body" name="comment-body" cols="33" rows="5" placeholder="Comment Body"></textarea>
 							</div>
 							<div>
-								<input class="like-dislike checkProfanityInCommentBtn" type="submit" th:value="Comment">
+								<input type="button" th:value="Comment" class="checkProfanityInCommentBtn like-dislike">
+								<input class="submitCommentBtn hide-submit-button" type="submit">
 							</div>
 						</form>
 						<div th:if="${commentError == true}" th:text="${commentError}"></div>
