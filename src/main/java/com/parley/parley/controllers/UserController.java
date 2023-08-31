@@ -25,12 +25,6 @@ public class UserController {
         this.userDao = userDao;
         this.passwordEncoder = passwordEncoder;
     }
-@GetMapping({"/filepicker"})
-public String filepicker(){
-        return "filepicker";
-}
-
-
 
     /* Redirect user to the Registration Page */
     @GetMapping({"/register", "/register/"})

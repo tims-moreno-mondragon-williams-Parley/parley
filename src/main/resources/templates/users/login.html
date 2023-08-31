@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-  <link rel="stylesheet" th:href="@{/css/login.css}">
+	<head th:insert="~{partials/head :: head('Login')}"></head>
+	<link rel="stylesheet" th:href="@{/css/login.css}">
 </head>
 <body>
 <nav>
-  <div th:include="~{partials/navbar.html}"></div>
+	<div th:include="~{partials/navbar :: navbar}"></div>
 </nav>
 <div class="container-fluid MC">
-  <div class="row justify-content-between">
-<div class="col-4 C1">
-  <h3 class="LOG-B" >Log In</h3>
-  <form th:action="@{/login}" method="post">
-    <div>
-      <label class="LOG" for="username">Username:</label>
-      <input class="INP" type="text" id="username" name="username" required>
-    </div>
-    <div>
-      <label class="LOG" for="password">Password:</label>
-      <input class="INP" type="password" id="password" name="password" required>
-    </div>
-    <div class="log-cont">
-      <button class="log-btn" type="submit">Log In</button>
-    </div>
-  </form>
-  <p class="LOG">Don't have an account? <a th:href="@{/register}" class="register REGH">Register Here</a></p>
-  <p class="fact">
-    Did you know Debate participation promotes problem solving and
-    innovative thinking, and helps students to build links
-    between words and ideas that make concepts more meaningful
-  </p>
-</div>
-<div class="col-8 C2">
-  <p class="PART">P</p>
-  <p class="PART">A</p>
-  <p class="PART">R</p>
-  <p class="PART">L</p>
-  <p class="PART">E</p>
-  <p class="PART">Y</p>
-</div>
-  </div>
+	<div class="row justify-content-between">
+		<div class="col-4 C1">
+			<h3 class="LOG-B">Log In</h3>
+			<form th:action="@{/login}" method="post">
+				<div>
+					<label class="LOG" for="username">Username:</label>
+					<input class="INP" type="text" id="username" name="username" required>
+				</div>
+				<div>
+					<label class="LOG" for="password">Password:</label>
+					<input class="INP" type="password" id="password" name="password" required>
+				</div>
+				<div class="log-cont">
+					<button class="log-btn" type="submit">Log In</button>
+				</div>
+			</form>
+			<p class="LOG">Don't have an account? <a th:href="@{/register}" class="register REGH">Register Here</a></p>
+			<p class="fact">
+				Did you know Debate participation promotes problem solving and
+				innovative thinking, and helps students to build links
+				between words and ideas that make concepts more meaningful
+			</p>
+		</div>
+		<div class="col-8 C2">
+			<p class="PART">P</p>
+			<p class="PART">A</p>
+			<p class="PART">R</p>
+			<p class="PART">L</p>
+			<p class="PART">E</p>
+			<p class="PART">Y</p>
+		</div>
+	</div>
 </div>
 <footer th:include="partials/footer :: footer">
 </footer>
+<div th:replace="~{partials/scripts :: scripts}"></div>
 </body>
 </html>
