@@ -7,35 +7,52 @@ body {
     background-color: #222139ff;
 }
 
-.BI {
-    background-image: url("../images/test_banner.png");
-    height: 15em;
-    width: 100vw;
+.banner-container {
+    width: 100%;
+    background-size: cover;
+    overflow-x: hidden;
 }
 
-.btn {
-    font-size: .75rem;
-    padding:  .25rem .5rem;
-    position: absolute;
-    margin-top: .5em;
-    margin-left: 8em;
+.BI {
+    height: 15em;
+    width: 100%;
+    background-size: cover;
+
+}
+
+.username {
+    position: relative;
+    margin-left: 13em;
+    top: -3em;
+    color: #222139ff;
     z-index: 1;
 }
 
-.img-circle {
-
-    border-radius: 100%;
-    border: 4px solid #7b748cff;
-}
-
-.PI {
+.profile-user {
     display: inline-flex;
     position: absolute;
-    top: 150px;
+    top: 200px;
     width: 12em;
     height: 12em;
-    margin-right: 30em;
+    margin-right: 33em;
     border: 5px solid #7b748cff;
+    border-radius: 100%;
+}
+
+.edit-button {
+    /*display: flex;*/
+    font-size: .75rem;
+    padding:  .25rem .5rem;
+    position: absolute;
+    margin-top: 2.5em;
+    margin-left: 56em;
+    z-index: 1;
+}
+
+.banner-user {
+    height: 15em;
+    width: 100vw;
+    margin-right: 50em;
 }
 
 .default-name {
@@ -51,7 +68,7 @@ body {
     position: absolute;
     width: 50em;
     height: 13em;
-    top: 14em;
+    top: 18em;
     margin: 0 7em 65em;
     padding: 5em 2em 2em 8em;
     font-size: 14px;
