@@ -6,18 +6,15 @@
 }
 .C1 {
     position: relative;  /* This ensures the pseudo-element positions relative to this container */
-    border: 2px solid #7b748cff;
-    background: #222139ff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 .PL {
+    color: white;
 }
 .C2 {
-    border: 2px solid black;
-    background: #7b748cff;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,7 +26,7 @@ p {
 }
 .LOG {
     text-decoration: none;
-    color: #222139ff;
+    color: white;
 }
 .C3 , .C4 {
     height: 30vh;
@@ -40,11 +37,13 @@ p {
     justify-content: center;
     align-items: center;
     position: relative;
-    background-color: #7b748cff;
-    border: 2px solid #222139ff;
+    /*background-image: url("../img/par.jpg");*/
+    border-radius: 30px;
+    background: #222139ff;
+    border: 3px solid #7b748cff;
 }
 .intro {
-    color: #222139ff;
+    color: white;
     font-size: 18px;
 }
 .C4 {
@@ -52,8 +51,6 @@ p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #222139ff;
-    border: 2px solid #7b748cff;
     position: relative;
     overflow: hidden;
 }
@@ -65,14 +62,22 @@ p {
     text-align: center;
 }
 .PPC {
-    height: 40vh;
+    height: auto;
+    overflow: visible;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 30px;
+    border: 2px solid #7b748cff;
+    background: #222139ff;
 }
 .NT {
     font-size: 20px;
+    color: white;
+}
+.link {
+    color:white;
 }
 .MC3 {
     background: #7b748cff;
@@ -93,4 +98,11 @@ p {
 .PPC a {
     display: block;
 }
-
+.C1,.C2,.C4 {
+    border-radius: 30px;
+    background: #222139ff;
+    border: 3px solid #7b748cff;
+}
+.MC,.MC2 {
+    background:#7b748cff;
+}
