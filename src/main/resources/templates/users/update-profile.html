@@ -29,14 +29,16 @@
     <div>
       <label>Profile Picture </label>
       <button id="upload-profile-pic" type="button"> Upload</button>
-      <input type="hidden" th:value="${profile_pic}"  id="profile_pic" name="profile_pic" value="" />
-      <img th:src="${imageProfile}" alt="Uploaded Image" id="uploaded-image">
+      <input type="hidden" th:value="*{profile_pic}"  id="profile_pic" name="profile_pic" value="" />
+	    <img id="uploaded-image" th:src="${user.profile_pic}" alt="Profile Picture" th:if="${user.profile_pic != null && user.profile_pic !=''}" />
+	    <img id="uploaded-image" th:src="@{/img/D3.webp}" alt="Profile Picture" th:if="${user.profile_pic == null or user.profile_pic ==''}" />
     </div>
     <div>
       <label>Banner Image </label>
       <button id="upload-banner-pic" type="button">Upload</button>
       <input type="hidden" th:value="*{banner_img}" id="banner_pic" name="banner_img" value="" />
-      <img th:src="${imageBanner}" alt="Uploaded Banner" id="uploaded-banner-image">
+	    <img id="uploaded-banner-image" th:src="${user.banner_img}" alt="Banner Image" th:if="${user.banner_img != null && user.banner_img !=''}"/>
+	    <img id="uploaded-banner-image" th:src="@{/images/no_image.png}" alt="Banner Image" th:if="${user.banner_img == null or user.banner_img ==''}"/>
     </div>
     <input type="button" id="update-profile-profanity-check" class="btn btn-primary" th:value="Submit">
     <input type="submit" id="update-profile-button" class="hide-submit-button">

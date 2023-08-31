@@ -17,7 +17,7 @@
         <img th:src="@{/images/no_image.png}" alt="Banner Image" th:if="${user.banner_img == null or user.banner_img ==''}"/>
 
         <img th:src="${user.profile_pic}" alt="Profile Picture" th:if="${user.profile_pic != null && user.profile_pic !=''}" />
-        <img th:src="@{/images/no_profile.png}" alt="Profile Picture" th:if="${user.profile_pic == null or user.profile_pic ==''}" />
+        <img th:src="@{/img/D3.webp}" alt="Profile Picture" th:if="${user.profile_pic == null or user.profile_pic ==''}" />
       <h2 th:text="${user.username}"></h2>
       <p th:text="${user.bio}"></p>
     </div>
