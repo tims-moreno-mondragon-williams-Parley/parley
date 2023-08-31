@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" th:href="@{/css/posts.css}">
     <head th:insert="~{partials/head :: head('Posts')}"></head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 </head>
 <body>
 <div>
@@ -14,8 +15,12 @@
             <h2 class="CT">Popular Questions</h2>
             <div th:if="${#authentication.principal.is_admin}">
                 <div id="show-create-category-form-container">
-                    <button id="show-create-category-form-button" class="">[+]</button>
-                    <button id="hide-create-category-form-button" class="hide-button">[-]</button>
+                    <button id="show-create-category-form-button" class="CAT-button">
+                        <i class="bi bi-plus-circle-fill"></i>
+                    </button>
+                    <button id="hide-create-category-form-button" class="CATM-button">
+                        <i class="bi bi-dash-circle-fill"></i>
+                    </button>
                 </div>
                 <div id="create-category-form-container" class="hide-form">
 
@@ -38,8 +43,12 @@
                         <p class="CAT" th:text="${category.name}"></p>
                         <div th:if="${#authentication.principal.is_admin}">
                             <div class="show-create-topic-form-container">
-                                <button class="show-create-topic-form-button">[+]</button>
-                                <button class="hide-button hide-create-topic-form-button">[-]</button>
+                                <button class="show-create-topic-form-button">
+                                    <i class="bi bi-plus-circle-fill"></i>
+                                </button>
+                                <button class="hide-button hide-create-topic-form-button">
+                                    <i class="bi bi-dash-circle-fill"></i>
+                                </button>
                             </div>
                             <div class="create-topic-form-container">
                                 <form class="topic-form-section hide-topic-form" th:action="@{/posts/create-topic}"
@@ -64,7 +73,6 @@
         </div>
 
         <div class="col-9 S2 d-flex flex-column">
-
             <div class="post-topic PT1 wrap ">
                 <h1 class="S2CT" th:if="${topicClicked}" th:text="${viewedTopic.name}"></h1>
                 <h1 class="S2CT" th:if="${not topicClicked}">Choose a Topic</h1>
@@ -72,31 +80,60 @@
 
             <div class="PT2">
                 <div class="post-section">
-                    <div class="button-container">
+
+                    <div class="default-container-fluid" th:if="${not topicClicked}">
+                        <div class="container dci">
+                            <h1 class="DF-h1 DFS">Welcome to Parley</h1>
+                            <p class="DF-h1">Parley is the premier destination for those passionate about honing
+                                their debating skills. At Parley, we provide a unique platform
+                                where you can engage in meaningful discussions over topics that
+                                genuinely pique your interest. Our ethos is rooted in fostering
+                                a respectful and professional environment, ensuring that every
+                                debate serves as an opportunity to broaden one's perspective and
+                                understand diverse viewpoints. We are committed to delivering
+                                top-notch content that resonates with our community. Your voice
+                                matters to us, and we wholeheartedly encourage suggestions
+                                regarding topics you'd love to see featured on our website. Dive
+                                in, expand your horizons, and let's parley!
+                            </p>
+                            <h3 class="DF-h1">Did you Know?</h3>
+                            <p class="DF-h1">Debating helps improve critical thinking, public speaking, research skills,
+                                and the ability to think on one's feet. It's no wonder many debaters go on
+                                to have successful careers in law, politics, and other fields that value
+                                these skills.</p>
+                        </div>
+                    </div>
+
+                    <div class="button-container" th:if="${topicClicked}">
                         <button class="OFB" id="shareOpinionBtn">Share your opinion</button>
                     </div>
                     <div class="post-creation-form" th:if="${topicClicked}">
                         <form th:action="@{/posts/{id}/create(id=${viewedTopic.id})}" method="post"
                               th:object="${formPost}">
-                            <label for="title">Post Title</label>
-                            <input type="text" id="title" name="title" th:field="*{title}">
+                            <label class="PostTL" for="title">Post Title</label>
+                            <input class="PostT" type="text" id="title" name="title" th:field="*{title}">
                             <label for="body">Post Body</label>
-                            <textarea id="body" name="body" cols="33" rows="5" th:field="*{body}"></textarea>
+                            <textarea class="PBBB" id="body" name="body" cols="33" rows="5" th:field="*{body}"></textarea>
                             <label for="position">Position</label>
-                            <select name="position" id="position">
+                            <select class="PO" name="position" id="position">
                                 <option th:field="*{position}" th:value="a">Agree</option>
 <!--                                <option th:field="*{position}" th:value="i">Indifferent</option>-->
                                 <option th:field="*{position}" th:value="d">Disagree</option>
                             </select>
-                            <input type="submit" th:value="Post">
+                            <button id="cancelPostBtn" type="button">Cancel</button>
+                            <input class="POB" type="submit" id="submitPostBtn" th:value="Post">
                             <div th:if="${postError}" th:text="${newPostError}"></div>
                         </form>
                     </div>
+                    <div class="container-fluid flex-row-container">
 
-                    <div class="flex-container">
-                        <div class="ADI" th:replace="~{partials/post-sections :: posts('Agree', 'a')}"></div>
-                        <div class="ADI" th:replace="~{partials/post-sections :: posts('Disagree', 'd')}"></div>
-<!--                        <div class="ADI" th:replace="~{partials/post-sections :: posts('Indifferent', 'i')}"></div>-->
+                        <div class="agree-container">
+                            <div class="ADI" th:replace="~{partials/post-sections :: posts('Agree', 'a')}"></div>
+                        </div>
+                        <div class="disagree-container">
+                            <div class="ADI" th:replace="~{partials/post-sections :: posts('Disagree', 'd')}"></div>
+                        </div>
+                        <!-- <div class="ADI" th:replace="~{partials/post-sections :: posts('Indifferent', 'i')}"></div> -->
                     </div>
                 </div>
             </div>

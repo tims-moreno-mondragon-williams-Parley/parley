@@ -14,6 +14,7 @@
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 30px;
+    overflow-y: auto;
 }
 .CT {
     color: white;
@@ -39,6 +40,7 @@ li {
 .QS {
     color: white;
     text-decoration: none;
+    font-size: 17px;
 }
 .S2CT {
     color: white;
@@ -48,14 +50,14 @@ li {
     color: white;
 }
 .ADI {
-    color: white;
+    color: #222139ff;
     text-align: center;
-    flex: 1;
     margin: 0 10px;
 }
-.flex-container {
+.flex-row-container {
     display: flex;
-    justify-content: space-evenly; /* This will space the divs evenly */
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 label {
     color: white;
@@ -64,9 +66,14 @@ label {
     display: none;
 }
 .OFB {
-    background-color: #7b748cff;
+    background-color: #222139ff;
     color: white;
     outline-color: transparent;
+    border-radius: 30px;
+    border: 1px solid #7b748cff;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 .button-container {
     text-align: center;
@@ -84,14 +91,138 @@ label {
     height: 100%;
     padding-top: 10px;
 }
-.show-button, .hide-button {
-    background-color: #7b748cff;
-    color: #222139ff;
-}
 .NCT, .NCTS {
     background-color: #7b748cff;
     border: 1px solid #222139ff;
     color: white;
     border-radius: 10px;
     margin-bottom: 5px;
+}
+.PB {
+    color: white;
+    text-align: center;
+    font-size: 13px;
+}
+.PBT {
+    font-size: 20px;
+}
+.actions-container {
+    /*display: flex;*/
+    justify-content: space-around;
+}
+.buttons-row {
+    display: flex; /* This makes the children align in a row */
+    justify-content: space-around; /* This spaces the buttons evenly */
+    gap: 5px; /* This adds some space between the buttons */
+}
+.comment-form {
+    margin-top: 10px;
+    display: none;
+}
+.show-comment-form, .comment-btn {
+    background: #7b748cff;
+    color: #222139ff;
+    border: transparent;
+}
+.like-dislike {
+    color: #222139ff;
+    background: #7b748cff;
+    border: transparent;
+}
+.selected {
+    color: #7b748cff; /* or any color you want when selected */
+    background: #222139ff;
+    border-radius: 50px;
+}
+.CBb {
+    background: #7b748cff;
+    color: #222139ff;
+    border: 1px solid #222139ff;
+    border-radius: 10px;
+    width: 500px;
+    height: 50px;
+    overflow-y: auto;
+    resize: vertical;
+}
+.cb {
+    align-content: center;
+}
+.show-comment-form, .hide-comment-form, .comment-btn {
+    background: #7b748cff;
+    /*color: white;*/
+    border: transparent;
+}
+.post-agreed-section {
+    border-radius: 30px;
+    background: #7b748cff;
+    border: 3px solid #222139ff;
+    height: 70vh;
+    overflow-y: auto;
+    min-width: 350px;
+}
+.agree-container,.disagree-container {
+    background: #222139ff;
+    border-radius: 30px ;
+    border: 2px solid #7b748cff;
+}
+.hide-form, .hide-topic-form {
+    display: none;
+}
+.PostT {
+    background: #222139ff;
+    color: white;
+    border-radius: 30px;
+    border: 1px solid #7b748cff;
+}
+.PBBB {
+    color: white;
+    background: #222139ff;
+    border-radius: 10px;
+    border: 1px solid #7b748cff;
+    height: 60px;
+    width: 250px;
+}
+.PO {
+    background: #222139ff;
+    color: white;
+    border-radius: 30px;
+}
+.POB {
+    background: #222139ff;
+    color: white;
+    border-radius: 30px;
+    border: 1px solid #7b748cff;
+}
+#cancelPostBtn {
+    background-color: #222139ff;
+    color: white;
+    border: 1px solid #7b748cff;
+    border-radius: 30px;
+}
+.post-card{
+    background: #222139ff;
+    border: 4px solid #7b748cff;
+    border-radius: 10px;
+}
+.dci {
+    background-image: url("../img/coo.png");
+    border-radius: 20px;
+    border: 10px solid #222139ff;
+    height: 78vh;
+    width: 80%;
+    margin: 0 auto;
+}
+.DFS {
+    border: 5px solid transparent;
+}
+.DF-h1 {
+    text-align: center;
+    background: rgba(123, 116, 140, 0.8);
+    border-radius: 10px;
+    color: white;
+}
+.CAT-button,.CATM-button,.show-create-topic-form-button,.hide-button {
+    background: #222139ff;
+    color: #7b748cff;
+    border: none;
 }
