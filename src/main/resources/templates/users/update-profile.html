@@ -32,19 +32,18 @@
                 <label>Profile Picture </label>
                 <button id="upload-profile-pic" type="button"> Upload</button>
                 <input type="hidden" th:value="*{profile_pic}" id="profile_pic" name="profile_pic" value=""/>
-                <img th:src="*{profile_pic}" alt="Uploaded Image" id="uploaded-image"
+                <img id="uploaded-image" th:src="*{profile_pic}" alt="Uploaded Image"
                      th:if="*{profile_pic != null && profile_pic != ''}">
-                <img th:src="@{/img/D3.webp}" alt="Uploaded Image" id="temp-image"
+                <img id="uploaded-image" th:src="@{/img/D3.webp}" alt="Uploaded Image"
                      th:if="*{profile_pic == null or profile_pic == ''}">
             </div>
             <div>
                 <label>Banner Image </label>
                 <button id="upload-banner-pic" type="button">Upload</button>
                 <input type="hidden" th:value="*{banner_img}" id="banner_pic" name="banner_img" value=""/>
-                <img th:src="*{banner_img}" alt="Uploaded Banner" id="uploaded-banner-image"
+                <img id="uploaded-banner-image" th:src="*{banner_img}" alt="Uploaded Banner"
                      th:if="*{banner_img != null and banner_img != ''}">
-                <img th:src="@{/images/no_image.png}" alt="Uploaded Banner" id="temp-banner-image"
-                     th:if="*{banner_img == null or banner_img == ''}">
+                <img id="uploaded-banner-image" th:src="@{/images/no_image.png}" alt="Uploaded Banner" th:if="*{banner_img == null or banner_img == ''}">
             </div>
 
     <input type="button" id="update-profile-profanity-check" class="btn btn-primary" th:value="Submit">
