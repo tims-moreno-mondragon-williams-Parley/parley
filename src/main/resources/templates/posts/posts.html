@@ -120,8 +120,9 @@
 <!--                                <option th:field="*{position}" th:value="i">Indifferent</option>-->
                                 <option th:field="*{position}" th:value="d">Disagree</option>
                             </select>
-                            <button id="cancelPostBtn" type="button">Cancel</button>
-                            <input class="POB" type="submit" id="submitPostBtn" th:value="Post">
+
+                            <input type="submit" th:value="Post" id="submitPostBtn" class="hide-submit-button">
+                            <input type="button" th:value="Post" id="checkProfanityInPostBtn">
                             <div th:if="${postError}" th:text="${newPostError}"></div>
                         </form>
                     </div>
@@ -146,6 +147,9 @@
 <!--JQuery JS-->
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="/js/keys.js"></script>
 <script src="/js/posts.js"></script>
+<script src="/js/post_profanity.js"></script>
+<script src="/js/comment_profanity.js"></script>
 </body>
 </html>
