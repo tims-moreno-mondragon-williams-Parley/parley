@@ -2,14 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-    <meta charset="UTF-8">
-    <title>Home</title>
+	<head th:insert="~{partials/head :: head('Home')}"></head>
     <link rel="stylesheet" th:href="@{/css/index.css}">
 </head>
 <body>
-<div>
-    <div th:include="~{partials/navbar.html}"></div>
-</div>
+<nav>
+	<div th:include="~{partials/navbar :: navbar}"></div>
+</nav>
 <div>
     <div class="container-fluid MC">
         <div class="row">
@@ -89,5 +88,6 @@
 </section>
 <footer th:include="partials/footer :: footer">
 </footer>
+<div th:replace="~{partials/scripts :: scripts}"></div>
 </body>
 </html>
