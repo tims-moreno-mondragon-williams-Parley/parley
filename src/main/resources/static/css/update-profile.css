@@ -1,25 +1,48 @@
 .hide-submit-button{
     display: none;
 }
-
 #update-profile-container{
     background: #7b748cff;
-    border: 2px solid #7b748cff;
-    border-radius: 30px;
-    padding: 50px 50px 50px 50px;
-    display: flex;
     justify-content: center;
-    align-items: center;
-    margin-left: 25%;
-    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
 }
-.image-container{
-    flex-wrap: wrap;
-    gap: 5px;
-    max-width: 180px ;
-    max-height: 180px;
+
+#uploaded-banner-image {
+    max-width: 129px;
+    max-height: 129px;
 }
-img{
-    max-width: 180px;
-    max-height: 180px;
+
+#uploaded-image{
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 50px;
+
+}
+.username{
+
+}
+.email{
+
+}
+.bio{
+}
+.profile-picture{
+
+}
+.banner-picture{
+
+}
+#update-profile-button{
+
+}
+#update-profile-form{
+
+}
+#update-profile-profanity-check{
+
+}
+
+body{
+    background: #7b748cff;
 }
