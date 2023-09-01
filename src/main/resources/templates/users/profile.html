@@ -5,113 +5,62 @@
     <link rel="stylesheet" th:href="@{/css/profile.css}">
 </head>
 <body>
-<!--<nav>-->
-<!--  <div th:include="~{partials/navbar.html}"></div>-->
-<!--</nav>-->
-<div class="container main-content">
-
-    <div class="container banner-container">
-        <div class="BI">
-            <img th:src="${user.banner_img}" alt="Banner Image"
-                 th:if="${user.banner_img != null && user.banner_img !=''}"/>
-            <img th:src="@{/images/no_image.png}" alt="Banner Image"
-                 th:if="${user.banner_img == null or user.banner_img ==''}"/>
-        </div>
-    </div>
-
-    <div class="container profile-container">
-        <div class="PH">
-            <img class="img-circle PI" th:src="${user.profile_pic}" alt="Profile Picture"
-                 th:if="${user.profile_pic != null && user.profile_pic !=''}"/>
-            <img  class="img-circle PI"th:src="@{/images/no_profile.png}" alt="Profile Picture"
-                 th:if="${user.profile_pic == null or user.profile_pic ==''}"/>
-        </div>
-    </div>
-
-    <div class="container username">
-        <h1 class="default-name">
-            Lauren McCoy
-        </h1>
-    </div>
-
-
-    <div class="container bio-container">
-        <div class="BIO">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Nullam nec dignissim lorem, sed tristique lorem. Proin in
-                lacus aliquam, laoreet lacus eu, vulputate arcu.
-                Pellentesque habitant morbi tristique senectus et netus
-                et malesuada fames ac turpis egestas. Vestibulum euismod
-                ligula at iaculis sollicitudin.
-                <button type="button"
-                        class="btn btn-sm btn-dark" id="edit-profile">Edit
-                    Profile
-                </button>
-            </p>
-            <p th:text="${user.bio}"></p>
-        </div>
-    </div>
-
-
+<div>
+    <div th:replace="~{partials/navbar :: navbar}"></div>
 </div>
 
+    <div class="BI">
+        <img class="banner-user" th:src="${user.banner_img}"
+             alt="Banner Image"
+             th:if="${user.banner_img != null && user.banner_img !=''}"/>
+        <img class="banner-default"
+             th:src="@{/img/default_background.png}"
+             alt="Default banner image of conversation bloops"
+             th:if="${user.banner_img == null && user.banner_img ==''}"/>
+    </div>
+
+    <div class="profile-image">
+        <img class="profile-user" th:src="${user.profile_pic}"
+             alt="Profile Picture"
+             th:if="${user.profile_pic != null && user.profile_pic !=''}"/>
+        <img class="profile-default" th:src="@{/img/D3.webp}"
+             alt="Default image of a tech dog"
+             th:if="${user.profile_pic == null or user.profile_pic ==''}"/>
+    </div>
+
+    <div class="username">
+        <h1 th:text="${user.username}">UserName</h1>
+    </div>
+
+    <div class="BIO">
+        <p class="user-bio" th:text="${user.bio}"
+           th:if="${user.bio != null && user.bio != ''}"></p>
+        <p class="default-bio"
+           th:text="'Click the button below to add edit your profile.'"
+           th:if="${user.bio == null or user.bio == ''}"></p>
+        <div class="edit-button">
+            <a th:href="@{/profile/update}" class="btn btn-sm btn-dark">Edit
+                Profile</a>
+        </div>
+    </div>
+
 <div class="posts">
-    <h2 th:text="${user.username}"></h2>
-    Display user's posts here
     <div class="container user-posts">
         <h2>Your Posts</h2>
         <div th:each="post : ${posts}">
-            <div class="post">
-                <div class="P1">
-                    <h6>Lorem ipsum</h6>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nullam nec dignissim lorem, sed tristique lorem. Proin
-                        in
-                        lacus aliquam, laoreet lacus eu, vulputate arcu.
-                        Pellentesque habitant morbi tristique senectus et netus
-                        et malesuada fames ac turpis egestas. Vestibulum euismod
-                        ligula at iaculis sollicitudin.</p>
-                </div>
-                <br>
-                <div class="P2">
-                    <h6>Lorem ipsum</h6>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nullam nec dignissim lorem, sed tristique lorem. Proin
-                        in
-                        lacus aliquam, laoreet lacus eu, vulputate arcu.
-                        Pellentesque habitant morbi tristique senectus et netus
-                        et malesuada fames ac turpis egestas. Vestibulum euismod
-                        ligula at iaculis sollicitudin.</p>
-                </div>
-                <br>
-                <div class="P3">
-                    <h6>Lorem ipsum</h6>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nullam nec dignissim lorem, sed tristique lorem. Proin
-                        in
-                        lacus aliquam, laoreet lacus eu, vulputate arcu.
-                        Pellentesque habitant morbi tristique senectus et netus
-                        et malesuada fames ac turpis egestas. Vestibulum euismod
-                        ligula at iaculis sollicitudin.</p>
-                </div>
-                <br>
-                <h3 th:text="${post.title}"></h3>
-                <p th:text="${post.body}"></p>
-                <!--             Add other properties as needed -->
-            </div>
+            <h3 th:text="${post.title}"></h3>
+            <p th:text="${post.body}"></p>
+            <!--Add other properties as needed -->
         </div>
     </div>
-
 </div>
-<footer th:include="partials/footer :: footer">
-</footer>
+<footer th:include="partials/footer :: footer"></footer>
 <!--Filestack API JS-->
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 <!--jQuery JS-->
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
         crossorigin="anonymous"></script>
-<script src="/js/profile.js"></script>
 <script src="/js/filestack.js"></script>
 
 </body>
