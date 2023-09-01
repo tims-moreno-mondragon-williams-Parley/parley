@@ -117,7 +117,7 @@ label {
 }
 .comment-form {
     margin-top: 10px;
-    display: none;
+    /*display: none;*/
 }
 .show-comment-form, .comment-btn {
     background: #7b748cff;
@@ -146,6 +146,7 @@ label {
 }
 .cb {
     align-content: center;
+    width: 150px;
 }
 .show-comment-form, .hide-comment-form, .comment-btn {
     background: #7b748cff;
@@ -225,4 +226,7 @@ label {
     background: #222139ff;
     color: #7b748cff;
     border: none;
+}
+.hide-submit-button {
+    display: none;
 }
