@@ -9,9 +9,7 @@ html {
 nav {
     background: #222139ff;
 }
-h1, a {
-    color: white;
-}
+
 input.nav-link {
     color: white;
 }

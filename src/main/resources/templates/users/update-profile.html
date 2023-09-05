@@ -36,7 +36,7 @@
                      th:if="*{profile_pic != null && profile_pic != ''}">
                 <img class=" mx-auto" id="uploaded-image" th:src="@{/img/D3.webp}" alt="Uploaded Image"
                      th:if="*{profile_pic == null or profile_pic == ''}">
-                <button id="upload-profile-pic" type="button" class="w-25 mx-auto mt-2 btn btn-dark"> Upload</button>
+                <button id="upload-profile-pic" type="button" class="w-25 mx-auto mt-2 btn"> Upload</button>
             </div>
             <div class="banner-picture d-flex flex-column mt-3 col-5">
                 <label class="text-center mb-2">Banner Image </label>
@@ -45,15 +45,16 @@
                      th:if="*{banner_img != null and banner_img != ''}">
                 <img class=" mx-auto" id="uploaded-banner-image" th:src="@{/images/no_image.png}" alt="Uploaded Banner"
                      th:if="*{banner_img == null or banner_img == ''}">
-                <button id="upload-banner-pic" type="button" class="w-25 mx-auto mt-2 btn btn-dark">Upload</button>
+                <button id="upload-banner-pic" type="button" class="w-25 mx-auto mt-2 btn">Upload</button>
             </div>
         </div>
         <div class="d-flex justify-content-center">
-            <input type="button" id="update-profile-profanity-check" class="btn btn-primary mx-auto w-25 mt-5"
+            <input type="button" id="update-profile-profanity-check" class="btn mx-auto w-25 my-5"
                    th:value="Submit"></div>
         <input type="submit" id="update-profile-button" class="hide-submit-button">
     </form>
 </div>
+
 <footer th:include="partials/footer :: footer">
 </footer>
 <div th:replace="~{partials/scripts :: scripts}"></div>
