@@ -113,4 +113,8 @@ $(document).ready(function () {
         };
     });
 
+    $('.CL').click(function() {
+        $('.post-creation-form').hide();
+    });
+
 });

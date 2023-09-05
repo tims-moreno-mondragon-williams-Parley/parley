@@ -42,6 +42,10 @@ li {
     text-decoration: none;
     font-size: 17px;
 }
+.QS:hover {
+    color: #7b748cff;
+    font-size: 19px;
+}
 .S2CT {
     color: white;
     text-align: center;
@@ -68,12 +72,15 @@ label {
 .OFB {
     background-color: #222139ff;
     color: white;
-    outline-color: transparent;
-    border-radius: 30px;
-    border: 1px solid #7b748cff;
     align-self: center;
+    border: none;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 5px;
+}
+.OFB:hover {
+    color: #7b748cff;
+    font-style: oblique;
 }
 .button-container {
     text-align: center;
@@ -114,6 +121,9 @@ label {
     display: flex; /* This makes the children align in a row */
     justify-content: space-around; /* This spaces the buttons evenly */
     gap: 5px; /* This adds some space between the buttons */
+    height: 40px;
+    align-items: center;
+    overflow: hidden;
 }
 .comment-form {
     margin-top: 10px;
@@ -165,6 +175,7 @@ label {
     background: #222139ff;
     border-radius: 30px ;
     border: 2px solid #7b748cff;
+    flex: 1;
 }
 .hide-form, .hide-topic-form {
     display: none;
@@ -174,6 +185,9 @@ label {
     color: white;
     border-radius: 30px;
     border: 1px solid #7b748cff;
+}
+.PostTL, .post-body{
+    color: #222139ff;
 }
 .PBBB {
     color: white;
@@ -187,6 +201,7 @@ label {
     background: #222139ff;
     color: white;
     border-radius: 30px;
+    border: none;
 }
 .POB {
     background: #222139ff;
@@ -230,3 +245,62 @@ label {
 .hide-submit-button {
     display: none;
 }
+.like-container {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+}
+.NC {
+    margin-top: 17px;
+}
+.PBI, .cancel-btn {
+    color: white;
+    background: #222139ff;
+    border: 1px solid #7b748cff;
+    border-radius: 30px;
+}
+.btn1 {
+    background: #222139ff;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    height: 30px;
+    width: 70px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin: 0px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.btn1:hover {
+    background: #7b748cff;
+    border: 1px solid #222139ff;
+}
+.post-creation-form-0 {
+    align-items: center;
+    margin-bottom: 10px;
+}
+#show-create-category-form-container, .show-create-topic-form-container {
+    display: flex;
+    align-items: center;
+}
+
+#show-create-category-form-container h3 {
+    margin-left: 10px;
+    color: white;
+}
+.show-create-topic-form-container h3 {
+    margin-left: 10px;
+    color: white;
+}
+.modal-body {
+    background: #7b748cff;
+}
+.modal-title {
+    color: white;
+}
+.modal-header {
+    background: #222139ff;
+    align-content: center;
+}
+
