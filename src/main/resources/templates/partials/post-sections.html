@@ -22,16 +22,18 @@
 						      method="post">
 							<input type="hidden" name="like" th:value="l" value="l">
 							<button class="like-dislike" type="submit">
-								<div th:if="${userLikeMap.containsKey(post.id)}">
+								<div class="like-container">
+									<div th:if="${userLikeMap.containsKey(post.id)}">
 										<i class="bi bi-hand-thumbs-up"
 										   th:if="${userLikeMap.get(post.id) != 'l'}"></i>
 										<i class="bi bi-hand-thumbs-up-fill"
 									    th:if="${userLikeMap.get(post.id) == 'l'}"></i>
+									</div>
+									<div th:if="${!userLikeMap.containsKey(post.id)}">
+										<i class="bi bi-hand-thumbs-up"></i>
+									</div>
+									<p class="NC" th:text="${likeCountMap.get(post.id)}"></p>
 								</div>
-								<div th:if="${!userLikeMap.containsKey(post.id)}">
-									<i class="bi bi-hand-thumbs-up"></i>
-								</div>
-								<p th:text="${likeCountMap.get(post.id)}"></p>
 							</button>
 						</form>
 					</div>
@@ -40,17 +42,18 @@
 						      method="post">
 							<input type="hidden" name="like" th:value="d" value="d">
 							<button class="like-dislike" type="submit">
-								<div th:if="${userLikeMap.containsKey(post.id)}">
-									<i class="bi bi-hand-thumbs-down"
+								<div class="like-container">
+									<div th:if="${userLikeMap.containsKey(post.id)}">
+										<i class="bi bi-hand-thumbs-down"
 									   th:if="${userLikeMap.get(post.id) != 'd'}"></i>
-									<i class="bi bi-hand-thumbs-down-fill"
+										<i class="bi bi-hand-thumbs-down-fill"
 									   th:if="${userLikeMap.get(post.id) == 'd'}"></i>
+									</div>
+									<div th:if="${!userLikeMap.containsKey(post.id)}">
+										<i class="bi bi-hand-thumbs-down"></i>
+									</div>
+									<p class="NC" th:text="${dislikeCountMap.get(post.id)}"></p>
 								</div>
-								<div th:if="${!userLikeMap.containsKey(post.id)}">
-									<i class="bi bi-hand-thumbs-down"></i>
-								</div>
-								<p th:text="${dislikeCountMap.get(post.id)}"></p>
-								<!-- Bootstrap icon for thumbs down -->
 							</button>
 						</form>
 					</div>
