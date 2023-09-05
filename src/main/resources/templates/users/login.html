@@ -11,15 +11,15 @@
 <div class="container-fluid MC">
 	<div class="row justify-content-between">
 		<div class="col-4 C1">
-			<h3 class="LOG-B">Log In</h3>
+			<h3 class="LOG-B">Login</h3>
 			<form th:action="@{/login}" method="post">
 				<div>
-					<label class="LOG" for="username">Username:</label>
-					<input class="INP" type="text" id="username" name="username" required>
+					<label class="LOG" for="username"></label>
+					<input class="INP" type="text" id="username" name="username" required placeholder="Username">
 				</div>
 				<div>
-					<label class="LOG" for="password">Password:</label>
-					<input class="INP" type="password" id="password" name="password" required>
+					<label class="LOG" for="password"></label>
+					<input class="INP" type="password" id="password" name="password" required placeholder="Password">
 				</div>
 				<div class="log-cont">
 					<button class="log-btn" type="submit">Log In</button>

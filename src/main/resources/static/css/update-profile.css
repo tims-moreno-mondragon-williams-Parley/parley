@@ -2,7 +2,7 @@
     display: none;
 }
 #update-profile-container{
-    background: #7b748cff;
+    background: #CFB1E5;
     justify-content: center;
     display: flex;
     flex-direction: column;
@@ -40,9 +40,24 @@
 
 }
 #update-profile-profanity-check{
+    color: white;
+    background-color: rgba(45, 202, 207, 0.78);
+    box-shadow: 2px 2px rgba(30, 130, 130, 0.78);
 
 }
 
 body{
-    background: #7b748cff;
+    background: #CFB1E5;
+}
+#upload-banner-pic{
+    color: white;
+    background-color: rgba(45, 202, 207, 0.78);
+    box-shadow: 2px 2px rgba(30, 130, 130, 0.78);
+
+}
+#upload-profile-pic{
+    color: white;
+    background-color: rgba(45, 202, 207, 0.78);
+    box-shadow: 2px 2px rgba(30, 130, 130, 0.78);
+
 }
