@@ -9,9 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class PostController {
@@ -53,21 +51,35 @@ public class PostController {
 
     @GetMapping({"/posts/{id}", "/posts/{id}/"})
     public String showTopicPosts(Model model, @PathVariable Long id){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        user = userDao.findUserById(user.getId());
         Post formPost = new Post();
         Comment formComment = new Comment();
-        LikeDislikePost likeDislikePost = new LikeDislikePost();
+        List<LikeDislikePost> likeDislikePosts = likeDislikeDao.findAll();
+
         List<Category> categories = getAllCategories();
         List<Topic> topics = getAllTopics();
         Topic topic = topicDao.findTopicById(id);
         List<Post> posts = postDao.findAllByTopic_Id(id);
         List<Comment> comments = new ArrayList<>();
 
+        HashMap<Long, String> userLikeMap = new HashMap<>();
+        HashMap<Long, Long> likeCountMap = new HashMap<>();
+        HashMap<Long, Long> dislikeCountMap = new HashMap<>();
 
         for (Post p : posts) {
             comments.addAll(commentDao.findAllByPost_Id(p.getId()));
+            likeCountMap.put(p.getId(), likeDislikeDao.countLikeDislikePostByPostLikesId_PostAndLikeDislike(p, "l"));
+            dislikeCountMap.put(p.getId(), likeDislikeDao.countLikeDislikePostByPostLikesId_PostAndLikeDislike(p, "d"));
+            if(likeDislikeDao.findLikeDislikePostByPostLikesId_PostAndPostLikesId_User(p, user) != null){
+                userLikeMap.put(p.getId(), likeDislikeDao.findLikeDislikePostByPostLikesId_PostAndPostLikesId_User(p, user).getLikeDislike());
+            }
         }
 
-        model.addAttribute("likeDislikePost", likeDislikePost);
+        model.addAttribute("likeDislikePosts", likeDislikePosts);
+        model.addAttribute("userLikeMap", userLikeMap);
+        model.addAttribute("likeCountMap", likeCountMap);
+        model.addAttribute("dislikeCountMap", dislikeCountMap);
         model.addAttribute("categories", categories);
         model.addAttribute("topics", topics);
         model.addAttribute("posts", posts);
@@ -76,6 +88,7 @@ public class PostController {
         model.addAttribute("comments", comments);
         model.addAttribute("formPost", formPost);
         model.addAttribute("formComment", formComment);
+        model.addAttribute("user", user);
 
         return "posts/posts";
     }
@@ -102,7 +115,11 @@ public class PostController {
         likeDislikePost.setLikeDislike(like);
         likeDislikePost.setPostLikesId(postLikesId);
         try {
-            likeDislikeDao.save(likeDislikePost);
+            if(likeDislikeDao.findLikeDislikePostByPostLikesId_PostAndPostLikesId_User(post, user) != null && Objects.equals(likeDislikeDao.findLikeDislikePostByPostLikesId_PostAndPostLikesId_User(post, user).getLikeDislike(), likeDislikePost.getLikeDislike())){
+                likeDislikeDao.delete(likeDislikePost);
+            } else {
+                likeDislikeDao.save(likeDislikePost);
+            }
         } catch (Exception e){
             System.out.println(user.getId());
             System.out.println();
