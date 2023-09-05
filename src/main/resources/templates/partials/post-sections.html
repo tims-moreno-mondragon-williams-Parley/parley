@@ -1,67 +1,91 @@
 <div class="post-agreed-section" th:fragment="posts(position, positionLetter)" th:if="${topicClicked}">
-		<h2 class="ADI" th:text="${position}"></h2>
-		<div th:each="post : ${posts}">
-			<div th:if="${post.position == positionLetter}">
-				<div class="post-card">
-
-<!--	Section for displying user profiles when finished				-->
-<!--					<div th:if="${post.getUser().getProfile_pic() != null or post.getUser().getProfile_pic() != ''}">-->
-<!--						<img th:src="${post.getUser().getProfile_pic()}" alt="Profile Img">-->
-<!--					</div>-->
-<!--					<div th:if="${post.getUser().getProfile_pic() == null or post.getUser().getProfile_pic() == ''}">-->
-<!--						<img th:src="@{/img/profile.jpeg}" alt="Default Profile Img">-->
-<!--					</div>-->
+	<h2 class="ADI" th:text="${position}"></h2>
+	<div th:each="post, iStat : ${posts}">
+		<div th:if="${post.position == positionLetter}">
+			<div class="post-card">
+				
+				<!--	Section for displying user profiles when finished				-->
+				<!--					<div th:if="${post.getUser().getProfile_pic() != null or post.getUser().getProfile_pic() != ''}">-->
+				<!--						<img th:src="${post.getUser().getProfile_pic()}" alt="Profile Img">-->
+				<!--					</div>-->
+				<!--					<div th:if="${post.getUser().getProfile_pic() == null or post.getUser().getProfile_pic() == ''}">-->
+				<!--						<img th:src="@{/img/profile.jpeg}" alt="Default Profile Img">-->
+				<!--					</div>-->
 				<h3 class="PB PBT" th:text="${post.title}"></h3>
 				<h5 class="PB" th:text="${post.body}"></h5>
 			</div>
-				<div class="actions-container">
-					<!-- This div will contain all the buttons side by side -->
-					<div class="buttons-row">
-						<div class="like-post-sect">
-							<form th:action="@{/posts/{id}/{postId}/like-dislike(id=${viewedTopic.id}, postId=${post.id})}" method="post">
-								<input type="hidden" name="like" th:value="l" value="l">
-								<button class="like-dislike" type="submit">
+			<div class="actions-container">
+				<!-- This div will contain all the buttons side by side -->
+				<div class="buttons-row">
+					<div class="like-post-sect">
+						<form th:action="@{/posts/{id}/{postId}/like-dislike(id=${viewedTopic.id}, postId=${post.id})}"
+						      method="post">
+							<input type="hidden" name="like" th:value="l" value="l">
+							<button class="like-dislike" type="submit">
+								<div th:if="${userLikeMap.containsKey(post.id)}">
+										<i class="bi bi-hand-thumbs-up"
+										   th:if="${userLikeMap.get(post.id) != 'l'}"></i>
+										<i class="bi bi-hand-thumbs-up-fill"
+									    th:if="${userLikeMap.get(post.id) == 'l'}"></i>
+								</div>
+								<div th:if="${!userLikeMap.containsKey(post.id)}">
 									<i class="bi bi-hand-thumbs-up"></i>
-								</button>
-							</form>
-						</div>
-						<div class="dislike-post-sect">
-							<form th:action="@{/posts/{id}/{postId}/like-dislike(id=${viewedTopic.id}, postId=${post.id})}" method="post">
-								<input type="hidden" name="like" th:value="d" value="d">
-								<button class="like-dislike" type="submit">
-									<i class="bi bi-hand-thumbs-down"></i> <!-- Bootstrap icon for thumbs down -->
-								</button>
-							</form>
-						</div>
-						<button class="show-comment-form">View Comments</button>
-						<button class="comment-btn hide-form">Comment</button>
-						<button class="hide-comment-form hide-form">Hide</button>
-					</div>
-
-					<!-- Comment form section -->
-					<div class="comment-form">
-						<form class="comment-form-section hide-form" th:action="@{/posts/{id}/{postId}/comment(id=${viewedTopic.id}, postId=${post.id})}" method="post">
-							<div class="cb">
-								<label for="comment-body"></label>
-								<textarea class="CBb" id="comment-body" name="comment-body" cols="33" rows="5" placeholder="Comment Body"></textarea>
-							</div>
-							<div>
-								<input type="button" th:value="Comment" class="checkProfanityInCommentBtn like-dislike">
-								<input class="submitCommentBtn hide-submit-button" type="submit">
-							</div>
+								</div>
+								<p th:text="${likeCountMap.get(post.id)}"></p>
+							</button>
 						</form>
-						<div th:if="${commentError == true}" th:text="${commentError}"></div>
 					</div>
-					<!-- Comment cards section -->
-					<div class="comment-cards-section hide-form">
-						<div th:each="comment : ${comments}">
-							<div class="comment-card" th:if="${comment.getPost().getId().equals(post.getId())}">
-								<h4 th:text="${comment.body}"></h4>
-							</div>
+					<div class="dislike-post-sect">
+						<form th:action="@{/posts/{id}/{postId}/like-dislike(id=${viewedTopic.id}, postId=${post.id})}"
+						      method="post">
+							<input type="hidden" name="like" th:value="d" value="d">
+							<button class="like-dislike" type="submit">
+								<div th:if="${userLikeMap.containsKey(post.id)}">
+									<i class="bi bi-hand-thumbs-down"
+									   th:if="${userLikeMap.get(post.id) != 'd'}"></i>
+									<i class="bi bi-hand-thumbs-down-fill"
+									   th:if="${userLikeMap.get(post.id) == 'd'}"></i>
+								</div>
+								<div th:if="${!userLikeMap.containsKey(post.id)}">
+									<i class="bi bi-hand-thumbs-down"></i>
+								</div>
+								<p th:text="${dislikeCountMap.get(post.id)}"></p>
+								<!-- Bootstrap icon for thumbs down -->
+							</button>
+						</form>
+					</div>
+					<button class="show-comment-form">View Comments</button>
+					<button class="comment-btn hide-form">Comment</button>
+					<button class="hide-comment-form hide-form">Hide</button>
+				</div>
+				
+				<!-- Comment form section -->
+				<div class="comment-form">
+					<form class="comment-form-section hide-form"
+					      th:action="@{/posts/{id}/{postId}/comment(id=${viewedTopic.id}, postId=${post.id})}"
+					      method="post">
+						<div class="cb">
+							<label for="comment-body"></label>
+							<textarea class="CBb" id="comment-body" name="comment-body" cols="33" rows="5"
+							          placeholder="Comment Body"></textarea>
+						</div>
+						<div>
+							<input type="button" th:value="Comment" class="checkProfanityInCommentBtn like-dislike">
+							<input class="submitCommentBtn hide-submit-button" type="submit">
+						</div>
+					</form>
+					<div th:if="${commentError == true}" th:text="${commentError}"></div>
+				</div>
+				<!-- Comment cards section -->
+				<div class="comment-cards-section hide-form">
+					<div th:each="comment : ${comments}">
+						<div class="comment-card" th:if="${comment.getPost().getId().equals(post.getId())}">
+							<h4 th:text="${comment.body}"></h4>
 						</div>
 					</div>
 				</div>
-
 			</div>
+		
+		</div>
 	</div>
 </div>
