@@ -101,7 +101,13 @@ public class PostController {
         post.setUser(user);
         post.setTopic(topicDao.findTopicById(id));
         post.setId(null);
-        postDao.save(post);
+        if(post.getTitle() != null && !post.getTitle().equals("") && post.getBody() != null && !post.getBody().equals("")){
+            try {
+                postDao.save(post);
+            } catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+        }
         String redirect = "redirect:/posts/" + id;
         return redirect;
     }
