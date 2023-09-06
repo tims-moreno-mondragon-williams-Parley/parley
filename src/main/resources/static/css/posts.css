@@ -10,7 +10,7 @@
 }
 .S2 {
     height: 92vh;
-    background: #7b748cff;
+    background: transparent;
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 30px;
@@ -23,7 +23,8 @@
 .MC {
     padding-bottom: 10px;
     padding-top: 10px;
-    background-color: #7b748cff;
+    background: linear-gradient( 180deg ,#C3073F, #950740, #6F2232);
+
 }
 li {
     list-style-type: none;
@@ -93,7 +94,7 @@ label {
     border-radius: 30px;
 }
 .PT2 {
-    background: #222139ff;
+    background: transparent;
     border-radius: 30px;
     height: 100%;
     padding-top: 10px;

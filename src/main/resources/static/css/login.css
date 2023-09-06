@@ -11,7 +11,7 @@
     background: #CFB1E5;
     padding-top: 10px;
     padding-bottom: 10px;
-    border: 1px solid #CFB1E5;
+    border: 2px solid #CFB1E5;
     border-radius: 30px;
 }
 .C1 {
@@ -41,11 +41,11 @@ p {
     font-size: 35px;
     color: white;
     text-align: center;
+    margin-right: 15px;
 }
 .INP {
-    width: 100%; /* Full width */
-    padding: 12px 20px; /* Some padding */
-    margin: 4px; /* Some margin */
+    width: 30vh; /* Full width */
+
     box-sizing: border-box; /* Ensures padding doesn't add extra width */
     border: 2px solid #7b748cff; /* Gray border */
     border-radius: 4px; /* Rounded borders */
@@ -53,14 +53,14 @@ p {
     background-color: #CFB1E5; /* Light gray background */
     transition: 0.3s; /* Smooth transitions on hover */
     color: white;
+    overflow: hidden;
 }
 .INP:focus {
     border-color: #7b748cff; /* Green border on focus */
     color: white;
 }
 .log-btn {
-    margin: 4px;
-    width: 100%; /* Adjust as needed */
+    width: 25vh; /* Adjust as needed */
     height: 50px; /* Adjust as needed */
     background-color: rgba(45, 202, 207, 0.78); /* Change to your preferred color */
     border: 2px solid #7b748cff;
@@ -70,6 +70,7 @@ p {
     font-weight: bold; /* Makes the text bold */
     cursor: pointer; /* Changes the cursor to a hand when hovering over the button */
     transition: background-color 0.3s; /* Smooth transition for hover effect */
+    padding: 0px;
 }
 .log-btn:hover {
     background-color: #CFB1E5; /* Slightly darker blue on hover */
@@ -84,19 +85,23 @@ p {
     text-decoration: none;
 }
 .log-cont {
-    padding-bottom: 15px;
-    margin-top: 8px;
+ text-align: center;
+    display: flex;
+    justify-content: center;
 }
 .fact {
-    padding-top: 40px;
+    padding-top: 60px;
     padding-bottom: 40px;
     font-size: 17px;
     text-align: center;
-    margin-right: 100px;
-    margin-left: 100px;
+    margin-right: 130px;
+    margin-left: 130px;
 }
 .CANT1 {
-    align-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
 }
 .LOG {
     text-align: center;
@@ -106,6 +111,36 @@ p {
     height: auto;
     display: block;
 }
+.FRM {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* or whatever width you want for the form */
+    margin: 0 auto; /* this will center the form horizontally */
+}
+.INP, .log-cont {
+    margin: 10px 0;
+    padding: 10px; /* or any padding you prefer */
+}
 
-
-
+@media (min-width: 850px) {
+    .INP {
+        width: 300px;
+    }
+    .log-btn {
+        width: 250px;
+    }
+}
+@media (min-width: 850px) {
+    .INP {
+        width: 300px;
+    }
+    .log-btn {
+        width: 250px;
+    }
+}
