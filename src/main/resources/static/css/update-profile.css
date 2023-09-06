@@ -2,10 +2,11 @@
     display: none;
 }
 #update-profile-container{
-    background: #CFB1E5;
+    background: #7b748cff;
     justify-content: center;
     display: flex;
     flex-direction: column;
+    height: 90vh;
 }
 
 #uploaded-banner-image {
@@ -47,7 +48,7 @@
 }
 
 body{
-    background: #CFB1E5;
+    background: #7b748cff;
 }
 #upload-banner-pic{
     color: white;
@@ -60,4 +61,7 @@ body{
     background-color: rgba(45, 202, 207, 0.78);
     box-shadow: 2px 2px rgba(30, 130, 130, 0.78);
 
+}
+.content-wrapper{
+    flex: 1;
 }

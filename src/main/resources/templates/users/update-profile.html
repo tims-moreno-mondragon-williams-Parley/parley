@@ -8,6 +8,7 @@
 <nav>
 	<div th:replace="~{partials/navbar :: navbar}"></div>
 </nav>
+<div class="content-wrapper">
 <h1 class="text-center my-5">Edit Profile</h1>
 <div id="update-profile-container">
     <form th:object="${user}"
@@ -54,7 +55,7 @@
         <input type="submit" id="update-profile-button" class="hide-submit-button">
     </form>
 </div>
-
+</div>
 <footer th:include="partials/footer :: footer">
 </footer>
 <div th:replace="~{partials/scripts :: scripts}"></div>
