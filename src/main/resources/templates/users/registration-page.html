@@ -10,7 +10,22 @@
 </nav>
 <div class="container-fluid MC">
 	<div class="row">
-		<div class="col-4 C2 wrap">
+		<div class=" col-4 d-flex flex-column">
+			<div class="C1 wrap">
+			</div>
+			<div class="C1-M wrap">
+				<section class="wrapper">
+					<div class="top">PARLEY</div>
+					<div class="bottom" aria-hidden="true">PARLEY</div>
+				</section>
+				<p class="Q">"You don't win a debate by suppressing discussion;
+					you win it with a better argument."- Frank Sonnenberg</p>
+			</div>
+			<div class="C1-L wrap">
+			</div>
+		</div>
+
+		<div class="col-8 C2 wrap">
 			<div id="register-form-container">
 				<h2 class="MR">Register</h2>
 				<form th:action="@{/register}" th:object="${user}" method="post" id="register-form">
@@ -49,20 +64,8 @@
 				</form>
 			</div>
 		</div>
-		<div class=" col-8 d-flex flex-column">
-			<div class="C1 wrap">
-			</div>
-			<div class="C1-M wrap">
-				<section class="wrapper">
-					<div class="top">PARLEY</div>
-					<div class="bottom" aria-hidden="true">PARLEY</div>
-				</section>
-				<p class="Q">"You don't win a debate by suppressing discussion;
-					you win it with a better argument."- Frank Sonnenberg</p>
-			</div>
-			<div class="C1-L wrap">
-			</div>
-		</div>
+
+
 	</div>
 </div>
 <footer th:include="partials/footer :: footer">

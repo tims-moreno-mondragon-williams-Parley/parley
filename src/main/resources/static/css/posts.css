@@ -40,7 +40,7 @@ li {
 .QS {
     color: white;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 15px;
 }
 .QS:hover {
     color: #7b748cff;
@@ -108,7 +108,7 @@ label {
 .PB {
     color: white;
     text-align: center;
-    font-size: 13px;
+    font-size: 15px;
 }
 .PBT {
     font-size: 20px;
@@ -231,12 +231,6 @@ label {
 .DFS {
     border: 5px solid transparent;
 }
-.DF-h1 {
-    text-align: center;
-    background: rgba(123, 116, 140, 0.8);
-    border-radius: 10px;
-    color: white;
-}
 .CAT-button,.CATM-button,.show-create-topic-form-button,.hide-button {
     background: #222139ff;
     color: #7b748cff;
@@ -302,5 +296,30 @@ label {
 .modal-header {
     background: #222139ff;
     align-content: center;
+}
+.comment-p {
+    font-size: 15px;
+    margin-bottom: 0px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.comment-card {
+    border: 1px solid #222139ff;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 2px;
+    border-radius: 5px;
+}
+.DF-h1 {
+    color: white;
+}
+.ran {
+    text-align: center;
+    background: rgba(123, 116, 140, 0.9);
+    border-radius: 10px;
+}
+.CRT {
+    font-size: 25px;
+    padding: 0px;
 }
 

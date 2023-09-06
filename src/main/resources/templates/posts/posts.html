@@ -20,7 +20,7 @@
 					<button id="hide-create-category-form-button" class="CATM-button">
 						<i class="bi bi-dash-circle-fill"></i>
 					</button>
-					<h3>Create Category</h3>
+					<h3 class="CRT">Create Category</h3>
 				</div>
 				<div id="create-category-form-container" class="hide-form">
 					
@@ -49,7 +49,7 @@
 								<button class="hide-button hide-create-topic-form-button">
 									<i class="bi bi-dash-circle-fill"></i>
 								</button>
-								<h3>Create Topic</h3>
+								<h3 class="CRT">Create Topic</h3>
 							</div>
 							<div class="create-topic-form-container">
 								<form class="topic-form-section hide-topic-form" th:action="@{/posts/create-topic}"
@@ -84,6 +84,7 @@
 					
 					<div class="default-container-fluid" th:if="${not topicClicked}">
 						<div class="container dci">
+							<div class="ran">
 							<h1 class="DF-h1 DFS">Welcome to Parley</h1>
 							<p class="DF-h1">Parley is the premier destination for those passionate about honing
 								their debating skills. At Parley, we provide a unique platform
@@ -102,6 +103,7 @@
 								and the ability to think on one's feet. It's no wonder many debaters go on
 								to have successful careers in law, politics, and other fields that value
 								these skills.</p>
+							</div>
 						</div>
 					</div>
 

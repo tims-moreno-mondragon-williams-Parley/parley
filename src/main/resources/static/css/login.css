@@ -6,7 +6,7 @@
     padding-top: 10px;
     background: #CFB1E5;
 }
-.C1 , .C2 {
+.C1 {
     height: 92vh;
     background: #CFB1E5;
     padding-top: 10px;
@@ -20,14 +20,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-.C2 {
-    background-image: url("../img/backconv.jpeg");
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
 }
 .PART {
     font-size: 40px;
@@ -48,6 +40,7 @@ p {
 .LOG-B {
     font-size: 35px;
     color: white;
+    text-align: center;
 }
 .INP {
     width: 100%; /* Full width */
@@ -95,11 +88,24 @@ p {
     margin-top: 8px;
 }
 .fact {
-    padding-top: 15px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     font-size: 17px;
+    text-align: center;
+    margin-right: 100px;
+    margin-left: 100px;
 }
-
-
+.CANT1 {
+    align-content: center;
+}
+.LOG {
+    text-align: center;
+}
+.CANT2 img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
 
 
 
