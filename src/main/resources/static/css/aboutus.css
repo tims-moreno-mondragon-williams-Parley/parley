@@ -1,16 +1,19 @@
 img{
-    border-radius: 50%;
+    /*border-radius: 50%;*/
     width: 200px;
     height: 200px;
     object-fit: cover;
-    border: 4px solid #222139ff;
+    /*border: 4px solid #222139ff;*/
 }
 a{
     color: white;
-    margin: 2em;
+    text-decoration: none;
 }
 body{
-    background-color: #CFB1E5;
+    background-color: #7b748cff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 .about-us{
     color: white;
@@ -22,4 +25,33 @@ h2{
 p{
     font-family: 'Lato', sans-serif;
     font-size: 30px;
+}
+.content-wrapper{
+    flex: 1;
+}
+.card-title{
+    color: white;
+}
+.card{
+    background-color: #7b748cff;
+    border: none;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card-img-top{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 4px solid #222139ff;
+}
+.codeup-logo{
+    height: 35px;
+    width: 35px;
+}
+.card-body{
+    display: flex;
+    align-items: center;
 }
