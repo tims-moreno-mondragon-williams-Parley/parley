@@ -10,7 +10,9 @@
 </nav>
 <div class="container-fluid MC">
 	<div class="row justify-content-between">
-		<div class="col-4 C1">
+		<div class="col-12 C1">
+			<div class="row">
+			<div class="CANT1 col-6">
 			<h3 class="LOG-B">Login</h3>
 			<form th:action="@{/login}" method="post">
 				<div>
@@ -26,19 +28,21 @@
 				</div>
 			</form>
 			<p class="LOG">Don't have an account? <a th:href="@{/register}" class="register REGH">Register Here</a></p>
-			<p class="fact">
-				Did you know Debate participation promotes problem solving and
-				innovative thinking, and helps students to build links
-				between words and ideas that make concepts more meaningful
-			</p>
-		</div>
-		<div class="col-8 C2">
-			<p class="PART">P</p>
-			<p class="PART">A</p>
-			<p class="PART">R</p>
-			<p class="PART">L</p>
-			<p class="PART">E</p>
-			<p class="PART">Y</p>
+			</div>
+				<div class="CANT2 col-6">
+					<img src="/img/rat.png" alt="Description of Image">
+				</div>
+
+				<div class="CANT3 col-12">
+					<p class="fact">
+						Did you know Debate participation promotes problem solving and
+						innovative thinking, and helps students to build links
+						between words and ideas that make concepts more meaningful
+					</p>
+				</div>
+
+			</div>
+
 		</div>
 	</div>
 </div>

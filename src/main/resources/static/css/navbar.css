@@ -23,10 +23,8 @@ a.nav-link:hover {
     color: #7b748cff;
 }
 .Title {
-    /*color: white;*/
-    /*font-size: 30px;*/
     text-decoration: none;
-    margin-left: 20px;
+    margin-left: 100px;
 }
 button.navbar-toggler {
     color: white;
@@ -62,4 +60,7 @@ img.PI {
     width: 20px;
     height: 50px;
     object-fit: cover;
+}
+a.REG {
+    color: rgba(45, 202, 207, 0.78);
 }

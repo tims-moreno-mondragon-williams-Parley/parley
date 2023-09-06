@@ -83,7 +83,7 @@
 				<div class="comment-cards-section hide-form">
 					<div th:each="comment : ${comments}">
 						<div class="comment-card" th:if="${comment.getPost().getId().equals(post.getId())}">
-							<h4 th:text="${comment.body}"></h4>
+							<h4 class="comment-p" th:text="${comment.body}"></h4>
 						</div>
 					</div>
 				</div>
