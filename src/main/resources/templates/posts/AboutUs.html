@@ -1,39 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <head th:insert="~{partials/head :: head('About Us')}"></head>
-  <link rel="stylesheet" th:href="@{/css/aboutus.css}">
-</head>
-<body>
-<nav>
-  <div th:replace="~{partials/navbar :: navbar}"></div>
-</nav>
-<div class="border-warning border">
-<h1>About Us</h1>
-<p> Welcome to our platform, a unique space crafted by four passionate software developers. We've created a hub for meaningful conversations where users can agree, disagree, and delve deep into pressing topics. In a world filled with diverse opinions, our website stands as a beacon for genuine dialogue and understanding. Join us, share your perspective, and be part of a community that values growth through conversation.
-</p>
-</div>
-<div class="border-danger border">
-  <div>
-<h2>Johann Williams</h2>
-<img src="/img/johann_williams.jpg" alt="image" id="johann">
-  </div>
-  <div>
-<h2>Geniece Tims</h2>
-<img src="/img/geniece-tims-2.jpeg" alt="image" id="geniece">
-  </div>
-  <div>
-<h2>Daniel Mondragon</h2>
-<img src="/img/Daniel_Mondragon_Headshot%20(2).jpg" alt="image" id="daniel">
-  </div>
-  <div>
-<h2>Michaella Moreno</h2>
-<img src="/img/michaella-moreno.jpg" alt="image" id="michaella">
-  </div>
-</div>
-<footer th:include="partials/footer :: footer">
-</footer>
-<div th:replace="~{partials/scripts :: scripts}"></div>
-<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
-</body>
+  <head>
+    <head th:insert="~{partials/head :: head('About Us')}"></head>
+    <link rel="stylesheet" th:href="@{/css/aboutus.css}" />
+  </head>
+  <body>
+    <nav>
+      <div th:replace="~{partials/navbar :: navbar}"></div>
+    </nav>
+    <div class="about-us d-flex container">
+        <div class="row">
+      <div class="col-12">
+        <h1 class="text-center my-3">About Us</h1>
+      </div>
+      <div class="col-12">
+        <p class="text-center">
+          Welcome to our platform, a unique space crafted by four passionate
+          software developers. We've created a hub for meaningful conversations
+          where users can agree, disagree, and delve deep into pressing topics.
+          In a world filled with diverse opinions, our website stands as a
+          beacon for genuine dialogue and understanding. Join us, share your
+          perspective, and be part of a community that values growth through
+          conversation.
+        </p>
+      </div>
+    </div>
+    </div>
+    <div class="d-flex container">
+      <div class="row justify-content-center">
+        <div class="col-md-6 my-5 text-center">
+          <h2>Johann Williams</h2>
+          <img src="/img/johann_williams.jpg" alt="image" id="johann" class="mx-auto d-block my-4" />
+          <a
+            class="fa-brands fa-github fa-2xl"
+            href="https://github.com/JohannWilliams"
+          ></a>
+          <a
+            class="fa-brands fa-linkedin fa-2xl"
+            href="https://www.linkedin.com/in/johannwilliams/"
+          ></a>
+          <a href="https://alumni.codeup.com/candidate/johann-williams/">
+            Alumni Portal</a
+          >
+        </div>
+        <div class="col-md-6 my-5 text-center">
+          <h2>Geniece Tims</h2>
+          <img src="/img/geniece-tims-2.jpeg" alt="image" id="geniece" class="mx-auto d-block my-4" />
+          <a
+            class="fa-brands fa-github fa-2xl"
+            href="https://github.com/geniece-tims"
+          ></a>
+          <a
+            class="fa-brands fa-linkedin fa-2xl"
+            href="https://www.linkedin.com/in/timsgenc/"
+          ></a>
+          <a href="https://alumni.codeup.com/candidate/geniece-tims/">
+            Alumni Portal</a
+          >
+        </div>
+        <div class="col-md-6 my-5 text-center">
+          <h2>Daniel Mondragon</h2>
+          <img
+            src="/img/Daniel_Mondragon_Headshot%20(2).jpg"
+            alt="image"
+            id="daniel"
+            class="mx-auto d-block my-4"
+          />
+          <a
+            class="fa-brands fa-github fa-2xl"
+            href="https://github.com/DanielMondragon124"
+          ></a>
+          <a
+            class="fa-brands fa-linkedin fa-2xl"
+            href="https://www.linkedin.com/in/daniel-mondragon1/"
+          ></a>
+          <a href=""> Alumni Portal</a>
+        </div>
+        <div class="col-md-6 my-5 text-center">
+          <h2>Michaella Moreno</h2>
+          <img src="/img/michaella-moreno.jpg" alt="image" id="michaella" class="mx-auto d-block my-4" />
+          <a
+            class="fa-brands fa-github fa-2xl"
+            href="https://github.com/meekaellaa"
+          ></a>
+          <a
+            class="fa-brands fa-linkedin fa-2xl"
+            href="https://www.linkedin.com/in/michaella-moreno/"
+          ></a>
+          <a href=""> Alumni Portal</a>
+        </div>
+      </div>
+    </div>
+    <footer th:include="partials/footer :: footer"></footer>
+    <div th:replace="~{partials/scripts :: scripts}"></div>
+    <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/f7c5f21150.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

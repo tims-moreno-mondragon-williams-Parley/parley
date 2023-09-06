@@ -13,8 +13,9 @@
 				<!--					</div>-->
 				<h3 class="PB PBT" th:text="${post.title}"></h3>
 				<h5 class="PB" th:text="${post.body}"></h5>
+				<p class="text-end post-by-name me-2 mb-0 pb-1">post by: <span class="text-end" th:text="${post.user.username}"></span></p>
 			</div>
-			<div class="actions-container">
+			<div class="actions-container mb-4">
 				<!-- This div will contain all the buttons side by side -->
 				<div class="buttons-row">
 					<div class="like-post-sect">
@@ -63,17 +64,16 @@
 				</div>
 				
 				<!-- Comment form section -->
-				<div class="comment-form">
-					<form class="comment-form-section hide-form"
+				<div class="comment-form mx-auto">
+					<form class="comment-form-section hide-form mx-auto mb-2"
 					      th:action="@{/posts/{id}/{postId}/comment(id=${viewedTopic.id}, postId=${post.id})}"
 					      method="post">
-						<div class="cb">
-							<label for="comment-body"></label>
-							<textarea class="CBb" id="comment-body" name="comment-body" cols="33" rows="5"
+						<div class="cb mx-auto mt-0">
+							<textarea class="CBb form-control mx-auto" id="comment-body" name="comment-body" cols="33" rows="3"
 							          placeholder="Comment Body"></textarea>
 						</div>
 						<div>
-							<input type="button" th:value="Comment" class="checkProfanityInCommentBtn like-dislike">
+							<input type="button" th:value="Comment" class="checkProfanityInCommentBtn like-dislike comm-btn">
 							<input class="submitCommentBtn hide-submit-button" type="submit">
 						</div>
 					</form>
@@ -82,8 +82,9 @@
 				<!-- Comment cards section -->
 				<div class="comment-cards-section hide-form">
 					<div th:each="comment : ${comments}">
-						<div class="comment-card" th:if="${comment.getPost().getId().equals(post.getId())}">
-							<h4 class="comment-p" th:text="${comment.body}"></h4>
+						<div class="comment-card ms-auto" th:if="${comment.getPost().getId().equals(post.getId())}">
+							<h4 class="comment-p mt-2" th:text="${comment.body}"></h4>
+							<p class="comment-by-name text-end me-2 mb-0 pb-1">comment by: <span class="comment-by-name " th:text="${comment.user.username}"></span></p>
 						</div>
 					</div>
 				</div>

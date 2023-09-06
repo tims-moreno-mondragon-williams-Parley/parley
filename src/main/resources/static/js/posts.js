@@ -101,6 +101,8 @@ $(document).ready(function () {
         $(".comment-cards-section").eq(index).toggle();
         if ($(".comment-btn").eq(index).text() === "Cancel") {
             $(".comment-btn").eq(index).text("Comment")
+            $(".comment-btn").eq(index).toggleClass("comm-btn");
+            $(".comment-btn").eq(index).toggleClass("CL");
             $(".comment-form-section").eq(index).toggle();
         }
     });
@@ -108,8 +110,12 @@ $(document).ready(function () {
     $('.comment-btn').click(function() {
         if ($(this).text() === "Comment") {
             $(this).text("Cancel");
+            $(this).toggleClass("comm-btn");
+            $(this).toggleClass("CL");
         } else {
             $(this).text("Comment")
+            $(this).toggleClass("comm-btn");
+            $(this).toggleClass("CL");
         };
     });
 

@@ -3,4 +3,23 @@ img{
     width: 200px;
     height: 200px;
     object-fit: cover;
+    border: 4px solid #222139ff;
+}
+a{
+    color: white;
+    margin: 2em;
+}
+body{
+    background-color: #CFB1E5;
+}
+.about-us{
+    color: white;
+}
+h2{
+    color: white;
+    font-family: 'Merriweather Sans', sans-serif;
+}
+p{
+    font-family: 'Lato', sans-serif;
+    font-size: 30px;
 }

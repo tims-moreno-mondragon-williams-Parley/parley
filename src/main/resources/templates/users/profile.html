@@ -14,7 +14,7 @@
              alt="Banner Image"
              th:if="${user.banner_img != null && user.banner_img !=''}"/>
         <img class="banner-default"
-             th:src="@{/img/default_background.png}"
+             th:src="@{/img/default-banner.png}"
              alt="Default banner image of conversation bloops"
              th:if="${user.banner_img == null && user.banner_img ==''}"/>
     </div>
@@ -36,7 +36,7 @@
         <p class="user-bio" th:text="${user.bio}"
            th:if="${user.bio != null && user.bio != ''}"></p>
         <p class="default-bio"
-           th:text="'Click the button below to add edit your profile.'"
+           th:text="'Click the button below to edit your profile.'"
            th:if="${user.bio == null or user.bio == ''}"></p>
         <div class="edit-button">
             <a th:href="@{/profile/update}" class="btn btn-sm btn-dark">Edit

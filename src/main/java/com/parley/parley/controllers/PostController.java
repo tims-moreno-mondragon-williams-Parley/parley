@@ -180,20 +180,19 @@ public class PostController {
         comment.setBody(body);
         comment.setPost(post);
         comment.setUser(user);
-        System.out.println("comment = " + comment.getBody());
-        System.out.println("user.getUsername() = " + user.getUsername());
-        System.out.println("post.getTitle() = " + post.getTitle());
-        try {
-            System.out.println("Trying to save new comment");
-            commentDao.save(comment);
-            String redirect = "redirect:/posts/" + id;
-            return redirect;
-        } catch (Exception e){
-            System.out.println("Error occurred during comment writing.");
-            model = setupPostsPage(model);
-            model.addAttribute("commentError", "Could not add Comment on " + post.getTitle() + "!");
-            return "posts/posts";
+        if(comment.getBody() != null && !comment.getBody().equals("")){
+            try {
+                commentDao.save(comment);
+                String redirect = "redirect:/posts/" + id;
+                return redirect;
+            } catch (Exception e){
+                model = setupPostsPage(model);
+                model.addAttribute("commentError", "Could not add Comment on " + post.getTitle() + "!");
+                return "posts/posts";
+            }
         }
+        String redirect = "redirect:/posts/" + id;
+        return redirect;
     }
 
 
