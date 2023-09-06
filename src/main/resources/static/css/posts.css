@@ -1,18 +1,15 @@
 .S1 {
     height: 92vh;
     background: #222139ff;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px;
     border: 1px solid #7b748cff;
     border-radius: 30px;
     overflow-y: auto;
-    padding-left: 15px;
 }
 .S2 {
     height: 92vh;
     background: #7b748cff;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px;
     border-radius: 30px;
     overflow-y: auto;
 }
@@ -23,7 +20,7 @@
 .MC {
     padding-bottom: 10px;
     padding-top: 10px;
-    background-color: #7b748cff;
+    background-color: #CFB1E5;
 }
 li {
     list-style-type: none;
@@ -40,7 +37,7 @@ li {
 .QS {
     color: white;
     text-decoration: none;
-    font-size: 15px;
+    font-size: .90em;
 }
 .QS:hover {
     color: #7b748cff;
@@ -73,10 +70,16 @@ label {
     background-color: #222139ff;
     color: white;
     align-self: center;
-    border: none;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 5px;
+    background-color: rgba(45, 202, 207, 0.78); /* Change to your preferred color */
+    border: 2px solid #7b748cff;
+    border-radius: 5px; /* Rounded corners */
+    font-size: 18px; /* Adjust as needed */
+    font-weight: bold; /* Makes the text bold */
+    cursor: pointer; /* Changes the cursor to a hand when hovering over the button */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
 }
 .OFB:hover {
     color: #7b748cff;
@@ -108,10 +111,10 @@ label {
 .PB {
     color: white;
     text-align: center;
-    font-size: 15px;
+    font-size: 1.25em;
 }
 .PBT {
-    font-size: 20px;
+    font-size: 1.75em;
 }
 .actions-container {
     /*display: flex;*/
@@ -127,6 +130,7 @@ label {
 }
 .comment-form {
     margin-top: 10px;
+    width: 100%;
     /*display: none;*/
 }
 .show-comment-form, .comment-btn {
@@ -145,18 +149,24 @@ label {
     border-radius: 50px;
 }
 .CBb {
-    background: #7b748cff;
-    color: #222139ff;
-    border: 1px solid #222139ff;
-    border-radius: 10px;
-    width: 500px;
-    height: 50px;
-    overflow-y: auto;
-    resize: vertical;
+    width: 98%; /* Full width */
+    height: 4em;
+    padding: 12px 20px; /* Some padding */
+    margin: 4px; /* Some margin */
+    box-sizing: border-box; /* Ensures padding doesn't add extra width */
+    border: 2px solid #7b748cff; /* Gray border */
+    border-radius: 6px; /* Rounded borders */
+    font-size: 16px; /* Increase font size */
+    background-color: #222139ff; /* Light gray background */
+    transition: 0.3s; /* Smooth transitions on hover */
+    color: white;
+}
+.CBb::placeholder{
+    color: white;
 }
 .cb {
     align-content: center;
-    width: 150px;
+    width: 100%;
 }
 .show-comment-form, .hide-comment-form, .comment-btn {
     background: #7b748cff;
@@ -176,32 +186,64 @@ label {
     border-radius: 30px ;
     border: 2px solid #7b748cff;
     flex: 1;
+    width: 80%;
+    margin: 0 8px 0 8px;
 }
 .hide-form, .hide-topic-form {
     display: none;
 }
 .PostT {
-    background: #222139ff;
+    /*background: #CFB1E5;*/
+    /*color: white;*/
+    /*border-radius: 30px;*/
+    /*border: 2px solid #7b748cff;*/
+    width: 100%; /* Full width */
+    padding: 12px 20px; /* Some padding */
+    margin: 4px; /* Some margin */
+    box-sizing: border-box; /* Ensures padding doesn't add extra width */
+    border: 2px solid #7b748cff; /* Gray border */
+    border-radius: 6px; /* Rounded borders */
+    font-size: 16px; /* Increase font size */
+    background-color: #222139ff; /* Light gray background */
+    transition: 0.3s; /* Smooth transitions on hover */
     color: white;
-    border-radius: 30px;
-    border: 1px solid #7b748cff;
 }
 .PostTL, .post-body{
     color: #222139ff;
 }
 .PBBB {
+    /*color: white;*/
+    /*background: #222139ff;*/
+    /*border-radius: 10px;*/
+    /*border: 1px solid #7b748cff;*/
+    /*width: 250px;*/
+    width: 100%; /* Full width */
+    height: 100px;
+    padding: 12px 20px; /* Some padding */
+    margin: 4px; /* Some margin */
+    box-sizing: border-box; /* Ensures padding doesn't add extra width */
+    border: 2px solid #7b748cff; /* Gray border */
+    border-radius: 6px; /* Rounded borders */
+    font-size: 16px; /* Increase font size */
+    background-color: #222139ff; /* Light gray background */
+    transition: 0.3s; /* Smooth transitions on hover */
     color: white;
-    background: #222139ff;
-    border-radius: 10px;
-    border: 1px solid #7b748cff;
-    height: 60px;
-    width: 250px;
 }
 .PO {
-    background: #222139ff;
+    /*background: #222139ff;*/
+    /*color: white;*/
+    /*border-radius: 30px;*/
+    /*border: none;*/
+    width: 100%; /* Full width */
+    padding: 12px 20px; /* Some padding */
+    margin: 4px; /* Some margin */
+    box-sizing: border-box; /* Ensures padding doesn't add extra width */
+    border: 2px solid #7b748cff; /* Gray border */
+    border-radius: 6px; /* Rounded borders */
+    font-size: 16px; /* Increase font size */
+    background-color: #222139ff; /* Light gray background */
+    transition: 0.3s; /* Smooth transitions on hover */
     color: white;
-    border-radius: 30px;
-    border: none;
 }
 .POB {
     background: #222139ff;
@@ -247,6 +289,9 @@ label {
 .NC {
     margin-top: 17px;
 }
+.cursor-pointer{
+    cursor: pointer;
+}
 .PBI, .cancel-btn {
     color: white;
     background: #222139ff;
@@ -254,17 +299,21 @@ label {
     border-radius: 30px;
 }
 .btn1 {
-    background: #222139ff;
+    background: rgba(45, 202, 207, 0.78);
+    box-shadow: 2px 2px rgba(30, 130, 130, 0.78);
     color: white;
-    border-radius: 20px;
-    border: none;
+    border-radius: 6px;
+    border: 2px solid #7b748cff;
     height: 30px;
-    width: 70px;
+    width: 100%;
     padding-top: 0px;
     padding-bottom: 0px;
-    margin: 0px;
     display: inline-block;
     vertical-align: middle;
+    font-size: 18px; /* Adjust as needed */
+    font-weight: bold; /* Makes the text bold */
+    cursor: pointer; /* Changes the cursor to a hand when hovering over the button */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
 }
 .btn1:hover {
     background: #7b748cff;
@@ -298,17 +347,25 @@ label {
     align-content: center;
 }
 .comment-p {
-    font-size: 15px;
-    margin-bottom: 0px;
+    font-size: 1.25em;
+    margin-top: 5px;
+    margin-bottom: 5px;
     margin-right: 10px;
     margin-left: 10px;
 }
+.comment-by-name, .post-by-name{
+    font-size: 1em;
+    color: white;
+}
 .comment-card {
     border: 1px solid #222139ff;
+    background: #222139ff;
+    color: white;
     margin-right: 5px;
     margin-left: 5px;
     margin-bottom: 2px;
     border-radius: 5px;
+    width: 90%;
 }
 .DF-h1 {
     color: white;
@@ -321,5 +378,18 @@ label {
 .CRT {
     font-size: 25px;
     padding: 0px;
+}
+.comm-btn{
+    background: rgba(45, 202, 207, 0.78);
+    box-shadow: 2px 2px rgba(30, 130, 130, 0.78);
+    box-sizing: border-box; /* Ensures padding doesn't add extra width */
+    border: 2px solid #7b748cff; /* Gray border */
+    border-radius: 6px; /* Rounded borders */
+    transition: 0.3s; /* Smooth transitions on hover */
+    color: white;
+    cursor: pointer; /* Changes the cursor to a hand when hovering over the button */
+}
+.CL {
+    background: rgba(207, 45, 100, 0.78);
 }
 

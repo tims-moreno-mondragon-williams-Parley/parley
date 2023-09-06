@@ -10,164 +10,169 @@
 </nav>
 <div class="container-fluid MC">
 	<div class="row">
-		<div class="left-menu-topics col-3 S1">
-			<h2 class="CT">Popular Questions</h2>
-			<div th:if="${#authentication.principal.is_admin}">
-				<div id="show-create-category-form-container">
-					<button id="show-create-category-form-button" class="CAT-button">
-						<i class="bi bi-plus-circle-fill"></i>
-					</button>
-					<button id="hide-create-category-form-button" class="CATM-button">
-						<i class="bi bi-dash-circle-fill"></i>
-					</button>
-					<h3 class="CRT">Create Category</h3>
+		<div class="col-3">
+			<div class="left-menu-topics S1">
+				<h2 class="CT">Popular Questions</h2>
+				<div th:if="${#authentication.principal.is_admin}">
+					<div id="show-create-category-form-container">
+						<button id="show-create-category-form-button" class="CAT-button">
+							<i class="bi bi-plus-circle-fill"></i>
+						</button>
+						<button id="hide-create-category-form-button" class="CATM-button">
+							<i class="bi bi-dash-circle-fill"></i>
+						</button>
+						<h3 class="CRT">Create Category</h3>
+					</div>
+					<div id="create-category-form-container" class="hide-form">
+						
+						<form th:action="@{/posts/create-category}" method="post">
+							<label for="new_category_name">New Category Name</label>
+							<input class="NCT" type="text" name="new_category_name" id="new_category_name">
+							<input class="NCTS" type="submit" th:value="Create">
+						</form>
+					</div>
+					<div class="form-error-message">
+						<p th:if="${catCreteError}" th:text="${catCreteError}"></p>
+					</div>
+					<div class="form-error-message">
+						<p th:if="${topicCreteError}" th:text="${topicCreteError}"></p>
+					</div>
 				</div>
-				<div id="create-category-form-container" class="hide-form">
-					
-					<form th:action="@{/posts/create-category}" method="post">
-						<label for="new_category_name">New Category Name</label>
-						<input class="NCT" type="text" name="new_category_name" id="new_category_name">
-						<input class="NCTS" type="submit" th:value="Create">
-					</form>
-				</div>
-				<div class="form-error-message">
-					<p th:if="${catCreteError}" th:text="${catCreteError}"></p>
-				</div>
-				<div class="form-error-message">
-					<p th:if="${topicCreteError}" th:text="${topicCreteError}"></p>
-				</div>
-			</div>
-			<div th:each="category : ${categories}">
-				<ul>
-					<li>
-						<p class="CAT" th:text="${category.name}"></p>
-						<div th:if="${#authentication.principal.is_admin}">
-							<div class="show-create-topic-form-container">
-								<button class="show-create-topic-form-button">
-									<i class="bi bi-plus-circle-fill"></i>
-								</button>
-								<button class="hide-button hide-create-topic-form-button">
-									<i class="bi bi-dash-circle-fill"></i>
-								</button>
-								<h3 class="CRT">Create Topic</h3>
+				<div th:each="category : ${categories}">
+					<ul>
+						<li>
+							<p class="CAT" th:text="${category.name}"></p>
+							<div th:if="${#authentication.principal.is_admin}">
+								<div class="show-create-topic-form-container">
+									<button class="show-create-topic-form-button">
+										<i class="bi bi-plus-circle-fill"></i>
+									</button>
+									<button class="hide-button hide-create-topic-form-button">
+										<i class="bi bi-dash-circle-fill"></i>
+									</button>
+									<h3 class="CRT">Create Topic</h3>
+								</div>
+								<div class="create-topic-form-container">
+									<form class="topic-form-section hide-topic-form" th:action="@{/posts/create-topic}"
+									      method="post">
+										<label for="new_topic_name">New Topic Name</label>
+										<input class="NCT" type="text" name="new_topic_name" id="new_topic_name">
+										<input type="hidden" name="category_id" id="category_id" th:value="${category.id}">
+										<input class="NCTS" type="submit" th:value="Create">
+									</form>
+								</div>
 							</div>
-							<div class="create-topic-form-container">
-								<form class="topic-form-section hide-topic-form" th:action="@{/posts/create-topic}"
-								      method="post">
-									<label for="new_topic_name">New Topic Name</label>
-									<input class="NCT" type="text" name="new_topic_name" id="new_topic_name">
-									<input type="hidden" name="category_id" id="category_id" th:value="${category.id}">
-									<input class="NCTS" type="submit" th:value="Create">
-								</form>
+							<div class="TP" th:each="topic : ${topics}">
+								<ul>
+									<li th:if="${topic.getCategory().getId() == category.getId()}">
+										<a class="QS cursor-pointer" th:href="@{/posts/{id}(id=${topic.id})}" th:text="${topic.name}"></a>
+									</li>
+								</ul>
 							</div>
-						</div>
-						<div class="TP" th:each="topic : ${topics}">
-							<ul>
-								<li th:if="${topic.getCategory().getId() == category.getId()}">
-									<a class="QS" th:href="@{/posts/{id}(id=${topic.id})}" th:text="${topic.name}"></a>
-								</li>
-							</ul>
-						</div>
-					</li>
-				</ul>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 		
-		<div class="col-9 S2 d-flex flex-column">
-			<div class="post-topic PT1 wrap ">
-				<h1 class="S2CT" th:if="${topicClicked}" th:text="${viewedTopic.name}"></h1>
-				<h1 class="S2CT" th:if="${not topicClicked}">Choose a Topic</h1>
-			</div>
-			
-			<div class="PT2">
-				<div class="post-section">
-					
-					<div class="default-container-fluid" th:if="${not topicClicked}">
-						<div class="container dci">
-							<div class="ran">
-							<h1 class="DF-h1 DFS">Welcome to Parley</h1>
-							<p class="DF-h1">Parley is the premier destination for those passionate about honing
-								their debating skills. At Parley, we provide a unique platform
-								where you can engage in meaningful discussions over topics that
-								genuinely pique your interest. Our ethos is rooted in fostering
-								a respectful and professional environment, ensuring that every
-								debate serves as an opportunity to broaden one's perspective and
-								understand diverse viewpoints. We are committed to delivering
-								top-notch content that resonates with our community. Your voice
-								matters to us, and we wholeheartedly encourage suggestions
-								regarding topics you'd love to see featured on our website. Dive
-								in, expand your horizons, and let's parley!
-							</p>
-							<h3 class="DF-h1">Did you Know?</h3>
-							<p class="DF-h1">Debating helps improve critical thinking, public speaking, research skills,
-								and the ability to think on one's feet. It's no wonder many debaters go on
-								to have successful careers in law, politics, and other fields that value
-								these skills.</p>
+		<div class="col-9">
+			<div class="S2 d-flex flex-column">
+				<div class="post-topic PT1 wrap ">
+					<h1 class="S2CT" th:if="${topicClicked}" th:text="${viewedTopic.name}"></h1>
+					<h1 class="S2CT" th:if="${not topicClicked}">Choose a Topic</h1>
+				</div>
+				
+				<div class="PT2">
+					<div class="post-section">
+						
+						<div class="default-container-fluid" th:if="${not topicClicked}">
+							<div class="container dci">
+								<div class="ran">
+								<h1 class="DF-h1 DFS">Welcome to Parley</h1>
+								<p class="DF-h1">Parley is the premier destination for those passionate about honing
+									their debating skills. At Parley, we provide a unique platform
+									where you can engage in meaningful discussions over topics that
+									genuinely pique your interest. Our ethos is rooted in fostering
+									a respectful and professional environment, ensuring that every
+									debate serves as an opportunity to broaden one's perspective and
+									understand diverse viewpoints. We are committed to delivering
+									top-notch content that resonates with our community. Your voice
+									matters to us, and we wholeheartedly encourage suggestions
+									regarding topics you'd love to see featured on our website. Dive
+									in, expand your horizons, and let's parley!
+								</p>
+								<h3 class="DF-h1">Did you Know?</h3>
+								<p class="DF-h1">Debating helps improve critical thinking, public speaking, research skills,
+									and the ability to think on one's feet. It's no wonder many debaters go on
+									to have successful careers in law, politics, and other fields that value
+									these skills.</p>
+								</div>
 							</div>
 						</div>
-					</div>
-
-					<div class="button-container" th:if="${topicClicked}">
-						<button class="OFB" id="shareOpinionBtn" data-bs-toggle="modal" data-bs-target="#shareOpinionModal">Share your opinion</button>
-					</div>
-
-					<div class="modal" tabindex="-1" id="shareOpinionModal">
-						<div class="modal-dialog modal-lg">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h5 class="modal-title">Share Your Opinion</h5>
-									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-								</div>
-								<div class="modal-body">
-									<div class="post-creation-form" th:if="${topicClicked}">
-										<form class="post-creation-form-0" th:action="@{/posts/{id}/create(id=${viewedTopic.id})}" method="post" th:object="${formPost}">
-											<div class="row mb-3">
-												<div class="col-md-6">
-													<label class="PostTL" for="title">Post Title</label>
-													<input class="PostT form-control" type="text" id="title" name="title" th:field="*{title}">
+	
+						<div class="button-container" th:if="${topicClicked}">
+							<button class="OFB" id="shareOpinionBtn" data-bs-toggle="modal" data-bs-target="#shareOpinionModal">Share your opinion</button>
+						</div>
+	
+						<div class="modal" tabindex="-1" id="shareOpinionModal">
+							<div class="modal-dialog modal-md">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title">Share Your Opinion</h5>
+									</div>
+									<div class="modal-body">
+										<div class="post-creation-form" th:if="${topicClicked}">
+											<form class="post-creation-form-0" th:action="@{/posts/{id}/create(id=${viewedTopic.id})}" method="post" th:object="${formPost}">
+												<div class="row justify-content-center mb-6">
+													<div class="col-md-10">
+														<label class="PostTL ms-3" for="title">Post Title</label>
+														<input class="PostT form-control" type="text" id="title" name="title" th:field="*{title}">
+													</div>
 												</div>
-												<div class="col-md-6">
-													<label class="post-body" for="body">Post Body</label>
-													<textarea class="PBBB form-control" id="body" name="body" cols="33" rows="5" th:field="*{body}"></textarea>
+												<div class="row justify-content-center mb-6">
+													<div class="col-md-10 mx-auto">
+														<label class="post-body ms-3" for="body">Post Body</label>
+														<textarea class="PBBB form-control" id="body" name="body" cols="200" rows="5" th:field="*{body}"></textarea>
+													</div>
 												</div>
-											</div>
-											<div class="row justify-content-center mb-3">
-												<div class="col-md-6 text-center">
-													<label class="PostTL" for="position">Position</label>
-													<select class="PO form-control" name="position" id="position">
-														<option th:field="*{position}" th:value="a">Agree</option>
-														<!-- <option th:field="*{position}" th:value="i">Indifferent</option> -->
-														<option th:field="*{position}" th:value="d">Disagree</option>
-													</select>
+												<div class="row justify-content-center mb-6">
+													<div class="col-md-10">
+														<label class="PostTL ms-3" for="position">Position</label>
+														<select class="PO form-control" name="position" id="position">
+															<option th:field="*{position}" th:value="a">Agree</option>
+															<option th:field="*{position}" th:value="d">Disagree</option>
+														</select>
+													</div>
 												</div>
-											</div>
-											<div class="row justify-content-center">
-												<div class="col-md-6 text-center">
-													<button class="btn1 CL" data-bs-dismiss="modal">Cancel</button>
-													<button type="submit" class="btn btn-primary btn1">Post</button>
+												<div class="row justify-content-center mt-2">
+													<div class="col-md-3 text-center">
+														<button class="btn1 CL" data-bs-dismiss="modal">Cancel</button>
+													</div>
+													<div class="col-md-3 text-center">
+														<button type="submit" class="btn btn-primary btn1">Post</button>
+													</div>
 												</div>
-											</div>
-											<div th:if="${postError}" th:text="${newPostError}"></div>
-										</form>
+												<div th:if="${postError}" th:text="${newPostError}"></div>
+											</form>
+										</div>
 									</div>
 								</div>
+	
 							</div>
-
 						</div>
-					</div>
-
-
-
-
-					<div class="container-fluid flex-row-container">
-						
-						<div class="agree-container">
-							<div class="ADI" th:replace="~{partials/post-sections :: posts('Agree', 'a')}"></div>
+	
+	
+	
+	
+						<div class="container-fluid flex-row-container">
+							
+							<div class="agree-container">
+								<div class="ADI" th:replace="~{partials/post-sections :: posts('Agree', 'a')}"></div>
+							</div>
+							<div class="disagree-container">
+								<div class="ADI" th:replace="~{partials/post-sections :: posts('Disagree', 'd')}"></div>
+							</div>
 						</div>
-						<div class="disagree-container">
-							<div class="ADI" th:replace="~{partials/post-sections :: posts('Disagree', 'd')}"></div>
-						</div>
-						<!-- <div class="ADI" th:replace="~{partials/post-sections :: posts('Indifferent', 'i')}"></div> -->
 					</div>
 				</div>
 			</div>
