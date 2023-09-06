@@ -181,27 +181,57 @@ label {
     display: none;
 }
 .PostT {
-    background: #222139ff;
+    /*background: #CFB1E5;*/
+    /*color: white;*/
+    /*border-radius: 30px;*/
+    /*border: 2px solid #7b748cff;*/
+    width: 100%; /* Full width */
+    padding: 12px 20px; /* Some padding */
+    margin: 4px; /* Some margin */
+    box-sizing: border-box; /* Ensures padding doesn't add extra width */
+    border: 2px solid #7b748cff; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    font-size: 16px; /* Increase font size */
+    background-color: #CFB1E5; /* Light gray background */
+    transition: 0.3s; /* Smooth transitions on hover */
     color: white;
-    border-radius: 30px;
-    border: 1px solid #7b748cff;
 }
 .PostTL, .post-body{
     color: #222139ff;
 }
 .PBBB {
+    /*color: white;*/
+    /*background: #222139ff;*/
+    /*border-radius: 10px;*/
+    /*border: 1px solid #7b748cff;*/
+    /*width: 250px;*/
+    width: 100%; /* Full width */
+    height: 100px;
+    padding: 12px 20px; /* Some padding */
+    margin: 4px; /* Some margin */
+    box-sizing: border-box; /* Ensures padding doesn't add extra width */
+    border: 2px solid #7b748cff; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    font-size: 16px; /* Increase font size */
+    background-color: #CFB1E5; /* Light gray background */
+    transition: 0.3s; /* Smooth transitions on hover */
     color: white;
-    background: #222139ff;
-    border-radius: 10px;
-    border: 1px solid #7b748cff;
-    height: 60px;
-    width: 250px;
 }
 .PO {
-    background: #222139ff;
+    /*background: #222139ff;*/
+    /*color: white;*/
+    /*border-radius: 30px;*/
+    /*border: none;*/
+    width: 100%; /* Full width */
+    padding: 12px 20px; /* Some padding */
+    margin: 4px; /* Some margin */
+    box-sizing: border-box; /* Ensures padding doesn't add extra width */
+    border: 2px solid #7b748cff; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    font-size: 16px; /* Increase font size */
+    background-color: #CFB1E5; /* Light gray background */
+    transition: 0.3s; /* Smooth transitions on hover */
     color: white;
-    border-radius: 30px;
-    border: none;
 }
 .POB {
     background: #222139ff;
@@ -254,7 +284,8 @@ label {
     border-radius: 30px;
 }
 .btn1 {
-    background: #222139ff;
+    background: rgba(45, 202, 207, 0.78);
+    box-shadow: 2px 2px rgba(30, 130, 130, 0.78);
     color: white;
     border-radius: 20px;
     border: none;
@@ -262,7 +293,6 @@ label {
     width: 70px;
     padding-top: 0px;
     padding-bottom: 0px;
-    margin: 0px;
     display: inline-block;
     vertical-align: middle;
 }
@@ -294,7 +324,7 @@ label {
     color: white;
 }
 .modal-header {
-    background: #222139ff;
+    background: #CFB1E5;
     align-content: center;
 }
 .comment-p {
@@ -321,5 +351,9 @@ label {
 .CRT {
     font-size: 25px;
     padding: 0px;
+}
+
+.CL {
+    background: rgba(207, 45, 100, 0.78);
 }
 
