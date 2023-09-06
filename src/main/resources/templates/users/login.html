@@ -12,23 +12,26 @@
 	<div class="row justify-content-between">
 		<div class="col-12 C1">
 			<div class="row">
-			<div class="CANT1 col-6">
-			<h3 class="LOG-B">Login</h3>
-			<form th:action="@{/login}" method="post">
-				<div>
-					<label class="LOG" for="username"></label>
-					<input class="INP" type="text" id="username" name="username" required placeholder="Username">
+				<div class="CANT1 col-6 d-flex justify-content-center flex-column">
+					<h3 class="LOG-B">Login</h3>
+					<div class="form-container">
+						<form th:action="@{/login}" method="post">
+							<div class="div">
+								<label class="LOG" for="username"></label>
+								<input class="INP" type="text" id="username" name="username" required placeholder="Username">
+							</div>
+							<div class="div">
+								<label class="LOG" for="password"></label>
+								<input class="INP" type="password" id="password" name="password" required placeholder="Password">
+							</div>
+							<div class="log-cont">
+								<button class="log-btn" type="submit">Log In</button>
+							</div>
+						</form>
+						<p class="LOG">Don't have an account? <a th:href="@{/register}" class="register REGH">Register Here</a></p>
+					</div>
 				</div>
-				<div>
-					<label class="LOG" for="password"></label>
-					<input class="INP" type="password" id="password" name="password" required placeholder="Password">
-				</div>
-				<div class="log-cont">
-					<button class="log-btn" type="submit">Log In</button>
-				</div>
-			</form>
-			<p class="LOG">Don't have an account? <a th:href="@{/register}" class="register REGH">Register Here</a></p>
-			</div>
+
 				<div class="CANT2 col-6">
 					<img src="/img/rat.png" alt="Description of Image">
 				</div>

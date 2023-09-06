@@ -36,37 +36,13 @@ h2, label {
 }
 .C2 {
     height: 92vh;
+    border: 6px solid #7b748cff;
 }
 .C1 {
-    background-image: url("../img/dp.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     display: flex;
-    height: 30vh;
+    height: 92vh;
     flex-grow: 1;
-    border: 2px solid #222139ff;
-}
-.C1-M {
-    background: #222139ff;
-    border: 2px solid #7b748cff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 30px;
-    height: 20vh;
-}
-.C1-L {
-    background-image: url("../img/ppp.avif");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    height: 30vh;
-    flex-grow: 1;
-    border: 2px solid #222139ff;
-    border-radius: 30px;
+    border: 6px solid #7b748cff;
 }
 .PT {
     color: white;
@@ -114,7 +90,7 @@ li.Li-I {
     place-content: center;
     background-color: transparent;
     font-family: "Oswald", sans-serif;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 700;
     text-transform: uppercase;
     color: white;
