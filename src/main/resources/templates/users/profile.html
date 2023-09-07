@@ -1,64 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <head th:insert="~{partials/head :: head('Profile')}"></head>
-    <link rel="stylesheet" th:href="@{/css/profile.css}">
+	<head th:insert="~{partials/head :: head('Profile')}"></head>
+	<link rel="stylesheet" th:href="@{/css/profile.css}">
 </head>
 <body>
 <div>
-    <div th:replace="~{partials/navbar :: navbar}"></div>
+	<div th:replace="~{partials/navbar :: navbar}"></div>
 </div>
-
-<!--User banner image section-->
-<div class="BI">
-    <img class="banner-user" th:src="${user.banner_img}"
-         alt="Banner Image"
-         th:if="${user.banner_img != null && user.banner_img !=''}"/>
-    <img class="banner-default"
-         th:src="@{/img/removebg-banner.png}"
-         alt="Default banner image of conversation bloops"
-         th:if="${user.banner_img == null or user.banner_img ==''}"/>
+<div class="content-wrapper">
+	
+	<!--User banner image section-->
+	<div class="BI">
+		<img class="banner-user" th:src="${user.banner_img}"
+		     alt="Banner Image"
+		     th:if="${user.banner_img != null && user.banner_img !=''}"/>
+		<img class="banner-default"
+		     th:src="@{/img/removebg-banner.png}"
+		     alt="Default banner image of conversation bloops"
+		     th:if="${user.banner_img == null or user.banner_img ==''}"/>
+	</div>
+	<div class="container mt-2 ">
+		<!--User profile image section-->
+		<div class="row top-row-container rounded mb-4">
+			<div class="col-2 d-flex align-items-center">
+				<div class="profile-image mx-auto">
+					<img class="profile-user" th:src="${user.profile_pic}"
+					     alt="Profile Picture"
+					     th:if="${user.profile_pic != null && user.profile_pic !=''}"/>
+					<img class="profile-default" th:src="@{/img/removebg-user.png}"
+					     alt="Default image of a tech dog"
+					     th:if="${user.profile_pic == null or user.profile_pic ==''}"/>
+				</div>
+			</div>
+			<div class="col-8">
+				<div class="row">
+					<div class="col-12">
+						<div class="username mt-2 container">
+							<h4 th:text="${user.username}">UserName</h4>
+						</div>
+					</div>
+					<div class="col-12">
+						<!--User bio section-->
+						<div class="container mx-auto mt-2 d-flex justify-content-center">
+							<div class="BIO col-12">
+								<p class="user-bio" th:text="${user.bio}"
+								   th:if="${user.bio != null && user.bio != ''}"></p>
+								<p class="default-bio"
+								   th:text="'Click the Edit Profile button to setup your profile.'"
+								   th:if="${user.bio == null or user.bio == ''}"></p>
+							
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-2 d-flex align-items-end justify-content-end">
+				<div class="edit-button float-end me-2 mb-4">
+					<a th:href="@{/profile/update}" class="btn btn-sm">Edit
+						Profile</a>
+				</div>
+			</div>
+		</div>
+		
+		<!--User posts section-->
+		<div class="card posts-content">
+			<h3 class="card-title ms-2">Your Posts</h3>
+			<div class="card-body user-posts">
+				<div class="the-post" th:each="post : ${posts}">
+					<h6 th:text="${post.title}"></h6>
+					<p th:text="${post.body}"></p>
+					<!--Add other properties as needed -->
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-
-<!--User profile image section-->
-<div class="profile-image">
-    <img class="profile-user" th:src="${user.profile_pic}"
-         alt="Profile Picture"
-         th:if="${user.profile_pic != null && user.profile_pic !=''}"/>
-    <img class="profile-default" th:src="@{/img/removebg-user.png}"
-         alt="Default image of a tech dog"
-         th:if="${user.profile_pic == null or user.profile_pic ==''}"/>
-</div>
-
-<div class="username">
-    <h4 th:text="${user.username}">UserName</h4>
-</div>
-
-<!--User bio section-->
-<div class="BIO">
-    <p class="user-bio" th:text="${user.bio}"
-       th:if="${user.bio != null && user.bio != ''}"></p>
-    <p class="default-bio"
-       th:text="'Click the Edit Profile button to setup your profile.'"
-       th:if="${user.bio == null or user.bio == ''}"></p>
-    <div class="edit-button">
-        <a th:href="@{/profile/update}" class="btn btn-sm">Edit
-            Profile</a>
-    </div>
-</div>
-
-<!--User posts section-->
-<div class="card posts-content">
-    <h3 class="card-title">Your Posts</h3>
-    <div class="card-body user-posts">
-        <div class="the-post" th:each="post : ${posts}">
-            <h6 th:text="${post.title}"></h6>
-            <p th:text="${post.body}"></p>
-            <!--Add other properties as needed -->
-        </div>
-    </div>
-</div>
-
 <footer th:include="partials/footer :: footer"></footer>
 <!--Filestack API JS-->
 <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
