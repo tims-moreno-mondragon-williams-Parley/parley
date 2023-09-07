@@ -2,22 +2,18 @@
 	<div class="row">
 		<div class="navbar navbar-expand-lg navbar-light justify-content-between col-11">
 			<!-- Brand/logo -->
-			<a th:href="@{/}" class="Title">
+			<a th:href="@{/posts}" class="Title">
 				<section class="wrapper">
 					<div class="top">PARLEY</div>
 					<div class="bottom" aria-hidden="true">PARLEY</div>
 				</section>
 			</a>
-			<!-- Hamburger menu button -->
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-			        aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
+
 			
 			<!-- Container div for the navbar links -->
 			<div class="d-flex ml-auto">
 				<!-- Navbar links -->
-				<div class="collapse navbar-collapse" id="navbarNav">
+				<div class="NavY" id="navbarNav">
 					<ul class="navbar-nav">
 						<li class="nav-item">
 							<a class="nav-link" th:href="@{/posts}">Feed</a>
@@ -48,7 +44,7 @@
 				<img class="PI" th:src="${#authentication.principal.profile_pic}" alt="Profile Picture"
 				     th:if="${#authentication.principal.profile_pic != null && #authentication.principal.profile_pic  != ''}"
 				     style="width:40px;">
-				<img class="PI" th:src="@{/img/D3.webp}" alt="Profile Picture"
+				<img class="PI" th:src="@{/img/removebg-user.png}" alt="Profile Picture"
 				     th:if="${#authentication.principal.profile_pic  == null or #authentication.principal.profile_pic  == ''}"
 				     style="width:40px;">
 			</a>
