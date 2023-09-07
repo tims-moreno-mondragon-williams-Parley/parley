@@ -17,6 +17,7 @@
 .CT {
     color: #FFEFEE;
     text-align: center;
+    margin-top: 15px;
 }
 .MC {
     padding-bottom: 10px;
@@ -67,12 +68,12 @@ label {
     display: none;
 }
 .OFB {
-    background-color: #043434;
+    background-color: #088E6A;
     color: #FFEFEE;
     align-self: center;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     border: 2px solid transparent;
     border-radius: 5px; /* Rounded corners */
     font-size: 18px; /* Adjust as needed */
@@ -292,10 +293,10 @@ label {
     border-radius: 30px;
 }
 .btn1 {
-    background: #0F0A06;
+    background: #088E6A;
     color: #FFEFEE;
     border-radius: 6px;
-    border: 2px solid #0F0A06;
+    border: 2px solid transparent;
     height: 30px;
     width: 100%;
     padding-top: 0px;
@@ -308,8 +309,9 @@ label {
     transition: background-color 0.3s; /* Smooth transition for hover effect */
 }
 .btn1:hover {
-    background: #088E6A;
-    border: 2px solid #0F0A06;
+    background: #FFEFEE;
+    color: #088E6A;
+    border: 2px solid transparent;
 }
 .post-creation-form-0 {
     align-items: center;
@@ -383,6 +385,12 @@ label {
 }
 .col-3 {
     padding-left: 3px;
+}
+h4,p,h6,h2,h1,h5,a,.textarea,h3,button,div,input{
+    font-family: 'Sofia Sans', sans-serif;
+}
+.S2CT ,.CT, .CAT ,.PBT {
+    font-family: 'Alegreya', serif;
 }
 
 
