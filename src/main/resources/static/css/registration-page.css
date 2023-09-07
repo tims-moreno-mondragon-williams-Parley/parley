@@ -45,6 +45,9 @@ h2, label {
     display: flex;
     height: 92vh;
     flex-grow: 1;
+    object-fit: contain;
+    position: relative; /* Ensures the container's position is set */
+    overflow: hidden;
 }
 .PT {
     color: #FFEFEE;
@@ -100,6 +103,14 @@ li.Li-I {
     color: red;
     padding-bottom: 1em;
     font-family: 'Sofia Sans', sans-serif;
+}
+.IMG3 {
+    object-fit: contain;
+    height: auto;
+    width: 300px;
+    overflow: hidden;
+    display: block;
+    max-width: 100%;
 }
 label{
     font-family: 'Sofia Sans', sans-serif;
