@@ -69,3 +69,11 @@ a.REG {
 a.REG:hover {
     color: #FFEFEE;
 }
+@media (min-width: 850px) {
+    .INP {
+        width: 300px;
+    }
+    .log-btn {
+        width: 250px;
+    }
+}
