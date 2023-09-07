@@ -1,8 +1,8 @@
 .S1 {
     height: 92vh;
-    background: #222139ff;
+    background: #043434;
     /*padding: 10px;*/
-    border: 1px solid #7b748cff;
+    border: 3px solid #0F0A06;
     border-radius: 30px;
     overflow-y: auto;
 }
@@ -15,37 +15,37 @@
     overflow-y: auto;
 }
 .CT {
-    color: white;
+    color: #FFEFEE;
     text-align: center;
 }
 .MC {
     padding-bottom: 10px;
     padding-top: 10px;
-    background: linear-gradient( 180deg ,#C3073F, #950740, #6F2232);
+    background: #0F0A06;
 }
 li {
     list-style-type: none;
 }
 .CAT {
-    color: white;
+    color: #088E6A;
     font-size: 25px;
-    text-decoration: underline #7b748cff 2px;
+    text-decoration: underline #088E6A 2px;
 }
 .TP {
     list-style-type: none;
     font-size: 20px;
 }
 .QS {
-    color: white;
+    color: #FFEFEE;
     text-decoration: none;
     font-size: .90em;
 }
 .QS:hover {
-    color: #7b748cff;
+    color: #088E6A;
     font-size: 19px;
 }
 .S2CT {
-    color: white;
+    color: #FFEFEE;
     text-align: center;
 }
 .post-topic h1 {
@@ -68,14 +68,13 @@ label {
     display: none;
 }
 .OFB {
-    background-color: #222139ff;
-    color: white;
+    background-color: #088E6A;
+    color: #FFEFEE;
     align-self: center;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 5px;
-    background-color: rgba(45, 202, 207, 0.78); /* Change to your preferred color */
-    border: 2px solid #7b748cff;
+    border: 2px solid #0F0A06;
     border-radius: 5px; /* Rounded corners */
     font-size: 18px; /* Adjust as needed */
     font-weight: bold; /* Makes the text bold */
@@ -83,6 +82,7 @@ label {
     transition: background-color 0.3s; /* Smooth transition for hover effect */
 }
 .OFB:hover {
+    background-color: #088E6A;
     color: #7b748cff;
     font-style: oblique;
 }
@@ -91,8 +91,7 @@ label {
     position: relative;
 }
 .PT1 {
-    background: #222139ff;
-    /*padding-top: 10px;*/
+    background: #0F0A06;
     margin-bottom: 10px;
     border-radius: 30px;
 }
@@ -264,9 +263,9 @@ label {
     border-radius: 10px;
 }
 .dci {
-    background-image: url("../img/coo.png");
+    background: #0F0A06;
     border-radius: 20px;
-    border: 10px solid #222139ff;
+    border: 10px solid #0F0A06;
     height: 78vh;
     width: 80%;
     margin: 0 auto;
@@ -373,8 +372,6 @@ label {
 }
 .ran {
     text-align: center;
-    background: rgba(123, 116, 140, 0.9);
-    border-radius: 10px;
 }
 .CRT {
     font-size: 25px;
