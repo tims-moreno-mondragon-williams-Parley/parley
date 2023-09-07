@@ -38,6 +38,12 @@ body {
     z-index: 1;
 }
 
+.profile-user{
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+
 .profile-default {
     width: 105%;
     height: 105%;
