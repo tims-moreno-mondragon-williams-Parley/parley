@@ -102,6 +102,7 @@ li.Li-I {
 .error-invalidquals{
     color: red;
     padding-bottom: 1em;
+    font-family: 'Sofia Sans', sans-serif;
 }
 .IMG3 {
     object-fit: contain;
@@ -110,7 +111,6 @@ li.Li-I {
     overflow: hidden;
     display: block;
     max-width: 100%;
-    font-family: 'Sofia Sans', sans-serif;
 }
 label{
     font-family: 'Sofia Sans', sans-serif;
