@@ -5,6 +5,7 @@
 
 body {
     background: #0F0A06;
+    min-height: 100vh;
 }
 
 /*Banner image CSS Styling*/
@@ -25,14 +26,15 @@ body {
     object-fit: contain;
 }
 
-/*Profile image CSS styling*/
+/*!*Profile image CSS styling*!*/
 .profile-image {
-    display: inline-flex;
-    position: absolute;
-    top: 14em;
-    width: 10em;
-    height: 10em;
-    margin-left: 3em;
+    /*display: inline-flex;*/
+    /*position: absolute;*/
+    /*top: 16em;*/
+    /*left: 9em;*/
+    width: 8em;
+    height: 8em;
+    /*margin-left: 3em;*/
     border: 5px solid #043434;
     border-radius: 100%;
     z-index: 1;
@@ -54,22 +56,21 @@ body {
 
 /*User Bio CSS Styling*/
 .BIO {
-    margin-left: 2em;
 }
 
 .user-bio, .default-bio {
-    display: block;
-    position: absolute;
-    align-items: center;
-    width: 40em;
-    height: 7em;
-    top: 16.7em;
-    margin: 0 5.5em;
-    padding: 2em 1em 1em 5.5em;
+    /*display: block;*/
+    /*position: absolute;*/
+    /*align-items: center;*/
+    /*width: 40em;*/
+    /*height: 7em;*/
+    /*top: 16.7em;*/
+    /*margin: 0 5.5em;*/
+    /*padding: 2em 1em 1em 5.5em;*/
     font-size: 18px;
-    background-color: #043434;
-    border-radius: 1em;
-    z-index: -1;
+    /*background-color: #043434;*/
+    /*border-radius: 1em;*/
+    /*z-index: -1;*/
     font-style: italic;
     color: #FFEFEE;
     font-family: 'Sofia Sans', sans-serif;
@@ -77,11 +78,12 @@ body {
 
 /*Username CSS styling*/
 .username {
-    position: absolute;
-    margin-left: 13em;
-    top: 19em;
+    /*position: absolute;*/
+    /*margin-left: 13em;*/
+    /*top: 19em;*/
+    /*left: 21vw;*/
     color: #FFEFEE;
-    z-index: 1;
+    /*z-index: 1;*/
 }
 
 /*Edit button CSS styling*/
@@ -98,32 +100,39 @@ body {
 }
 
 .edit-button {
-    float: left;
-    margin-top: 4.9em;
-    margin-left: 52em;
+    /*float: left;*/
+    /*margin-top: 4.9em;*/
+    /*margin-left: 52em;*/
     background-color: #088E6A;
     border-radius: 7px;
     font-family: 'Sofia Sans', sans-serif;
 }
 
-/*User posts CSS styling*/
+/*!*User posts CSS styling*!*/
 .posts-content {
-    position: absolute;
-    bottom: 2em;
-    width: 60em;
-    height: 40vh;
-    margin-left: 15em;
+    /*position: absolute;*/
+    /*bottom: 2em;*/
+    /*width: 60em;*/
+    height: 48vh;
+    /*margin-left: 15em;*/
     color:#FFEFEE;
-    padding: .5em;
+    /*padding: .5em;*/
     border-radius: 1em;
     background-color: #043434;
     scroll-behavior: inherit;
     font-family: 'Sofia Sans', sans-serif;
+    overflow-y: scroll;
 }
 
-.user-posts {
-    padding: 0;
+.top-row-container{
+    background-color: #043434;
+    border-radius: 1em;
+    height: 10em;
 }
+
+/*.user-posts {*/
+/*    padding: 0;*/
+/*}*/
 
 .card-title {
     padding: .5em;
@@ -143,7 +152,7 @@ body {
 
 /*Footer styling*/
 footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
 }
@@ -169,4 +178,8 @@ h6{
 }
 ::placeholder{
     font-family: 'Sofia Sans', sans-serif;
+}
+
+.content-wrapper{
+    flex: 1;
 }
