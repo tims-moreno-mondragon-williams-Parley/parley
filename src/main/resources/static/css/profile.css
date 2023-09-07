@@ -86,21 +86,22 @@ body {
 
 /*Edit button CSS styling*/
 .btn a {
-    padding:  .1rem;
     position: absolute;
     margin-top: .5em;
 }
 
 .btn {
     color: #FFEFEE;
-    font-size: 18px;
+    font-size: 15px;
     font-family: 'Sofia Sans', sans-serif;
+    height: 25px;
+    padding-bottom: 1em;
 }
 
 .edit-button {
     float: left;
-    margin-top: 4.9em;
-    margin-left: 52em;
+    margin-top: .5em;
+    margin-left: 44.3em;
     background-color: #088E6A;
     border-radius: 7px;
     font-family: 'Sofia Sans', sans-serif;
