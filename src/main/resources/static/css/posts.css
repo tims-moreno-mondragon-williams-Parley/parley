@@ -1,7 +1,7 @@
 .S1 {
     height: 92vh;
     background: #222139ff;
-    padding: 10px;
+    /*padding: 10px;*/
     border: 1px solid #7b748cff;
     border-radius: 30px;
     overflow-y: auto;
@@ -92,7 +92,7 @@ label {
 }
 .PT1 {
     background: #222139ff;
-    padding-top: 10px;
+    /*padding-top: 10px;*/
     margin-bottom: 10px;
     border-radius: 30px;
 }
@@ -393,4 +393,8 @@ label {
 .CL {
     background: rgba(207, 45, 100, 0.78);
 }
+.col-3 {
+    padding-left: 3px;
+}
+
 

@@ -7,7 +7,7 @@ html {
 }
 /*Temporary CSS until we can link the html and css page */
 nav {
-    background: #222139ff;
+    background: #0F0A06;
 }
 
 input.nav-link {
@@ -17,7 +17,7 @@ input.nav-link:hover {
     color: #7b748cff;
 }
 a.nav-link {
-    color: white;
+    color: #FFEFEE;
 }
 a.nav-link:hover {
     color: #7b748cff;
@@ -62,5 +62,8 @@ img.PI {
     object-fit: cover;
 }
 a.REG {
-    color: rgba(45, 202, 207, 0.78);
+    color: #088E6A;
+}
+a.REG:hover {
+    color: #FFEFEE;
 }
