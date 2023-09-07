@@ -9,12 +9,47 @@ body {
 
 /*Banner image CSS Styling*/
 .BI {
-    height: 15em;
-    width: 100vw;
+    width: 1440px;
+    height: 240px;
     top: 15em;
     border: 2px solid #043434;
     background-size: cover;
     overflow: hidden;
+    object-fit: contain;
+
+}
+
+.banner-default {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/*Profile image CSS styling*/
+.profile-image {
+    display: inline-flex;
+    position: absolute;
+    top: 14em;
+    width: 10em;
+    height: 10em;
+    margin-left: 3em;
+    border: 5px solid #043434;
+    border-radius: 100%;
+    z-index: 1;
+}
+
+.profile-user, .banner-user{
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+
+.profile-default {
+    width: 105%;
+    height: 105%;
+    background-color: white;
+    opacity: 98%;
+    object-fit: contain;
 }
 
 /*User Bio CSS Styling*/
@@ -37,6 +72,16 @@ body {
     z-index: -1;
     font-style: italic;
     color: #FFEFEE;
+    font-family: 'Sofia Sans', sans-serif;
+}
+
+/*Username CSS styling*/
+.username {
+    position: absolute;
+    margin-left: 13em;
+    top: 19em;
+    color: #FFEFEE;
+    z-index: 1;
 }
 
 /*Edit button CSS styling*/
@@ -49,36 +94,16 @@ body {
 .btn {
     color: #FFEFEE;
     font-size: 18px;
+    font-family: 'Sofia Sans', sans-serif;
 }
 
 .edit-button {
     float: left;
     margin-top: 4.9em;
-    margin-left: 44.1em;
+    margin-left: 52em;
     background-color: #088E6A;
     border-radius: 7px;
-}
-
-/*Username CSS styling*/
-.username {
-    position: absolute;
-    margin-left: 13em;
-    top: 19em;
-    color: #FFEFEE;
-    z-index: 1;
-}
-
-/*Profile image CSS styling*/
-.profile-user, .profile-default {
-    display: inline-flex;
-    position: absolute;
-    top: 14em;
-    width: 10em;
-    height: 10em;
-    margin-left: 3em;
-    border: 5px solid #043434;
-    border-radius: 100%;
-    z-index: 1;
+    font-family: 'Sofia Sans', sans-serif;
 }
 
 /*User posts CSS styling*/
@@ -93,6 +118,7 @@ body {
     border-radius: 1em;
     background-color: #043434;
     scroll-behavior: inherit;
+    font-family: 'Sofia Sans', sans-serif;
 }
 
 .user-posts {
@@ -102,6 +128,7 @@ body {
 .card-title {
     padding: .5em;
     overflow: hidden;
+    font-family: 'Sofia Sans', sans-serif;
 }
 
 .the-post {
@@ -111,6 +138,7 @@ body {
     margin: 1em;
     padding: 1em;
     font-size: 14px;
+    font-family: 'Sofia Sans', sans-serif;
 }
 
 /*Footer styling*/
@@ -128,4 +156,17 @@ footer {
     .BI {
         width: 100%;
     }
+}
+h4{
+    font-family: 'Alegreya', serif;
+}
+p{
+    font-family: 'Sofia Sans', sans-serif;
+}
+
+h6{
+    font-family: 'Sofia Sans', sans-serif;
+}
+::placeholder{
+    font-family: 'Sofia Sans', sans-serif;
 }

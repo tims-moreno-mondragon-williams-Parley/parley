@@ -31,13 +31,12 @@
 p {
     font-size: 25px;
     color: white;
+    font-family: 'Sofia Sans', sans-serif;
 }
-.reg {
-    color: #222139ff;
-    text-decoration: none;
-}
+
 .LOG-B {
     font-size: 35px;
+    font-family: 'Alegreya', serif;
     color: #FFEFEE;
     text-align: center;
     margin-right: 15px;
@@ -52,6 +51,7 @@ p {
     transition: 0.3s; /* Smooth transitions on hover */
     color: #FFEFEE;
     overflow: hidden;
+    font-family: 'Sofia Sans', sans-serif;
 }
 .INP:focus {
     border-color: #FFEFEE; /* Green border on focus */
@@ -69,6 +69,7 @@ p {
     cursor: pointer; /* Changes the cursor to a hand when hovering over the button */
     transition: background-color 0.3s; /* Smooth transition for hover effect */
     padding: 0px;
+    font-family: 'Sofia Sans', sans-serif;
 }
 .log-btn:hover {
     background-color: #FFEFEE; /* Slightly darker blue on hover */
@@ -96,6 +97,7 @@ p {
     margin-right: 170px;
     margin-left: 170px;
     color: #FFEFEE;
+    font-family: 'Sofia Sans', sans-serif;
 }
 .CANT1 {
     display: flex;
@@ -106,6 +108,7 @@ p {
 .LOG {
     text-align: center;
     color: #FFEFEE;
+    font-family: 'Sofia Sans', sans-serif;
 }
 .CANT2 img {
     max-width: 110%;

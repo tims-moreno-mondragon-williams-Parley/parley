@@ -35,7 +35,7 @@
                 <input type="hidden" th:value="*{profile_pic}" id="profile_pic" name="profile_pic" value=""/>
                 <img class=" mx-auto" id="uploaded-image" th:src="*{profile_pic}" alt="Uploaded Image"
                      th:if="*{profile_pic != null && profile_pic != ''}">
-                <img class=" mx-auto" id="uploaded-image" th:src="@{/img/D3.webp}" alt="Uploaded Image"
+                <img class=" mx-auto" id="uploaded-image" th:src="@{/img/removebg-user.png}" alt="Uploaded Image"
                      th:if="*{profile_pic == null or profile_pic == ''}">
                 <button id="upload-profile-pic" type="button" class="w-25 mx-auto mt-2 btn"> Upload</button>
             </div>
@@ -44,7 +44,7 @@
                 <input type="hidden" th:value="*{banner_img}" id="banner_pic" name="banner_img" value=""/>
                 <img class=" mx-auto" id="uploaded-banner-image" th:src="*{banner_img}" alt="Uploaded Banner"
                      th:if="*{banner_img != null and banner_img != ''}">
-                <img class=" mx-auto" id="uploaded-banner-image" th:src="@{/images/no_image.png}" alt="Uploaded Banner"
+                <img class=" mx-auto" id="uploaded-banner-image" th:src="@{/img/removebg-banner.png}" alt="Uploaded Banner"
                      th:if="*{banner_img == null or banner_img == ''}">
                 <button id="upload-banner-pic" type="button" class="w-25 mx-auto mt-2 btn">Upload</button>
             </div>

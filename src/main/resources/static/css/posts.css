@@ -29,7 +29,6 @@ li {
 .CAT {
     color: #088E6A;
     font-size: 25px;
-    text-decoration: underline #088E6A 2px;
 }
 .TP {
     list-style-type: none;
@@ -103,8 +102,8 @@ label {
     padding-top: 10px;
 }
 .NCT, .NCTS {
-    background-color: #7b748cff;
-    border: 1px solid #222139ff;
+    background-color: #0F0A06;
+    border: 1px solid #0F0A06;
     color: #FFEFEE;
     border-radius: 10px;
     margin-bottom: 5px;
@@ -155,10 +154,10 @@ label {
     padding: 12px 20px; /* Some padding */
     margin: 4px; /* Some margin */
     box-sizing: border-box; /* Ensures padding doesn't add extra width */
-    border: 2px solid #7b748cff; /* Gray border */
+    border: 2px solid #043434; /* Gray border */
     border-radius: 6px; /* Rounded borders */
     font-size: 16px; /* Increase font size */
-    background-color: #222139ff; /* Light gray background */
+    background-color: #0F0A06; /* Light gray background */
     transition: 0.3s; /* Smooth transitions on hover */
     color: #FFEFEE;
 }
@@ -195,55 +194,43 @@ label {
     display: none;
 }
 .PostT {
-    /*background: #CFB1E5;*/
-    /*color: white;*/
-    /*border-radius: 30px;*/
-    /*border: 2px solid #7b748cff;*/
     width: 100%; /* Full width */
     padding: 12px 20px; /* Some padding */
     margin: 4px; /* Some margin */
     box-sizing: border-box; /* Ensures padding doesn't add extra width */
-    border: 2px solid #7b748cff; /* Gray border */
+    border: 2px solid #0F0A06; /* Gray border */
     border-radius: 6px; /* Rounded borders */
     font-size: 16px; /* Increase font size */
-    background-color: #222139ff; /* Light gray background */
+    background-color: #0F0A06; /* Light gray background */
     transition: 0.3s; /* Smooth transitions on hover */
     color: #FFEFEE;
 }
 .PostTL, .post-body{
-    color: #222139ff;
+    color: #FFEFEE;
 }
 .PBBB {
-    /*color: white;*/
-    /*background: #222139ff;*/
-    /*border-radius: 10px;*/
-    /*border: 1px solid #7b748cff;*/
-    /*width: 250px;*/
     width: 100%; /* Full width */
     height: 100px;
     padding: 12px 20px; /* Some padding */
     margin: 4px; /* Some margin */
     box-sizing: border-box; /* Ensures padding doesn't add extra width */
-    border: 2px solid #7b748cff; /* Gray border */
+    border: 2px solid #0F0A06; /* Gray border */
     border-radius: 6px; /* Rounded borders */
     font-size: 16px; /* Increase font size */
-    background-color: #222139ff; /* Light gray background */
+    background-color: #0F0A06; /* Light gray background */
     transition: 0.3s; /* Smooth transitions on hover */
     color: #FFEFEE;
 }
 .PO {
-    /*background: #222139ff;*/
-    /*color: white;*/
-    /*border-radius: 30px;*/
-    /*border: none;*/
+
     width: 100%; /* Full width */
     padding: 12px 20px; /* Some padding */
     margin: 4px; /* Some margin */
     box-sizing: border-box; /* Ensures padding doesn't add extra width */
-    border: 2px solid #7b748cff; /* Gray border */
+    border: 2px solid #0F0A06; /* Gray border */
     border-radius: 6px; /* Rounded borders */
     font-size: 16px; /* Increase font size */
-    background-color: #222139ff; /* Light gray background */
+    background-color: #0F0A06; /* Light gray background */
     transition: 0.3s; /* Smooth transitions on hover */
     color: #FFEFEE;
 }
@@ -276,8 +263,12 @@ label {
     border: 5px solid transparent;
 }
 .CAT-button,.CATM-button,.show-create-topic-form-button,.hide-button {
-    background: #222139ff;
-    color: #7b748cff;
+    background: #043434;
+    color: #FFEFEE;
+    border: none;
+}
+.CAT-button:hover,.CATM-button:hover,.show-create-topic-form-button:hover,.hide-button:hover {
+    color: #088E6A;
     border: none;
 }
 .hide-submit-button {
@@ -301,11 +292,10 @@ label {
     border-radius: 30px;
 }
 .btn1 {
-    background: rgba(45, 202, 207, 0.78);
-    box-shadow: 2px 2px rgba(30, 130, 130, 0.78);
+    background: #0F0A06;
     color: #FFEFEE;
     border-radius: 6px;
-    border: 2px solid #7b748cff;
+    border: 2px solid #0F0A06;
     height: 30px;
     width: 100%;
     padding-top: 0px;
@@ -318,8 +308,8 @@ label {
     transition: background-color 0.3s; /* Smooth transition for hover effect */
 }
 .btn1:hover {
-    background: #7b748cff;
-    border: 1px solid #222139ff;
+    background: #088E6A;
+    border: 2px solid #0F0A06;
 }
 .post-creation-form-0 {
     align-items: center;
@@ -339,13 +329,13 @@ label {
     color: #FFEFEE;
 }
 .modal-body {
-    background: #7b748cff;
+    background: #043434;
 }
 .modal-title {
     color: #FFEFEE;
 }
 .modal-header {
-    background: #222139ff;
+    background: #0F0A06;
     align-content: center;
 }
 .comment-p {
@@ -380,17 +370,16 @@ label {
     padding: 0px;
 }
 .comm-btn{
-    background: rgba(45, 202, 207, 0.78);
-    box-shadow: 2px 2px rgba(30, 130, 130, 0.78);
+    background: #043434;
     box-sizing: border-box; /* Ensures padding doesn't add extra width */
-    border: 2px solid #7b748cff; /* Gray border */
+    border: 2px solid #043434; /* Gray border */
     border-radius: 6px; /* Rounded borders */
     transition: 0.3s; /* Smooth transitions on hover */
     color: #FFEFEE;
     cursor: pointer; /* Changes the cursor to a hand when hovering over the button */
 }
 .CL {
-    background: rgba(207, 45, 100, 0.78);
+
 }
 .col-3 {
     padding-left: 3px;

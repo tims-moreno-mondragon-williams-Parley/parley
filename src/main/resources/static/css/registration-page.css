@@ -3,6 +3,7 @@ h2, label {
 }
 .MR {
     color: white;
+    font-family: 'Alegreya', serif;
 }
 .INP {
     width: 100%; /* Full width */
@@ -15,6 +16,7 @@ h2, label {
     background-color: #088E6A; /* Light gray background */
     transition: 0.3s; /* Smooth transitions on hover */
     color:#FFEFEE;
+    font-family: 'Sofia Sans', sans-serif;
 }
 .INP:focus {
     border-color: #FFEFEE; /* Green border on focus */
@@ -70,6 +72,7 @@ h2, label {
     cursor: pointer; /* Changes the cursor to a hand when hovering over the button */
     transition: background-color 0.3s; /* Smooth transition for hover effect */
     margin-top: 1em;
+    font-family: 'Sofia Sans', sans-serif;
 }
 .reg-btn:hover {
     background-color: #FFEFEE; /* Slightly darker blue on hover */
@@ -78,6 +81,7 @@ h2, label {
 .PR {
     color: #FFEFEE;
     font-size: 20px;
+    font-family: 'Sofia Sans', sans-serif;
 }
 ul {
     margin: 0px;
@@ -88,13 +92,15 @@ li.Li-I {
     color: #FFEFEE;
     margin: 0px;
     padding: 0px;
+    font-family: 'Sofia Sans', sans-serif;
 }
 
 .error-message{
-  color: #FFEFEE;
+  color: red;
+    font-family: 'Sofia Sans', sans-serif;
 }
 .error-invalidquals{
-    color: #FFEFEE;
+    color: red;
     padding-bottom: 1em;
 }
 .IMG3 {
@@ -104,4 +110,8 @@ li.Li-I {
     overflow: hidden;
     display: block;
     max-width: 100%;
+    font-family: 'Sofia Sans', sans-serif;
+}
+label{
+    font-family: 'Sofia Sans', sans-serif;
 }
