@@ -147,6 +147,16 @@ footer {
     bottom: 0;
     width: 100%;
 }
+@media (min-width: 1440px) {
+    .BI {
+        width: 100%;
+    }
+}
+@media (max-width: 1200px) {
+    .BI {
+        width: 100%;
+    }
+}
 h4{
     font-family: 'Alegreya', serif;
 }
