@@ -2,7 +2,7 @@
     display: none;
 }
 #update-profile-container{
-    background: #7b748cff;
+    background: #0F0A06;
     justify-content: center;
     display: flex;
     flex-direction: column;
@@ -20,48 +20,42 @@
     border-radius: 50px;
 
 }
-.username{
-
-}
-.email{
-
-}
-.bio{
-}
-.profile-picture{
-
-}
-.banner-picture{
-
-}
-#update-profile-button{
-
-}
-#update-profile-form{
-
-}
 #update-profile-profanity-check{
-    color: white;
-    background-color: rgba(45, 202, 207, 0.78);
-    box-shadow: 2px 2px rgba(30, 130, 130, 0.78);
+    color:  #FFEFEE;
+    background-color: #088E6A;
+    box-shadow: 2px 2px #043434;
 
 }
 
 body{
-    background: #7b748cff;
+    background:#0F0A06;
 }
 #upload-banner-pic{
-    color: white;
-    background-color: rgba(45, 202, 207, 0.78);
-    box-shadow: 2px 2px rgba(30, 130, 130, 0.78);
+    color:  #FFEFEE;
+    background-color: #088E6A;
+    box-shadow: 2px 2px #043434;
 
 }
 #upload-profile-pic{
-    color: white;
-    background-color: rgba(45, 202, 207, 0.78);
-    box-shadow: 2px 2px rgba(30, 130, 130, 0.78);
+    color:  #FFEFEE;
+    background-color: #088E6A;
+    box-shadow: 2px 2px #043434;
 
 }
 .content-wrapper{
     flex: 1;
+}
+label{
+    color: #FFEFEE;
+}
+h1{
+    color: #FFEFEE;
+}
+
+::placeholder{
+    color: #FFEFEE;
+}
+.form-control{
+    border: #043434 2px solid;
+    background-color: #088E6A;
 }
