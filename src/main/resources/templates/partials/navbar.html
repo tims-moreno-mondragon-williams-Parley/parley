@@ -44,7 +44,7 @@
 				<img class="PI" th:src="${#authentication.principal.profile_pic}" alt="Profile Picture"
 				     th:if="${#authentication.principal.profile_pic != null && #authentication.principal.profile_pic  != ''}"
 				     style="width:40px;">
-				<img class="PI" th:src="@{/img/D3.webp}" alt="Profile Picture"
+				<img class="PI" th:src="@{/img/removebg-user.png}" alt="Profile Picture"
 				     th:if="${#authentication.principal.profile_pic  == null or #authentication.principal.profile_pic  == ''}"
 				     style="width:40px;">
 			</a>
