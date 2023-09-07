@@ -24,6 +24,7 @@
     color:  #FFEFEE;
     background-color: #088E6A;
     box-shadow: 2px 2px #043434;
+    font-family: 'Sofia Sans', sans-serif;
 
 }
 
@@ -34,12 +35,14 @@ body{
     color:  #FFEFEE;
     background-color: #088E6A;
     box-shadow: 2px 2px #043434;
+    font-family: 'Sofia Sans', sans-serif;
 
 }
 #upload-profile-pic{
     color:  #FFEFEE;
     background-color: #088E6A;
     box-shadow: 2px 2px #043434;
+    font-family: 'Sofia Sans', sans-serif;
 
 }
 .content-wrapper{
@@ -47,13 +50,16 @@ body{
 }
 label{
     color: #FFEFEE;
+    font-family: 'Sofia Sans', sans-serif;
 }
 h1{
     color: #FFEFEE;
+    font-family: 'Alegreya', serif;
 }
 
 ::placeholder{
     color: #FFEFEE;
+    font-family: 'Sofia Sans', sans-serif;
 }
 .form-control{
     border: #043434 2px solid;
