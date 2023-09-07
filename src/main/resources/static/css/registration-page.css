@@ -36,13 +36,11 @@ h2, label {
 }
 .C2 {
     height: 92vh;
-    border: 6px solid #7b748cff;
 }
 .C1 {
     display: flex;
     height: 92vh;
     flex-grow: 1;
-    border: 6px solid #7b748cff;
 }
 .PT {
     color: white;
